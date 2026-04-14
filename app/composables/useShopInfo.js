@@ -4,49 +4,19 @@
  * - useState로 SSR/CSR 모두 지원
  * - 앱 전체에서 재사용
  */
-export const useShopInfo = () => {
-  const { get } = useApi()
+import mockShopInfo from '~/data/shop-info.json'
 
-  // 전역 상태 (앱 전체에서 공유)
-  const shopInfo = useState('shop-info', () => null)
-  const isLoaded = useState('shop-info-loaded', () => false)
+export const useShopInfo = () => {
+  // 전역 상태 (앱 전체에서 공유) — mock 모드에서는 JSON 으로 즉시 초기화
+  const shopInfo = useState('shop-info', () => mockShopInfo)
+  const isLoaded = useState('shop-info-loaded', () => true)
   const pending = useState('shop-info-pending', () => false)
   const error = useState('shop-info-error', () => null)
 
-  /**
-   * 쇼핑몰 정보 조회
-   * - 이미 로드되었으면 스킵
-   * - force=true면 강제 재조회
-   */
-  const fetchShopInfo = async (force = false) => {
-    // 이미 로드되었고 강제 갱신이 아니면 스킵
-    if (isLoaded.value && !force) {
-      return shopInfo.value
-    }
-
-    // 이미 로딩 중이면 스킵
-    if (pending.value) {
-      return shopInfo.value
-    }
-
-    pending.value = true
-    error.value = null
-
-    try {
-      const response = await get('/main/shop-info')
-      const data = response.data || response
-
-      shopInfo.value = data
-      isLoaded.value = true
-
-      return data
-    } catch (err) {
-      console.error('Failed to fetch shop info:', err)
-      error.value = err.data?.message || err.message || '쇼핑몰 정보를 불러오는데 실패했습니다.'
-      return null
-    } finally {
-      pending.value = false
-    }
+  const fetchShopInfo = async () => {
+    shopInfo.value = mockShopInfo
+    isLoaded.value = true
+    return mockShopInfo
   }
 
   /**

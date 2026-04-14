@@ -966,3 +966,279 @@
     flex-direction: column;
   }
 }
+
+// --------------------------------------------
+// Section Why Us
+// --------------------------------------------
+.section-why-us {
+  padding: 120px 0;
+  background-color: $Brown-50;
+
+  &__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  &__head {
+    text-align: center;
+    margin-bottom: 72px;
+  }
+
+  &__eyebrow {
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    color: $Brown-700;
+    margin: 0 0 16px;
+  }
+
+  &__title {
+    font-size: 36px;
+    font-weight: 600;
+    color: $Text-Primary-text-color;
+    margin: 0 0 16px;
+
+    @include mobile {
+      font-size: 26px;
+    }
+  }
+
+  &__desc {
+    font-size: 16px;
+    line-height: 1.6;
+    color: $Text-Secondary-text-color;
+    margin: 0;
+  }
+
+  &__grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 32px;
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+
+  &__item {
+    text-align: center;
+    padding: 32px 20px;
+    background: $Primary-white-color;
+    border: 1px solid $Brown-200;
+    border-radius: 4px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+    }
+  }
+
+  &__icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: $Brown-100;
+  }
+
+  &__item-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: $Text-Primary-text-color;
+    margin: 0 0 10px;
+  }
+
+  &__item-desc {
+    font-size: 14px;
+    line-height: 1.55;
+    color: $Text-Thirty-text-color;
+    margin: 0;
+  }
+}
+
+// --------------------------------------------
+// Section Member Benefit
+// --------------------------------------------
+.section-member-benefit {
+  padding: 120px 0;
+  background: $Primary-white-color;
+
+  &__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  &__head {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  &__eyebrow {
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    color: $Brown-700;
+    margin: 0 0 16px;
+  }
+
+  &__title {
+    font-size: 36px;
+    font-weight: 600;
+    color: $Text-Primary-text-color;
+    margin: 0 0 16px;
+
+    @include mobile {
+      font-size: 26px;
+    }
+  }
+
+  &__desc {
+    font-size: 16px;
+    color: $Text-Secondary-text-color;
+    margin: 0;
+  }
+
+  &__grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+
+    @include tablet {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__item {
+    position: relative;
+    padding: 48px 32px;
+    background: $Brown-50;
+    border-radius: 8px;
+    text-align: left;
+  }
+
+  &__badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    padding: 6px 12px;
+    background: $Primary-color;
+    color: $Primary-white-color;
+    border-radius: 999px;
+    margin-bottom: 20px;
+  }
+
+  &__item-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: $Text-Primary-text-color;
+    margin: 0 0 12px;
+  }
+
+  &__item-desc {
+    font-size: 15px;
+    line-height: 1.6;
+    color: $Text-Secondary-text-color;
+    margin: 0;
+  }
+}
+
+// --------------------------------------------
+// Section Brand Story
+// --------------------------------------------
+.section-brand-story {
+  padding: 140px 0;
+  background: $Brown-100;
+
+  &__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+
+    @include tablet {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+  }
+
+  &__visual {
+    margin: 0;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border-radius: 4px;
+    background: $Brown-200;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  &__eyebrow {
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    color: $Brown-700;
+    margin: 0 0 20px;
+  }
+
+  &__title {
+    font-size: 42px;
+    font-weight: 600;
+    line-height: 1.25;
+    color: $Text-Primary-text-color;
+    margin: 0 0 32px;
+
+    @include mobile {
+      font-size: 28px;
+    }
+  }
+
+  &__body {
+    margin-bottom: 40px;
+
+    p {
+      font-size: 16px;
+      line-height: 1.75;
+      color: $Text-Secondary-text-color;
+      margin: 0 0 12px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__cta {
+    display: inline-block;
+    padding: 14px 32px;
+    border: 1px solid $Text-Primary-text-color;
+    color: $Text-Primary-text-color;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      background: $Text-Primary-text-color;
+      color: $Primary-white-color;
+    }
+  }
+}

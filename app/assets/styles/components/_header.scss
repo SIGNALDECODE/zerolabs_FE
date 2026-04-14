@@ -354,3 +354,24 @@
   opacity: 0;
   .mobile-nav__content { transform: translateX(-100%); }
 }
+
+// --------------------------------------------
+// Mobile: 로고 중앙, 햄버거는 좌측 절대 배치, 우측 액션 숨김
+// --------------------------------------------
+@include mobile {
+  .header__inner {
+    position: relative;
+    justify-content: center;
+  }
+
+  .header__left {
+    flex: 0 0 auto;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .header__menu-btn,
+  .header__actions {
+    display: none !important;
+  }
+}

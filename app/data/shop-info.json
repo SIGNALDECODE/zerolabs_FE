@@ -1,0 +1,52 @@
+{
+  "shopName": "Zero Labs",
+  "shopNameEn": "ZERO LABS",
+  "logoUrl": "/images/빈이미지.png",
+  "faviconUrl": "",
+  "theme": "brown",
+  "copyrightText": "© ZERO LABS. ALL RIGHTS RESERVED.",
+  "paymentDeadlineDays": 3,
+  "businessInfo": {
+    "businessName": "주식회사 반려동행",
+    "ceo": "",
+    "businessNumber": "",
+    "mailOrderNumber": "",
+    "address": "인천광역시 남동구",
+    "email": ""
+  },
+  "customerServiceInfo": {
+    "phone": "",
+    "hours": "평일 10:00 - 17:00 (점심 12:30 - 13:30)",
+    "email": ""
+  },
+  "privacyInfo": {
+    "officer": "",
+    "email": ""
+  },
+  "seoInfo": {
+    "title": "Zero Labs | 반려견을 위한 정직한 간식",
+    "description": "국내산 원물과 저온 건조 공법으로 만든 반려견 전용 간식.",
+    "keywords": "강아지 간식, 져키, 시리얼, 츄잉껌, 체험팩",
+    "ogTitle": "Zero Labs",
+    "ogDescription": "반려견을 위한 정직한 간식, Zero Labs.",
+    "ogImage": "/images/og-main.jpg"
+  },
+  "snsInfo": {
+    "instagram": "https://instagram.com/",
+    "youtube": "https://youtube.com/",
+    "facebook": "",
+    "kakao": ""
+  },
+  "headerMenu": [
+    { "label": "전체상품", "id": "/products", "order": 1 },
+    { "label": "BEST", "id": "/best", "order": 2 },
+    { "label": "져키", "id": "/products?category=jerky", "order": 3 },
+    { "label": "시리얼", "id": "/products?category=cereal", "order": 4 },
+    { "label": "츄잉껌", "id": "/products?category=chewing", "order": 5 },
+    { "label": "체험팩", "id": "/products?category=trial", "order": 6 }
+  ],
+  "shippingPolicy": {
+    "freeShippingAmount": 30000,
+    "baseShippingFee": 3000
+  }
+}

@@ -33,10 +33,12 @@ const logoSrc = computed(() => logoUrl.value || '')
 // 로고 텍스트 (이미지 없을 때 표시)
 const logoText = computed(() => shopName.value || '')
 
+const mobileMenu = useMobileMenu()
+const isMobileNavOpen = mobileMenu.isOpen
+
 const isScrolled = ref(false)
 const isSearchOpen = ref(false)
 const isUserMenuOpen = ref(false)
-const isMobileNavOpen = ref(false)
 const searchQuery = ref('')
 const searchInputRef = ref(null)
 const userMenuRef = ref(null)
@@ -69,21 +71,9 @@ const closeSearch = () => {
   searchQuery.value = ''
 }
 
-// 모바일 내비게이션
-const toggleMobileNav = () => {
-  isMobileNavOpen.value = !isMobileNavOpen.value
-  // 메뉴 열릴 때 body 스크롤 방지
-  if (isMobileNavOpen.value) {
-    document.body.style.overflow = 'hidden'
-  } else {
-    document.body.style.overflow = ''
-  }
-}
-
-const closeMobileNav = () => {
-  isMobileNavOpen.value = false
-  document.body.style.overflow = ''
-}
+// 모바일 내비게이션 (전역 composable 공유 → 하단 탭바 햄버거에서도 토글)
+const toggleMobileNav = mobileMenu.toggle
+const closeMobileNav = mobileMenu.close
 
 const handleUserClick = () => {
   emit('userClick')

@@ -91,6 +91,10 @@ const headerVariant = computed(() => undefined)
       <NuxtPage />
     </NuxtLayout>
     <Footer :data="mainData.footer" />
+    <MobileBottomNav
+      :items="mainData.header.bottomNav.items"
+      :aria-label="mainData.header.bottomNav.ariaLabel"
+    />
     <BaseToast />
 
     <!-- 세션 만료 모달 -->

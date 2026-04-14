@@ -1,16 +1,16 @@
 {
   "seo": {
-    "title": "Brand Name",
-    "description": "",
+    "title": "Zero Labs | 반려견을 위한 정직한 간식",
+    "description": "국내산 원물과 저온 건조 공법으로 만든 반려견 전용 간식. 불필요한 것을 빼고 꼭 필요한 영양만 담았습니다.",
     "ogImage": "/images/og-main.jpg"
   },
   "header": {
     "logo": {
-      "alt": "브랜드 로고",
+      "alt": "Zero Labs",
       "src": "/images/빈이미지.png",
       "menuLabel": "메뉴 열기",
       "searchLabel": "검색",
-      "searchPlaceholder": "검색어를 입력하세요",
+      "searchPlaceholder": "찾으시는 상품을 입력하세요",
       "searchCloseLabel": "검색 닫기",
       "userLabel": "마이페이지",
       "loginLabel": "LOGIN",
@@ -21,15 +21,25 @@
       }
     },
     "navAriaLabel": "메인 네비게이션",
+    "bottomNav": {
+      "ariaLabel": "모바일 하단 메뉴",
+      "items": [
+        { "id": "menu", "icon": "menu", "label": "메뉴", "action": "toggleMenu" },
+        { "id": "search", "icon": "search", "label": "검색", "href": "/search", "match": "/search" },
+        { "id": "home", "icon": "home", "label": "홈", "href": "/", "match": null },
+        { "id": "cart", "icon": "cart", "label": "카트", "href": "/cart", "match": "/cart" },
+        { "id": "mypage", "icon": "user", "label": "마이", "href": "/mypage", "match": "/mypage" }
+      ]
+    },
     "nav": [
-      { "label": "메뉴1", "href": "/best" },
-      { "label": "메뉴2", "href": "/category" },
-      { "label": "메뉴3", "href": "/coupons" },
-      { "label": "메뉴4", "href": "/notice" },
-      { "label": "메뉴5", "href": "/review" },
-      { "label": "메뉴6", "href": "/qna" },
-      { "label": "메뉴7", "href": "/faq" },
-      { "label": "메뉴8", "href": "/support" }
+      { "label": "전체상품", "href": "/products" },
+      { "label": "BEST", "href": "/best" },
+      { "label": "져키", "href": "/products?category=jerky" },
+      { "label": "시리얼", "href": "/products?category=cereal" },
+      { "label": "츄잉껌", "href": "/products?category=chewing" },
+      { "label": "체험팩", "href": "/products?category=trial" },
+      { "label": "공지", "href": "/notice" },
+      { "label": "리뷰", "href": "/review" }
     ]
   },
   "hero": {
@@ -39,91 +49,65 @@
     },
     "slides": [
       {
-        "title": "POWER OF RADIANCE",
-        "subtitle": "Signal Decode",
-        "description": "피부 속에서부터 채워지는 깊은 광채를 느껴보세요.",
+        "title": "HEALTHY BITES",
+        "subtitle": "Premium Jerky",
+        "description": "국내산 원물만 저온 건조한, 진짜 고기 져키.",
         "image": "/images/빈이미지.png",
-        "imageAlt": "메인 히어로 이미지 1"
+        "imageAlt": "프리미엄 져키 히어로"
       },
       {
-        "title": "NATURAL GLOW",
-        "subtitle": "Skin Care",
-        "description": "피부 속에서부터 채워지는 깊은 광채를 느껴보세요.",
+        "title": "DAILY CEREAL",
+        "subtitle": "Grain Free",
+        "description": "곡물 걱정 없이 매일 즐기는 강아지 시리얼.",
         "image": "/images/빈이미지.png",
-        "imageAlt": "메인 히어로 이미지 2"
+        "imageAlt": "강아지 시리얼 히어로"
       },
       {
-        "title": "PURE BEAUTY",
-        "subtitle": "Make Up",
-        "description": "피부 속에서부터 채워지는 깊은 광채를 느껴보세요.",
+        "title": "CHEW & CARE",
+        "subtitle": "Chewing Gum",
+        "description": "씹는 재미와 치아 건강을 동시에.",
         "image": "/images/빈이미지.png",
-        "imageAlt": "메인 히어로 이미지 3"
-      },
-      {
-        "title": "HYDRATION BOOST",
-        "subtitle": "Moisture Care",
-        "description": "피부 속에서부터 채워지는 깊은 광채를 느껴보세요.",
-        "image": "/images/빈이미지.png",
-        "imageAlt": "메인 히어로 이미지 4"
-      },
-      {
-        "title": "ANTI-AGING",
-        "subtitle": "Time Reverse",
-        "description": "피부 속에서부터 채워지는 깊은 광채를 느껴보세요.",
-        "image": "/images/빈이미지.png",
-        "imageAlt": "메인 히어로 이미지 5"
+        "imageAlt": "강아지 츄잉껌 히어로"
       }
     ]
   },
   "categories": {
     "title": "CATEGORY",
     "items": [
-      { "label": "모든 제품", "href": "/category", "image": "/images/categories/all.svg",  "imageAlt": "모든 제품 카테고리" },
-      { "label": "스킨케어", "href": "/category?tab=skincare","image": "/images/categories/best.svg", "imageAlt": "스킨케어 카테고리" },
-      { "label": "메이크업", "href": "/category?tab=makeup", "image": "/images/categories/category-1.png", "imageAlt": "메이크업 카테고리" },
-      { "label": "앰플·세럼", "href": "/category?tab=ampoule", "image": "/images/categories/category-2.png", "imageAlt": "앰플 세럼 카테고리" },
-      { "label": "클렌징", "href": "/category?tab=cleansing", "image": "/images/categories/category-3.png", "imageAlt": "클렌징 카테고리" }
+      { "label": "전체", "href": "/products", "image": "/images/categories/all.svg", "imageAlt": "전체 카테고리" },
+      { "label": "져키", "href": "/products?category=jerky", "image": "/images/categories/best.svg", "imageAlt": "강아지 져키" },
+      { "label": "시리얼", "href": "/products?category=cereal", "image": "/images/categories/category-1.png", "imageAlt": "강아지 시리얼" },
+      { "label": "츄잉껌", "href": "/products?category=chewing", "image": "/images/categories/category-2.png", "imageAlt": "강아지 츄잉껌" },
+      { "label": "체험팩", "href": "/products?category=trial", "image": "/images/categories/category-3.png", "imageAlt": "체험팩" }
     ]
   },
   "section1": {
-    "title": "1섹션",
-    "subtitle": "1섹션 서브타이틀",
-    "viewAllLabel": "전체보기",
-    "viewAllHref": "/products",
-    "arrowLabels": {
-      "prev": "이전 상품",
-      "next": "다음 상품"
-    }
-  },
-  "section2": {
-    "title": "2섹션",
-    "subtitle": "2섹션 서브타이틀",
+    "title": "BEST SELLERS",
+    "subtitle": "가장 많이 선택받은 베스트 간식",
     "viewAllLabel": "전체보기",
     "viewAllHref": "/best",
-    "arrowLabels": {
-      "prev": "이전 상품",
-      "next": "다음 상품"
-    }
+    "arrowLabels": { "prev": "이전 상품", "next": "다음 상품" }
+  },
+  "section2": {
+    "title": "NEW ARRIVAL",
+    "subtitle": "새롭게 출시된 따끈한 신상품",
+    "viewAllLabel": "전체보기",
+    "viewAllHref": "/products?sort=new",
+    "arrowLabels": { "prev": "이전 상품", "next": "다음 상품" }
   },
   "section3": {
-    "title": "3섹션",
-    "subtitle": "3섹션 서브타이틀",
+    "title": "TRIAL PACK",
+    "subtitle": "처음 만나는 제로랩스, 부담 없이 시작하기",
     "viewAllLabel": "전체보기",
-    "viewAllHref": "/products",
-    "arrowLabels": {
-      "prev": "이전 상품",
-      "next": "다음 상품"
-    }
+    "viewAllHref": "/products?category=trial",
+    "arrowLabels": { "prev": "이전 상품", "next": "다음 상품" }
   },
   "section4": {
-    "title": "4섹션",
-    "subtitle": "4섹션 서브타이틀",
+    "title": "MD PICK",
+    "subtitle": "MD가 직접 고른 이 달의 추천",
     "viewAllLabel": "전체보기",
     "viewAllHref": "/products",
-    "arrowLabels": {
-      "prev": "이전 상품",
-      "next": "다음 상품"
-    }
+    "arrowLabels": { "prev": "이전 상품", "next": "다음 상품" }
   },
   "slideBanner": {
     "prevLabel": "이전 슬라이드",
@@ -131,11 +115,11 @@
   },
   "banners": {
     "full": {
-      "title": "새로운이벤트 애플워치를 드립니다",
-      "subtitle": "10% 추가 할인 혜택 온라인 단독 신상 할인 20%",
+      "title": "정기배송 15% OFF",
+      "subtitle": "매달 잊지 않고 도착하는 우리 아이 간식",
       "image": "/images/빈이미지.png",
-      "imageAlt": "전체 배너 이미지",
-      "href": "/event/apple-watch"
+      "imageAlt": "정기배송 프로모션",
+      "href": "/products"
     },
     "mdPickBanner": {
       "title": "",
@@ -144,13 +128,13 @@
       "imageAlt": "MD Pick 프로모션 배너"
     },
     "slide": [
-      { "image": "/images/빈이미지.png", "imageAlt": "슬라이드 배너 1", "href": "/event" },
-      { "image": "/images/빈이미지.png", "imageAlt": "슬라이드 배너 2", "href": "/event" },
-      { "image": "/images/빈이미지.png", "imageAlt": "슬라이드 배너 3", "href": "/event" }
+      { "image": "/images/빈이미지.png", "imageAlt": "이벤트 배너 1", "href": "/promotions" },
+      { "image": "/images/빈이미지.png", "imageAlt": "이벤트 배너 2", "href": "/promotions" },
+      { "image": "/images/빈이미지.png", "imageAlt": "이벤트 배너 3", "href": "/promotions" }
     ],
     "half": [
-      { "title": "SPRING SALE", "subtitle": "최대 50% 할인", "image": "/images/빈이미지.png", "imageAlt": "하프 배너 1", "href": "/event", "buttonLabel": "더 알아보기" },
-      { "title": "NEW ARRIVAL", "subtitle": "신상품 입고", "image": "/images/빈이미지.png", "imageAlt": "하프 배너 2", "href": "/products", "buttonLabel": "더 알아보기" }
+      { "title": "BEST JERKY", "subtitle": "가장 사랑받은 져키", "image": "/images/빈이미지.png", "imageAlt": "베스트 져키", "href": "/products?category=jerky", "buttonLabel": "더 알아보기" },
+      { "title": "TRIAL PACK", "subtitle": "처음이라면 체험팩으로", "image": "/images/빈이미지.png", "imageAlt": "체험팩", "href": "/products?category=trial", "buttonLabel": "더 알아보기" }
     ],
     "halfLabels": {
       "buttonLabel": "더 알아보기"
@@ -158,57 +142,56 @@
   },
   "instagram": {
     "title": "Instagram",
-    "subtitle": "@findmystyle___",
-    "profileUrl": "https://www.instagram.com/findmystyle___/",
+    "subtitle": "@zerolabs.official",
+    "profileUrl": "https://www.instagram.com/",
     "arrowLabels": {
       "prev": "이전 이미지",
       "next": "다음 이미지"
     },
     "items": [
-      { "imageAlt": "인스타그램 1", "href": "https://www.instagram.com/findmystyle___/" },
-      { "imageAlt": "인스타그램 2", "href": "https://www.instagram.com/findmystyle___/" },
-      { "imageAlt": "인스타그램 3", "href": "https://www.instagram.com/findmystyle___/" },
-      { "imageAlt": "인스타그램 4", "href": "https://www.instagram.com/findmystyle___/" }
+      { "imageAlt": "인스타그램 피드 1", "href": "https://www.instagram.com/" },
+      { "imageAlt": "인스타그램 피드 2", "href": "https://www.instagram.com/" },
+      { "imageAlt": "인스타그램 피드 3", "href": "https://www.instagram.com/" },
+      { "imageAlt": "인스타그램 피드 4", "href": "https://www.instagram.com/" }
     ]
   },
   "footer": {
     "logo": {
       "src": "/images/빈이미지.png",
-      "alt": "logo",
-      "text": "logo"
+      "alt": "Zero Labs",
+      "text": "ZERO LABS"
     },
     "nav": [
-      { "label": "메뉴1", "href": "/best" },
-      { "label": "메뉴2", "href": "/products" },
-      { "label": "메뉴3", "href": "/notice" },
-      { "label": "메뉴4", "href": "/review" },
-      { "label": "메뉴5", "href": "/support" }
+      { "label": "전체상품", "href": "/products" },
+      { "label": "BEST", "href": "/best" },
+      { "label": "공지", "href": "/notice" },
+      { "label": "리뷰", "href": "/review" },
+      { "label": "고객센터", "href": "/support" }
     ],
     "companyInfo": {
-      "name": "상호명",
+      "name": "주식회사 반려동행",
       "ceoLabel": "대표",
-      "ceo": "대표자",
+      "ceo": "",
       "businessNumberLabel": "사업자등록번호",
-      "businessNumber": "사업자등록번호",
-      "address": "주소"
+      "businessNumber": "",
+      "address": "인천광역시 남동구"
     },
     "contact": {
       "phoneLabel": "대표전화",
-      "phone": "전화번호",
+      "phone": "",
       "emailLabel": "이메일",
-      "email": "이메일",
-      "hoursLabel": "영업시간"
+      "email": "",
+      "hoursLabel": "운영시간 평일 10:00 - 17:00"
     },
     "privacy": {
       "officerLabel": "개인정보관리책임자",
       "emailLabel": "개인정보 문의"
     },
     "social": [
-      { "type": "youtube", "href": "https://youtube.com", "label": "유튜브" },
       { "type": "instagram", "href": "https://instagram.com", "label": "인스타그램" },
-      { "type": "x", "href": "https://x.com", "label": "X (트위터)" }
+      { "type": "youtube", "href": "https://youtube.com", "label": "유튜브" }
     ],
     "infoToggleLabel": "정보 더보기",
-    "copyright": "HEALTHPRO LAB ALL RIGHTS RESERVED."
+    "copyright": "© ZERO LABS. ALL RIGHTS RESERVED."
   }
 }
