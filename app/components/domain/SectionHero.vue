@@ -104,7 +104,7 @@ const stopAutoPlay = () => {
 }
 
 // 모바일 터치 스와이프
-const { swipeEvents: heroSwipeEvents } = useSwipe({
+const { swipeEvents: heroSwipeEvents, mouseEvents: heroMouseEvents, onClickCapture: heroClickCapture } = useSwipe({
   onSwipeLeft: () => { nextSlide(); startAutoPlay() },
   onSwipeRight: () => { prevSlide(); startAutoPlay() }
 })
@@ -128,6 +128,12 @@ onUnmounted(() => {
       @touchstart="(e) => { stopAutoPlay(); heroSwipeEvents.touchstart(e) }"
       @touchmove="heroSwipeEvents.touchmove"
       @touchend="heroSwipeEvents.touchend"
+      @mousedown="(e) => { stopAutoPlay(); heroMouseEvents.mousedown(e) }"
+      @mousemove="heroMouseEvents.mousemove"
+      @mouseup="(e) => { heroMouseEvents.mouseup(e); startAutoPlay() }"
+      @mouseleave="(e) => { heroMouseEvents.mouseleave(e); startAutoPlay() }"
+      @dragstart.prevent
+      @click.capture="heroClickCapture"
     >
       <div
         v-for="(slide, index) in extendedSlides"

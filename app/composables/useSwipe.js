@@ -90,10 +90,79 @@ export const useSwipe = (options = {}) => {
     touchend: onTouchEnd
   }
 
+  // 데스크톱 마우스 드래그 지원
+  let didDrag = false
+
+  const onMouseDown = (e) => {
+    startX = e.clientX
+    startY = e.clientY
+    isTracking = true
+    direction = null
+    didDrag = false
+  }
+
+  const onMouseMove = (e) => {
+    if (!isTracking) return
+
+    const deltaX = e.clientX - startX
+    const deltaY = e.clientY - startY
+    const absX = Math.abs(deltaX)
+    const absY = Math.abs(deltaY)
+
+    if (!direction) {
+      if (absX < directionLockDistance && absY < directionLockDistance) return
+      const angle = Math.atan2(absY, absX) * (180 / Math.PI)
+      direction = angle <= angleLimit ? 'horizontal' : 'vertical'
+    }
+
+    if (direction === 'horizontal') {
+      didDrag = true
+      e.preventDefault()
+    }
+  }
+
+  const finishMouse = (clientX) => {
+    if (!isTracking) return
+    isTracking = false
+
+    if (direction !== 'horizontal') {
+      direction = null
+      return
+    }
+
+    const deltaX = clientX - startX
+    if (Math.abs(deltaX) >= threshold) {
+      if (deltaX < 0) onSwipeLeft()
+      else onSwipeRight()
+    }
+    direction = null
+  }
+
+  const onMouseUp = (e) => finishMouse(e.clientX)
+  const onMouseLeave = (e) => finishMouse(e.clientX)
+
+  // 드래그 후 발생하는 click 이벤트 차단 (앵커 링크 이동 방지)
+  const onClickCapture = (e) => {
+    if (didDrag) {
+      e.preventDefault()
+      e.stopPropagation()
+      didDrag = false
+    }
+  }
+
+  const mouseEvents = {
+    mousedown: onMouseDown,
+    mousemove: onMouseMove,
+    mouseup: onMouseUp,
+    mouseleave: onMouseLeave
+  }
+
   return {
     onTouchStart,
     onTouchMove,
     onTouchEnd,
-    swipeEvents
+    swipeEvents,
+    mouseEvents,
+    onClickCapture
   }
 }
