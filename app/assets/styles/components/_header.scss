@@ -14,18 +14,19 @@
   right: 0;
   z-index: 100;
   height: $size-header-desktop;
-  background: $Primary-white-color;
-  border-bottom: 1px solid $Border-Border-line-100;
+  background: $Header-bg;
+  border-bottom: none;
 
-  // portfolio 스타일: 기본 상태에서도 dark text
+  // 브랜드 그린 배경 위 텍스트/아이콘은 화이트
   .header__menu-btn,
   .header__nav-link,
   .header__action-btn,
-  .header__login-link {
-    color: $Text-Primary-text-color;
+  .header__login-link,
+  .header__logo-text {
+    color: $Primary-white-color;
 
     .base-icon {
-      color: $Text-Primary-text-color;
+      color: $Primary-white-color;
     }
   }
 
@@ -104,12 +105,10 @@
   }
 
   &__logo-img {
-    height: 26px;
-    width: auto;
-
-    @include mobile {
-      height: 18px;
-    }
+    width: 68px;
+    height: 36px;
+    object-fit: contain;
+    flex-shrink: 0;
   }
 
   &__logo-text {
