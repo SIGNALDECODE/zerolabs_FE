@@ -3,7 +3,7 @@ import mainData from '~/data/main.json'
 import uiData from '~/data/ui.json'
 
 const route = useRoute()
-const { faviconUrl, shopName, seoInfo, headerMenu, fetchShopInfo } = useShopInfo()
+const { faviconUrl, shopName, seoInfo, fetchShopInfo } = useShopInfo()
 
 // 세션 만료 모달
 const authStore = useAuthStore()
@@ -33,19 +33,8 @@ onMounted(() => {
   fetchShopInfo()
 })
 
-// 헤더 메뉴 (API에서 받아오거나 기본값 사용)
-const navItems = computed(() => {
-  if (headerMenu.value && headerMenu.value.length > 0) {
-    // API 응답: label(표시텍스트), id(URL경로), order(순서)
-    return [...headerMenu.value]
-      .sort((a, b) => a.order - b.order)
-      .map(item => ({
-        label: item.label,
-        href: item.id.startsWith('/') ? item.id : `/${item.id}`
-      }))
-  }
-  return mainData.header.nav
-})
+// 헤더 메뉴
+const navItems = computed(() => mainData.header.nav)
 
 // 파비콘 및 글로벌 SEO 설정
 const seoTitle = computed(() => seoInfo.value?.title || shopName.value || '')

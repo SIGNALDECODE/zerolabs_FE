@@ -1,0 +1,27 @@
+// ============================================
+// Design Tokens - Radius
+// ============================================
+
+$radius-xs: 4px;
+$radius-sm: 8px;
+$radius-md: 12px;
+$radius-lg: 16px;
+$radius-xl: 24px;
+$radius-pill: 999px;
+$radius-circle: 50%;
+
+@use 'sass:map';
+
+$radius-scale: (
+  xs: $radius-xs,
+  sm: $radius-sm,
+  md: $radius-md,
+  lg: $radius-lg,
+  xl: $radius-xl,
+  pill: $radius-pill,
+  circle: $radius-circle
+);
+
+@function radius($key) {
+  @return map.get($radius-scale, $key);
+}

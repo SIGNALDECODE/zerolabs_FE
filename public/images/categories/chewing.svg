@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="chewing gum">
+  <rect width="120" height="120" rx="60" fill="#F1F6F3"/>
+  <path d="M40 60 Q40 40 60 40 Q80 40 80 60 L80 82 Q80 88 74 88 L46 88 Q40 88 40 82 Z" fill="#3D6B4F" opacity="0.85"/>
+  <path d="M48 56 L72 56 M48 66 L72 66 M48 76 L72 76" stroke="#1B3024" stroke-width="1.5" opacity="0.4"/>
+</svg>

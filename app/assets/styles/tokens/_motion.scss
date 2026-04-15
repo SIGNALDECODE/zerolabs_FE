@@ -1,0 +1,17 @@
+// ============================================
+// Design Tokens - Motion
+// ============================================
+
+$duration-instant: 100ms;
+$duration-fast: 180ms;
+$duration-base: 240ms;
+$duration-slow: 360ms;
+$duration-slower: 560ms;
+
+$ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+$ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+$ease-emphasized: cubic-bezier(0.2, 0, 0, 1);
+
+$transition-base: all $duration-base $ease-out;
+$transition-fast: all $duration-fast $ease-out;
+$transition-hover: transform $duration-fast $ease-out, box-shadow $duration-fast $ease-out;

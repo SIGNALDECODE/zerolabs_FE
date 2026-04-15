@@ -39,6 +39,12 @@ const isMobileNavOpen = mobileMenu.isOpen
 const isScrolled = ref(false)
 const isSearchOpen = ref(false)
 const isUserMenuOpen = ref(false)
+const openDropdownKey = ref(null)
+
+const toggleDropdown = (key) => {
+  openDropdownKey.value = openDropdownKey.value === key ? null : key
+}
+const closeDropdown = () => { openDropdownKey.value = null }
 const searchQuery = ref('')
 const searchInputRef = ref(null)
 const userMenuRef = ref(null)
@@ -46,6 +52,15 @@ const userMenuRef = ref(null)
 // dark variant, 스크롤, 검색창 열림 시 흰색 배경
 const showDarkStyle = computed(() => {
   return props.variant === 'dark' || isScrolled.value || isSearchOpen.value || isMobileNavOpen.value
+})
+
+// 홈에서만 초기 투명 배경, 스크롤/검색/모바일메뉴 열림 시 해제
+const route = useRoute()
+const isTransparent = computed(() => {
+  return route.path === '/'
+    && !isScrolled.value
+    && !isSearchOpen.value
+    && !isMobileNavOpen.value
 })
 
 let scrollTicking = false
@@ -101,10 +116,13 @@ const handleLogout = async () => {
   }
 }
 
-// 외부 클릭 시 유저 메뉴 닫기
+// 외부 클릭 시 유저 메뉴 / 드롭다운 닫기
 const handleClickOutside = (e) => {
   if (userMenuRef.value && !userMenuRef.value.contains(e.target)) {
     closeUserMenu()
+  }
+  if (openDropdownKey.value !== null && !e.target.closest('.header__nav-dropdown')) {
+    closeDropdown()
   }
 }
 
@@ -128,11 +146,16 @@ const handleKeydown = (e) => {
   if (e.key === 'Escape') {
     if (isSearchOpen.value) closeSearch()
     if (isMobileNavOpen.value) closeMobileNav()
+    if (openDropdownKey.value) closeDropdown()
   }
 }
 
+// 라우트 변경 시 드롭다운 닫기
+watch(() => route.fullPath, () => {
+  closeDropdown()
+})
+
 // 라우트 변경 시 모바일 내비 닫기
-const route = useRoute()
 watch(() => route.fullPath, () => {
   if (isMobileNavOpen.value) {
     closeMobileNav()
@@ -156,7 +179,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <header :class="['header', { 'header--scrolled': showDarkStyle }]">
+  <header :class="['header', { 'header--scrolled': showDarkStyle, 'header--transparent': isTransparent }]">
     <div class="header__inner">
       <!-- Left: Menu (mobile) + Logo + Nav -->
       <div class="header__left">
@@ -179,11 +202,55 @@ onUnmounted(() => {
         <nav class="header__nav" :aria-label="navAriaLabel">
           <ul class="header__nav-list">
             <li
-              v-for="item in nav"
-              :key="item.href"
+              v-for="(item, idx) in nav"
+              :key="item.label + '-' + idx"
               class="header__nav-item"
+              :class="{ 'header__nav-item--has-children': item.children?.length }"
             >
-              <NuxtLink :to="item.href" class="header__nav-link">
+              <template v-if="item.children?.length">
+                <div class="header__nav-dropdown">
+                  <button
+                    type="button"
+                    class="header__nav-link header__nav-link--trigger"
+                    :aria-haspopup="true"
+                    :aria-expanded="openDropdownKey === idx"
+                    @click.stop="toggleDropdown(idx)"
+                  >
+                    {{ item.label }}
+                    <svg
+                      class="header__nav-chevron"
+                      :class="{ 'is-open': openDropdownKey === idx }"
+                      width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"
+                    >
+                      <path d="M7 10l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                  <Transition name="dropdown">
+                    <ul
+                      v-if="openDropdownKey === idx"
+                      class="header__nav-menu"
+                      role="menu"
+                    >
+                      <li
+                        v-for="child in item.children"
+                        :key="child.href"
+                        class="header__nav-menu-item"
+                        role="none"
+                      >
+                        <NuxtLink
+                          :to="child.href"
+                          class="header__nav-menu-link"
+                          role="menuitem"
+                          @click="closeDropdown"
+                        >
+                          {{ child.label }}
+                        </NuxtLink>
+                      </li>
+                    </ul>
+                  </Transition>
+                </div>
+              </template>
+              <NuxtLink v-else :to="item.href" class="header__nav-link">
                 {{ item.label }}
               </NuxtLink>
             </li>
@@ -218,24 +285,27 @@ onUnmounted(() => {
             <IconSearch size="md" :label="logo.searchLabel" decorative />
           </button>
         </div>
-        <button
-          type="button"
-          class="header__action-btn"
-          :aria-label="logo.cartLabel"
-          @click="handleCartClick"
-        >
-          <IconCart size="md" :count="cart.count.value" decorative />
-        </button>
         <!-- 로그인 상태에 따라 다르게 렌더링 (SSR Hydration 방지) -->
         <ClientOnly>
-          <!-- 로그인 전: LOGIN 텍스트 -->
-          <NuxtLink
-            v-if="!authStore.isLoggedIn"
-            to="/login"
-            class="header__login-link"
-          >
-            {{ logo.loginLabel }}
-          </NuxtLink>
+          <!-- 로그인 전: 유저 아이콘 → /login 이동 + 하단 회원가입 말풍선 -->
+          <div v-if="!authStore.isLoggedIn" class="header__user-wrapper">
+            <NuxtLink
+              to="/login"
+              class="header__action-btn"
+              :aria-label="logo.loginLabel"
+            >
+              <IconUser size="md" :label="logo.loginLabel" decorative />
+            </NuxtLink>
+            <NuxtLink
+              v-if="logo.signupBadge && route.path === '/'"
+              :to="logo.signupBadge.href"
+              class="header__signup-badge"
+              :aria-label="logo.signupBadge.imageAlt"
+            >
+              <span class="header__signup-badge-bg" aria-hidden="true" />
+              <span class="header__signup-badge-label">{{ logo.signupBadge.label }}</span>
+            </NuxtLink>
+          </div>
 
           <!-- 로그인 후: 유저 아이콘 + 드롭다운 -->
           <div v-else ref="userMenuRef" class="header__user-wrapper">
@@ -267,7 +337,15 @@ onUnmounted(() => {
             </div>
           </div>
         </ClientOnly>
-       
+
+        <button
+          type="button"
+          class="header__action-btn"
+          :aria-label="logo.cartLabel"
+          @click="handleCartClick"
+        >
+          <IconCart size="md" :count="cart.count.value" decorative />
+        </button>
       </div>
     </div>
 
@@ -296,7 +374,7 @@ onUnmounted(() => {
           <div class="mobile-nav__backdrop" @click="closeMobileNav" />
           <nav class="mobile-nav__content" :aria-label="navAriaLabel">
             <ul class="mobile-nav__list">
-              <li v-for="item in nav" :key="item.href" class="mobile-nav__item">
+              <li v-for="(item, idx) in nav" :key="item.label + '-m-' + idx" class="mobile-nav__item">
                 <NuxtLink
                   :to="item.href"
                   class="mobile-nav__link"
@@ -304,6 +382,21 @@ onUnmounted(() => {
                 >
                   {{ item.label }}
                 </NuxtLink>
+                <ul v-if="item.children?.length" class="mobile-nav__sublist">
+                  <li
+                    v-for="child in item.children"
+                    :key="child.href"
+                    class="mobile-nav__subitem"
+                  >
+                    <NuxtLink
+                      :to="child.href"
+                      class="mobile-nav__sublink"
+                      @click="closeMobileNav"
+                    >
+                      {{ child.label }}
+                    </NuxtLink>
+                  </li>
+                </ul>
               </li>
             </ul>
           </nav>

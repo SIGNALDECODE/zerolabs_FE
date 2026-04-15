@@ -14,11 +14,14 @@ const props = defineProps({
   }
 })
 
+const activeChipId = ref(props.data.chips?.[0]?.id ?? 'all')
+const chips = computed(() => props.data.chips ?? [])
+
 const sliderRef = ref(null)
 const currentIndex = ref(0)
 const itemWidth = ref(0)
 const visibleItems = ref(4)
-const gap = 32
+const gap = 28
 const isReady = ref(false)
 
 // Touch/Swipe
@@ -92,8 +95,9 @@ onUnmounted(() => {
     <div class="section-best-items__inner">
       <div class="section-best-items__header">
         <div class="section-best-items__titles">
+          <p v-if="data.eyebrow" class="section-best-items__eyebrow">{{ data.eyebrow }}</p>
           <h2 class="section-best-items__title">{{ data.title }}</h2>
-          <p class="section-best-items__subtitle">{{ data.subtitle }}</p>
+          <p v-if="data.subtitle" class="section-best-items__subtitle">{{ data.subtitle }}</p>
         </div>
         <div class="section-best-items__controls">
           <IconSlideButton
@@ -109,6 +113,20 @@ onUnmounted(() => {
             @click="nextSlide"
           />
         </div>
+      </div>
+      <div v-if="chips.length" class="section-best-items__chips" role="tablist">
+        <button
+          v-for="chip in chips"
+          :key="chip.id"
+          type="button"
+          role="tab"
+          class="section-best-items__chip"
+          :class="{ 'is-active': chip.id === activeChipId }"
+          :aria-selected="chip.id === activeChipId"
+          @click="activeChipId = chip.id"
+        >
+          {{ chip.label }}
+        </button>
       </div>
       <div
         class="section-best-items__slider-wrap"

@@ -13,9 +13,14 @@
   left: 0;
   right: 0;
   z-index: 100;
-  height: $size-header-desktop;
+  height: 90px; // Figma: 1920×90
   background: $Header-bg;
   border-bottom: none;
+  transition: background-color 0.3s ease;
+
+  &--transparent {
+    background: transparent;
+  }
 
   // 브랜드 그린 배경 위 텍스트/아이콘은 화이트
   .header__menu-btn,
@@ -47,7 +52,7 @@
     justify-content: space-between;
     margin: 0 auto;
     padding: 0 $container-padding;
-    max-width: $container-max-width;
+    max-width: 1400px; // Figma: inner 1400 centered in 1920
     width: 100%;
     height: 100%;
 
@@ -63,12 +68,12 @@
   &__left {
     display: flex;
     align-items: center;
-    gap: $padding-10;
+    gap: 60px; // Figma layout_4J8UH1 gap 60 (logo → nav)
     flex: 0 0 auto;
     min-width: 0;
 
     @include tablet {
-      gap: 24px;
+      gap: 32px;
     }
 
     @include mobile {
@@ -106,8 +111,8 @@
   }
 
   &__logo-img {
-    width: 68px;
-    height: 36px;
+    width: 100px; // Figma: logo 100×52
+    height: 52px;
     object-fit: contain;
     flex-shrink: 0;
   }
@@ -132,43 +137,132 @@
   }
 
   &__nav {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
     display: flex;
-    justify-content: center;
+    align-items: center;
 
     @include mobile {
       display: none;
     }
   }
 
+  // Dropdown enter/leave transition
+  .dropdown-enter-active,
+  .dropdown-leave-active {
+    transition: opacity 0.18s ease, transform 0.18s ease;
+    transform-origin: top left;
+  }
+  .dropdown-enter-from,
+  .dropdown-leave-to {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.98);
+  }
+
   &__nav-list {
     display: flex;
-    gap: $padding-10;
+    gap: 40px; // Figma layout_6O1TN9 gap
     list-style: none;
     margin: 0;
     padding: 0;
+    align-items: center;
 
     @include tablet {
       gap: 24px;
     }
   }
 
+  &__nav-item {
+    position: relative;
+  }
+
   &__nav-link {
-    @include typo-title-5;
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.625;
+    letter-spacing: -0.025em;
     color: $Text-Primary-text-color;
     text-decoration: none;
     white-space: nowrap;
     transition: opacity 0.2s ease;
+    background: none;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
 
-    @include tablet {
-      @include typo-title-6;
+    &--trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px; // Figma layout_M3MX89 gap 8
+      font: inherit;
     }
 
+    @include tablet {
+      font-size: 15px;
+    }
+
+    &:hover { opacity: 0.6; }
+  }
+
+  &__nav-chevron {
+    transition: transform 0.2s ease;
+    &.is-open { transform: rotate(180deg); }
+  }
+
+  // Dropdown panel under "전체상품"
+  &__nav-dropdown {
+    position: relative;
+  }
+
+  &__nav-menu {
+    position: absolute;
+    top: calc(100% + 16px);
+    left: 0;
+    min-width: 200px;
+    padding: 12px;
+    margin: 0;
+    list-style: none;
+    background: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 12px 32px rgba(27, 48, 36, 0.12);
+    z-index: 50;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: 28px;
+      width: 12px;
+      height: 12px;
+      background: #FFFFFF;
+      transform: rotate(45deg);
+      border-radius: 2px;
+    }
+  }
+
+  &__nav-menu-item {
+    margin: 0;
+  }
+
+  &__nav-menu-link {
+    display: block;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.6;
+    color: $Text-Primary-text-color;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.15s ease, color 0.15s ease;
+
     &:hover {
-      opacity: 0.6;
+      background: #F1F6F3;
+      color: #3D6B4F;
+    }
+    &.router-link-active {
+      color: #3D6B4F;
+      font-weight: 500;
     }
   }
 
@@ -176,7 +270,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    gap: $padding-3;
+    gap: 16px; // Figma layout_K7755F
 
     @include mobile {
       gap: $padding-2;
@@ -231,6 +325,63 @@
   // User dropdown
   &__user-wrapper {
     position: relative;
+  }
+
+  // Signup badge (말풍선) under user icon
+  &__signup-badge {
+    position: absolute;
+    top: calc(100% + 6px); // 아이콘 아래 + 꼬리 여유
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 92px;
+    height: 34px;
+    text-decoration: none;
+    pointer-events: auto;
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__signup-badge-bg {
+    position: absolute;
+    inset: 0;
+    display: block;
+    background-color: $Brand-600;
+    mask-image: url('/images/cloudtext.svg');
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+    -webkit-mask-image: url('/images/cloudtext.svg');
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: contain;
+    transition: background-color 0.3s ease;
+  }
+
+  &__signup-badge-label {
+    position: relative;
+    z-index: 1;
+    padding-top: 6px; // SVG 상단 꼬리(6px) 보정
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    color: $Primary-white-color;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+  }
+
+  // 스크롤/검색/모바일메뉴 열림 시: 말풍선만 화이트로
+  &--scrolled &__signup-badge-bg {
+    background-color: $Primary-white-color;
+  }
+  &--scrolled &__signup-badge-label {
+    color: $Text-Primary-text-color;
   }
 
   &__user-menu {
@@ -338,6 +489,35 @@
     &:hover,
     &.router-link-active {
       color: $Primary-color;
+    }
+  }
+
+  &__sublist {
+    list-style: none;
+    margin: 0 0 8px;
+    padding: 0 0 0 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    border-left: 2px solid #F1F1F5;
+  }
+
+  &__sublink {
+    display: block;
+    padding: 8px 12px;
+    font-family: 'Pretendard', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666666;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background 0.15s ease, color 0.15s ease;
+
+    &:hover,
+    &.router-link-active {
+      background: #F1F6F3;
+      color: #3D6B4F;
     }
   }
 }

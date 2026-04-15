@@ -15,19 +15,25 @@ useSeoMeta({
 const pending = ref(false)
 const heroSlides = computed(() => mainData.hero.slides)
 
-const bestProducts = computed(() =>
-  mockProducts.products.filter(p => p.isBest)
+const bestActiveChip = ref('all')
+const chipCategoryMap = {
+  all: null,
+  jerky: '져키',
+  cereal: '시리얼',
+  chewing: '추잉껌'
+}
+const bestProducts = computed(() => {
+  const base = mockProducts.products.filter(p => p.isBest)
+  const cat = chipCategoryMap[bestActiveChip.value]
+  const filtered = cat ? base.filter(p => p.category === cat) : base
+  return filtered.slice(0, 4)
+})
+
+const newArrivalProducts = computed(() =>
+  mockProducts.products.filter(p => p.isNew).slice(0, 3)
 )
-const newProducts = computed(() =>
-  mockProducts.products.filter(p => p.isNew)
-)
-const trialProducts = computed(() =>
-  mockProducts.products.filter(p => p.category === '체험팩')
-)
-const pickProducts = computed(() => mockProducts.products.slice(0, 8))
 
 let observer
-
 onMounted(() => {
   nextTick(() => {
     const targets = document.querySelectorAll('.reveal')
@@ -39,13 +45,10 @@ onMounted(() => {
       },
       { threshold: 0.15 }
     )
-    targets.forEach((target) => observer.observe(target))
+    targets.forEach((t) => observer.observe(t))
   })
 })
-
-onUnmounted(() => {
-  observer?.disconnect()
-})
+onUnmounted(() => observer?.disconnect())
 </script>
 
 <template>
@@ -58,47 +61,38 @@ onUnmounted(() => {
     </div>
 
     <main>
-      <SectionWhyUs
-        class="reveal"
-        :data="homeData.whyUs"
-      />
-
       <SectionBestItems
         class="reveal"
-        :data="mainData.section1"
+        :data="homeData.best"
         :products="bestProducts"
         :loading="pending"
       />
 
-      <SectionMemberBenefit
+      <SectionBandBanner
         class="reveal"
-        :data="homeData.memberBenefit"
+        :data="homeData.bandBanner"
       />
 
-      <SectionBestItems
+      <SectionNewArrivals
         class="reveal"
-        :data="mainData.section2"
-        :products="newProducts"
-        :loading="pending"
+        :data="homeData.newArrivals"
+        :products="newArrivalProducts"
       />
 
-      <SectionBrandStory
+      <SectionWholesale
         class="reveal"
-        :data="homeData.brandStory"
+        :data="homeData.wholesale"
       />
 
-      <SectionBestItems
+      <SectionReasons
         class="reveal"
-        :data="mainData.section3"
-        :products="trialProducts"
-        :loading="pending"
+        :data="homeData.reasons"
+        :mark-data="homeData.brandMark"
       />
 
-      <SectionBestItems
+      <SectionPhilosophy
         class="reveal"
-        :data="mainData.section4"
-        :products="pickProducts"
-        :loading="pending"
+        :data="homeData.philosophy"
       />
     </main>
   </div>

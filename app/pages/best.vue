@@ -1,7 +1,7 @@
 <script setup>
 import bestData from '~/data/best.json'
+import mockData from '~/data/mock-products.json'
 
-// SEO
 useHead({ title: bestData.seo.title })
 useSeoMeta({
   title: bestData.seo.title,
@@ -11,46 +11,51 @@ useSeoMeta({
   ogImage: bestData.seo.ogImage
 })
 
-// 상품 API (tag=best)
-const {
-  products: apiProducts,
-  pagination,
-  pending,
-  setPage,
-  setSortByValue
-} = useProducts({ tag: 'best', size: 40 })
+const PAGE_SIZE = 12
 
 const sortValue = ref('latest')
+const currentPage = ref(1)
 
-// 정렬 변경
-watch(sortValue, (newSort) => {
-  setSortByValue(newSort)
+const baseProducts = computed(() => mockData.products.filter((p) => p.isBest))
+
+const sortedProducts = computed(() => {
+  const list = [...baseProducts.value]
+  switch (sortValue.value) {
+    case 'price_asc':
+      return list.sort((a, b) => a.price - b.price)
+    case 'price_desc':
+      return list.sort((a, b) => b.price - a.price)
+    case 'popular':
+      return list.sort((a, b) => b.reviewCount - a.reviewCount)
+    default:
+      return list
+  }
 })
 
-// 현재 페이지 (1-based for UI, 0-based for API)
-const currentPage = computed({
-  get: () => pagination.value.page + 1,
-  set: (val) => setPage(val - 1)
+const totalCount = computed(() => sortedProducts.value.length)
+const totalPages = computed(() => Math.max(1, Math.ceil(totalCount.value / PAGE_SIZE)))
+
+const pagedProducts = computed(() => {
+  const start = (currentPage.value - 1) * PAGE_SIZE
+  return sortedProducts.value.slice(start, start + PAGE_SIZE)
 })
 
-// 상품 데이터
-const paginatedProducts = computed(() => apiProducts.value)
-const totalProducts = computed(() => pagination.value.totalElements)
-const totalPages = computed(() => pagination.value.totalPages)
+watch(sortValue, () => {
+  currentPage.value = 1
+})
 </script>
 
 <template>
   <LayoutProductList
     :title="bestData.page.title"
-    :total-count="totalProducts"
+    :total-count="totalCount"
     :labels="bestData.page"
     :sort-options="bestData.page.sortOptions"
-    :loading="pending"
     v-model:sort="sortValue"
     v-model:current-page="currentPage"
   >
     <ProductCard
-      v-for="product in paginatedProducts"
+      v-for="product in pagedProducts"
       :key="product.id"
       :product="product"
     />

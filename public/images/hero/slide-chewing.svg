@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 800" preserveAspectRatio="xMidYMid slice" role="img" aria-label="chewing hero">
+  <defs>
+    <linearGradient id="h3" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1B3024"/>
+      <stop offset="100%" stop-color="#4E7A5F"/>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="800" fill="url(#h3)"/>
+  <g opacity="0.18" fill="#F1F6F3">
+    <rect x="1280" y="280" width="140" height="220" rx="50"/>
+    <rect x="1460" y="340" width="140" height="220" rx="50"/>
+    <rect x="1640" y="260" width="140" height="220" rx="50"/>
+  </g>
+  <text x="120" y="430" font-family="Inter, system-ui, sans-serif" font-size="88" font-weight="700" fill="#F1F6F3" letter-spacing="-2">CHEW &amp; CARE</text>
+  <text x="120" y="490" font-family="Inter, system-ui, sans-serif" font-size="28" fill="#F1F6F3" opacity="0.75" letter-spacing="4">CHEWING GUM</text>
+</svg>

@@ -2,7 +2,7 @@
   "seo": {
     "title": "Zero Labs | 반려견을 위한 정직한 간식",
     "description": "국내산 원물과 저온 건조 공법으로 만든 반려견 전용 간식. 불필요한 것을 빼고 꼭 필요한 영양만 담았습니다.",
-    "ogImage": "/images/og-main.jpg"
+    "ogImage": "/images/placeholder.svg"
   },
   "header": {
     "logo": {
@@ -15,6 +15,12 @@
       "userLabel": "마이페이지",
       "loginLabel": "LOGIN",
       "cartLabel": "장바구니",
+      "signupBadge": {
+        "label": "1초 회원가입",
+        "href": "/signup",
+        "image": "/images/cloudtext.svg",
+        "imageAlt": "1초 회원가입 말풍선"
+      },
       "userMenu": {
         "mypage": "마이페이지",
         "logout": "로그아웃"
@@ -32,14 +38,20 @@
       ]
     },
     "nav": [
-      { "label": "전체상품", "href": "/products" },
-      { "label": "BEST", "href": "/best" },
-      { "label": "져키", "href": "/products?category=jerky" },
-      { "label": "시리얼", "href": "/products?category=cereal" },
-      { "label": "츄잉껌", "href": "/products?category=chewing" },
-      { "label": "체험팩", "href": "/products?category=trial" },
-      { "label": "공지", "href": "/notice" },
-      { "label": "리뷰", "href": "/review" }
+      {
+        "label": "전체상품",
+        "href": "/products",
+        "children": [
+          { "label": "전체", "href": "/products" },
+          { "label": "져키", "href": "/products?category=jerky" },
+          { "label": "시리얼", "href": "/products?category=cereal" },
+          { "label": "추잉껌", "href": "/products?category=chewing" },
+          { "label": "체험팩", "href": "/products?category=trial" }
+        ]
+      },
+      { "label": "베스트", "href": "/best" },
+      { "label": "제품 원료", "href": "/support" },
+      { "label": "브랜드 스토리", "href": "/support" }
     ]
   },
   "hero": {
@@ -49,25 +61,11 @@
     },
     "slides": [
       {
-        "title": "HEALTHY BITES",
-        "subtitle": "Premium Jerky",
-        "description": "국내산 원물만 저온 건조한, 진짜 고기 져키.",
-        "image": "/images/빈이미지.png",
-        "imageAlt": "프리미엄 져키 히어로"
-      },
-      {
-        "title": "DAILY CEREAL",
-        "subtitle": "Grain Free",
-        "description": "곡물 걱정 없이 매일 즐기는 강아지 시리얼.",
-        "image": "/images/빈이미지.png",
-        "imageAlt": "강아지 시리얼 히어로"
-      },
-      {
-        "title": "CHEW & CARE",
-        "subtitle": "Chewing Gum",
-        "description": "씹는 재미와 치아 건강을 동시에.",
-        "image": "/images/빈이미지.png",
-        "imageAlt": "강아지 츄잉껌 히어로"
+        "subtitle": "Zero Labs Snack",
+        "title": "먹는 순간, 건강이 달라지는 간식",
+        "description": "",
+        "image": "/images/figma/hero-bg.png",
+        "imageAlt": "제로랩스 메인 히어로"
       }
     ]
   },
@@ -75,10 +73,10 @@
     "title": "CATEGORY",
     "items": [
       { "label": "전체", "href": "/products", "image": "/images/categories/all.svg", "imageAlt": "전체 카테고리" },
-      { "label": "져키", "href": "/products?category=jerky", "image": "/images/categories/best.svg", "imageAlt": "강아지 져키" },
-      { "label": "시리얼", "href": "/products?category=cereal", "image": "/images/categories/category-1.png", "imageAlt": "강아지 시리얼" },
-      { "label": "츄잉껌", "href": "/products?category=chewing", "image": "/images/categories/category-2.png", "imageAlt": "강아지 츄잉껌" },
-      { "label": "체험팩", "href": "/products?category=trial", "image": "/images/categories/category-3.png", "imageAlt": "체험팩" }
+      { "label": "져키", "href": "/products?category=jerky", "image": "/images/categories/jerky.svg", "imageAlt": "강아지 져키" },
+      { "label": "시리얼", "href": "/products?category=cereal", "image": "/images/categories/cereal.svg", "imageAlt": "강아지 시리얼" },
+      { "label": "츄잉껌", "href": "/products?category=chewing", "image": "/images/categories/chewing.svg", "imageAlt": "강아지 츄잉껌" },
+      { "label": "체험팩", "href": "/products?category=trial", "image": "/images/categories/trial.svg", "imageAlt": "체험팩" }
     ]
   },
   "section1": {
@@ -117,24 +115,24 @@
     "full": {
       "title": "정기배송 15% OFF",
       "subtitle": "매달 잊지 않고 도착하는 우리 아이 간식",
-      "image": "/images/빈이미지.png",
+      "image": "/images/banners/full-subscribe.svg",
       "imageAlt": "정기배송 프로모션",
       "href": "/products"
     },
     "mdPickBanner": {
       "title": "",
       "subtitle": "",
-      "image": "/images/빈이미지.png",
+      "image": "/images/placeholder.svg",
       "imageAlt": "MD Pick 프로모션 배너"
     },
     "slide": [
-      { "image": "/images/빈이미지.png", "imageAlt": "이벤트 배너 1", "href": "/promotions" },
-      { "image": "/images/빈이미지.png", "imageAlt": "이벤트 배너 2", "href": "/promotions" },
-      { "image": "/images/빈이미지.png", "imageAlt": "이벤트 배너 3", "href": "/promotions" }
+      { "image": "/images/banners/slide-1.svg", "imageAlt": "이벤트 배너 1", "href": "/promotions" },
+      { "image": "/images/banners/slide-2.svg", "imageAlt": "이벤트 배너 2", "href": "/promotions" },
+      { "image": "/images/banners/slide-3.svg", "imageAlt": "이벤트 배너 3", "href": "/promotions" }
     ],
     "half": [
-      { "title": "BEST JERKY", "subtitle": "가장 사랑받은 져키", "image": "/images/빈이미지.png", "imageAlt": "베스트 져키", "href": "/products?category=jerky", "buttonLabel": "더 알아보기" },
-      { "title": "TRIAL PACK", "subtitle": "처음이라면 체험팩으로", "image": "/images/빈이미지.png", "imageAlt": "체험팩", "href": "/products?category=trial", "buttonLabel": "더 알아보기" }
+      { "title": "BEST JERKY", "subtitle": "가장 사랑받은 져키", "image": "/images/banners/half-jerky.svg", "imageAlt": "베스트 져키", "href": "/products?category=jerky", "buttonLabel": "더 알아보기" },
+      { "title": "TRIAL PACK", "subtitle": "처음이라면 체험팩으로", "image": "/images/banners/half-trial.svg", "imageAlt": "체험팩", "href": "/products?category=trial", "buttonLabel": "더 알아보기" }
     ],
     "halfLabels": {
       "buttonLabel": "더 알아보기"
@@ -149,49 +147,68 @@
       "next": "다음 이미지"
     },
     "items": [
-      { "imageAlt": "인스타그램 피드 1", "href": "https://www.instagram.com/" },
-      { "imageAlt": "인스타그램 피드 2", "href": "https://www.instagram.com/" },
-      { "imageAlt": "인스타그램 피드 3", "href": "https://www.instagram.com/" },
-      { "imageAlt": "인스타그램 피드 4", "href": "https://www.instagram.com/" }
+      { "image": "/images/instagram/insta-1.svg", "imageAlt": "인스타그램 피드 1", "href": "https://www.instagram.com/" },
+      { "image": "/images/instagram/insta-2.svg", "imageAlt": "인스타그램 피드 2", "href": "https://www.instagram.com/" },
+      { "image": "/images/instagram/insta-3.svg", "imageAlt": "인스타그램 피드 3", "href": "https://www.instagram.com/" },
+      { "image": "/images/instagram/insta-4.svg", "imageAlt": "인스타그램 피드 4", "href": "https://www.instagram.com/" }
     ]
   },
   "footer": {
     "logo": {
-      "src": "/images/빈이미지.png",
+      "src": "/images/logo.png",
       "alt": "Zero Labs",
       "text": "ZERO LABS"
     },
     "nav": [
-      { "label": "전체상품", "href": "/products" },
-      { "label": "BEST", "href": "/best" },
-      { "label": "공지", "href": "/notice" },
-      { "label": "리뷰", "href": "/review" },
-      { "label": "고객센터", "href": "/support" }
+      { "label": "회사소개", "href": "/about" },
+      { "label": "이용약관", "href": "/terms" },
+      { "label": "개인정보처리방침", "href": "/privacy", "emphasis": true },
+      { "label": "이용안내", "href": "/guide" }
     ],
-    "companyInfo": {
-      "name": "주식회사 반려동행",
-      "ceoLabel": "대표",
-      "ceo": "",
-      "businessNumberLabel": "사업자등록번호",
-      "businessNumber": "",
-      "address": "인천광역시 남동구"
+    "company": {
+      "labels": {
+        "name": "상호명",
+        "ceo": "대표자명",
+        "ceoPhone": "대표자 번호",
+        "address": "사업장 주소",
+        "businessNumber": "사업자 등록번호",
+        "mailOrderNumber": "통신판매업 신고번호",
+        "privacyOfficer": "개인정보보호책임자"
+      },
+      "values": {
+        "name": "주식회사 반려동행",
+        "ceo": "양성원",
+        "ceoPhone": "010-6532-4544",
+        "address": "21632 인천광역시 남동구 새우도2공단길 30 노원김푸르지오시티 215-26호",
+        "businessNumber": "2668800624",
+        "mailOrderNumber": "2025-인천동구-2083호",
+        "privacyOfficer": "주식회사 반려동행"
+      }
     },
-    "contact": {
-      "phoneLabel": "대표전화",
-      "phone": "",
-      "emailLabel": "이메일",
-      "email": "",
-      "hoursLabel": "운영시간 평일 10:00 - 17:00"
+    "customer": {
+      "title": "고객센터 정보",
+      "labels": {
+        "phone": "상담/주문 전화",
+        "email": "상담/주문 이메일",
+        "hours": "CS 운영시간"
+      },
+      "values": {
+        "phone": "010-6532-4544",
+        "email": "ssih2025@naver.com",
+        "hours": "평일 09:30-17:30"
+      }
     },
-    "privacy": {
-      "officerLabel": "개인정보관리책임자",
-      "emailLabel": "개인정보 문의"
+    "bank": {
+      "title": "무통장 계좌 정보",
+      "bankName": "하나은행",
+      "accountNumber": "332-910074-17104",
+      "holder": "주식회사 반려동행"
     },
     "social": [
       { "type": "instagram", "href": "https://instagram.com", "label": "인스타그램" },
-      { "type": "youtube", "href": "https://youtube.com", "label": "유튜브" }
+      { "type": "youtube", "href": "https://youtube.com", "label": "유튜브" },
+      { "type": "x", "href": "https://x.com", "label": "X" }
     ],
-    "infoToggleLabel": "정보 더보기",
-    "copyright": "© ZERO LABS. ALL RIGHTS RESERVED."
+    "copyright": "COPYRIGHT © 2020 SIGNALMCODE. ALL RIGHTS RESERVED."
   }
 }

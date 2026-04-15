@@ -85,7 +85,7 @@
     aspect-ratio: 4 / 5;
     border-radius: 16px;
     overflow: hidden;
-    background: $Brown-100;
+    background: $Brand-100;
   }
 
   &__image {
@@ -610,8 +610,8 @@
 
     &--active {
       color: $Text-Primary-text-color;
-      background: $Brown-50;
-      border: 1px solid $Brown-200;
+      background: $Brand-50;
+      border: 1px solid $Brand-200;
     }
   }
 }
@@ -1311,7 +1311,7 @@
 
   &__answer {
     background: $Primary-color-50;
-    // border: 1px solid $Brown-200;
+    // border: 1px solid $Brand-200;
   }
 
   &__no-answer {

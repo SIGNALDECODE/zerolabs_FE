@@ -25,3 +25,7 @@ logs
 !.env.example
 .vercel
 .amplify-hosting
+
+# mcp
+.mcp.json
+.mcp.*

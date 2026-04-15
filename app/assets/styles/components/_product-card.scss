@@ -23,7 +23,7 @@
     aspect-ratio: 3 / 4;
     overflow: hidden;
     border-radius: $padding-2;
-    background: $Brown-100;
+    background: $Brand-100;
 
     @include mobile {
       border-radius: $gap-xs;
@@ -51,7 +51,7 @@
     width: $size-color-dot;
     height: $size-color-dot;
     border-radius: 50%;
-    border: 1px solid $Brown-300;
+    border: 1px solid $Brand-300;
   }
 
   // 상품명
@@ -84,13 +84,13 @@
   }
 
   &__original-price {
-    color: $Brown-400;
+    color: $Brand-400;
     text-decoration: line-through;
     @include typo-body-2;
   }
 
   &__price {
-    color: $Brown-800;
+    color: $Brand-800;
     font-weight: get-weight('SemiBold');
     @include typo-body-2;
 
@@ -105,7 +105,7 @@
     align-items: center;
     gap: $gap-xs;
     @include typo-title-6;
-    color: $Brown-600;
+    color: $Brand-600;
   }
 
   &__stars {
@@ -125,7 +125,7 @@
 
   &__rating-text {
     @include typo-body-4;
-    color: $Brown-600;
+    color: $Brand-600;
   }
 }
 
@@ -155,7 +155,7 @@
     aspect-ratio: 3 / 4;
     border-radius: $padding-2;
     overflow: hidden;
-    background: $Brown-100;
+    background: $Brand-100;
 
     @include mobile {
       max-width: none;
@@ -197,12 +197,12 @@
   &__price {
     @include typo-body-2;
     font-weight: get-weight('SemiBold');
-    color: $Brown-800;
+    color: $Brand-800;
   }
 
   &__original-price {
     @include typo-body-4;
-    color: $Brown-400;
+    color: $Brand-400;
     text-decoration: line-through;
   }
 }

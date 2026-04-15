@@ -160,17 +160,18 @@ onUnmounted(() => {
         </component>
       </div>
     </div>
-    <!-- Portfolio 스타일 오버레이: 왼쪽 정렬 + 그라디언트 -->
-    <div class="section-hero__overlay">
+    <!-- Figma 레이아웃: 중앙 정렬 + 하단 그라디언트 + 배지 -->
+    <div class="section-hero__overlay section-hero__overlay--center">
       <p v-if="activeSlide.subtitle" class="section-hero__subtitle">{{ activeSlide.subtitle }}</p>
       <h1 v-if="activeSlide.title" class="section-hero__title">{{ activeSlide.title }}</h1>
       <p v-if="activeSlide.description" class="section-hero__description">{{ activeSlide.description }}</p>
       <NuxtLink
-        v-if="activeSlide.href || activeSlide.linkUrl"
+        v-if="activeSlide.badgeLabel && (activeSlide.href || activeSlide.linkUrl)"
         :to="activeSlide.href || activeSlide.linkUrl"
-        class="section-hero__cta"
+        class="section-hero__badge"
       >
-        SHOP NOW
+        <span class="section-hero__badge-dot" aria-hidden="true" />
+        {{ activeSlide.badgeLabel }}
       </NuxtLink>
     </div>
 

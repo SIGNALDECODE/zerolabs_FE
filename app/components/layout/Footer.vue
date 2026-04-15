@@ -6,7 +6,6 @@ const props = defineProps({
   }
 })
 
-// 쇼핑몰 정보 (API에서 가져온 데이터)
 const {
   shopName,
   logoUrl,
@@ -17,88 +16,64 @@ const {
   snsInfo
 } = useShopInfo()
 
-// SNS 타입 정의 (IconSocial에서 지원하는 타입만)
+const supportedSnsTypes = ['youtube', 'instagram', 'x']
 const snsTypes = [
   { type: 'youtube', label: 'YouTube' },
   { type: 'instagram', label: 'Instagram' },
   { type: 'x', label: 'X' }
 ]
 
-// IconSocial에서 지원하는 타입
-const supportedSnsTypes = ['youtube', 'instagram', 'x']
-
-// SNS 링크 (API 우선, 없으면 props fallback) - 지원되는 타입만 필터링
 const socialLinks = computed(() => {
   const info = snsInfo.value
   if (!info) {
-    const fallback = props.data.social || []
-    return fallback.filter(s => supportedSnsTypes.includes(s.type))
+    return (props.data.social || []).filter((s) => supportedSnsTypes.includes(s.type))
   }
-
-  // 객체 형태: { youtube: 'url', instagram: 'url' }
   if (typeof info === 'object' && !Array.isArray(info)) {
     return snsTypes
-      .filter(sns => info[sns.type] && supportedSnsTypes.includes(sns.type))
-      .map(sns => ({
-        type: sns.type,
-        href: info[sns.type],
-        label: sns.label
-      }))
+      .filter((sns) => info[sns.type])
+      .map((sns) => ({ type: sns.type, href: info[sns.type], label: sns.label }))
   }
-
-  // 배열 형태: [{ type: 'youtube', url: '...' }]
   if (Array.isArray(info) && info.length) {
     return info
-      .filter(sns => supportedSnsTypes.includes(sns.type))
-      .map(sns => ({
-        type: sns.type,
-        href: sns.url || sns.href || '#',
-        label: sns.label || sns.type
-      }))
+      .filter((s) => supportedSnsTypes.includes(s.type))
+      .map((s) => ({ type: s.type, href: s.url || s.href || '#', label: s.label || s.type }))
   }
-
-  const fallback = props.data.social || []
-  return fallback.filter(s => supportedSnsTypes.includes(s.type))
+  return (props.data.social || []).filter((s) => supportedSnsTypes.includes(s.type))
 })
 
-// 회사명 (API 우선, 없으면 props fallback)
-const companyName = computed(() => businessInfo.value?.businessName || props.data.companyInfo?.name || '')
-const ceoName = computed(() => businessInfo.value?.ceoName || props.data.companyInfo?.ceo || '')
-const businessNumber = computed(() => businessInfo.value?.businessNumber || props.data.companyInfo?.businessNumber || '')
-const companyAddress = computed(() => {
-  const info = businessInfo.value
-  if (info?.address) {
-    return `${info.address} ${info.addressDetail || ''}`.trim()
+const company = computed(() => {
+  const v = props.data.company?.values || {}
+  const api = businessInfo.value || {}
+  const address = api.address ? `${api.address} ${api.addressDetail || ''}`.trim() : v.address
+  return {
+    name: api.businessName || v.name,
+    ceo: api.ceoName || v.ceo,
+    ceoPhone: api.ceoPhone || v.ceoPhone,
+    address,
+    businessNumber: api.businessNumber || v.businessNumber,
+    mailOrderNumber: api.mailOrderNumber || v.mailOrderNumber,
+    privacyOfficer: privacyInfo.value?.officer || v.privacyOfficer
   }
-  return ''
 })
 
-// 연락처 (API 우선)
-const csPhone = computed(() => customerServiceInfo.value?.phone || props.data.contact?.phone || '')
-const csEmail = computed(() => businessInfo.value?.email || customerServiceInfo.value?.email || props.data.contact?.email || '')
-const csHours = computed(() => customerServiceInfo.value?.hours || '')
-
-// 전화 링크용 번호 (하이픈 제거)
-const phoneHref = computed(() => {
-  if (!csPhone.value) return ''
-  return `tel:${csPhone.value.replace(/-/g, '')}`
+const customer = computed(() => {
+  const v = props.data.customer?.values || {}
+  return {
+    phone: customerServiceInfo.value?.phone || v.phone,
+    email: businessInfo.value?.email || customerServiceInfo.value?.email || v.email,
+    hours: customerServiceInfo.value?.hours || v.hours
+  }
 })
 
-// 로고 (shop-info API만 사용, 없으면 텍스트 표시)
-const logoSrc = computed(() => logoUrl.value || '')
+const phoneHref = computed(() => (customer.value.phone ? `tel:${customer.value.phone.replace(/-/g, '')}` : ''))
+const csPhoneHref = computed(() => (company.value.ceoPhone ? `tel:${company.value.ceoPhone.replace(/-/g, '')}` : ''))
 
-// 저작권 (API 우선)
+const logoSrc = computed(() => logoUrl.value || props.data.logo?.src || '')
 const copyright = computed(() => copyrightText.value || props.data.copyright || '')
 
-// 개인정보관리책임자
-const privacyOfficer = computed(() => privacyInfo.value?.officer || '')
-const privacyEmail = computed(() => privacyInfo.value?.email || '')
-
-// 모바일 사업자 정보 토글
-const isInfoOpen = ref(false)
-const toggleInfo = () => {
-  isInfoOpen.value = !isInfoOpen.value
-}
+const companyLabels = computed(() => props.data.company?.labels || {})
+const customerLabels = computed(() => props.data.customer?.labels || {})
+const bank = computed(() => props.data.bank || {})
 </script>
 
 <template>
@@ -118,71 +93,114 @@ const toggleInfo = () => {
 
           <nav class="footer__nav" aria-label="푸터 내비게이션">
             <ul class="footer__nav-list">
-              <li
-                v-for="link in data.nav"
-                :key="link.href"
-                class="footer__nav-item"
-              >
-                <NuxtLink :to="link.href" class="footer__nav-link">
-                  {{ link.label }}
-                </NuxtLink>
+              <li v-for="link in data.nav" :key="link.href" class="footer__nav-item">
+                <NuxtLink
+                  :to="link.href"
+                  class="footer__nav-link"
+                  :class="{ 'footer__nav-link--emphasis': link.emphasis }"
+                >{{ link.label }}</NuxtLink>
               </li>
             </ul>
           </nav>
 
-          <div class="footer__info">
-            <p class="footer__info-line footer__info-line--primary">
-              <span>{{ companyName }}</span>
-              <span>{{ data.companyInfo.ceoLabel }} {{ ceoName }}</span>
-              <span>{{ data.companyInfo.businessNumberLabel }} {{ businessNumber }}</span>
-              <span v-if="companyAddress">{{ companyAddress }}</span>
-            </p>
-
-            <!-- 모바일 토글 버튼 -->
-            <button
-              type="button"
-              class="footer__info-toggle"
-              :aria-expanded="isInfoOpen"
-              @click="toggleInfo"
-            >
-              {{ data.infoToggleLabel }}
-              <IconArrow direction="down" size="sm" />
-            </button>
-
-            <!-- 토글 영역 (모바일에서만 접힘) -->
-            <div :class="['footer__info-detail', { 'footer__info-detail--open': isInfoOpen }]">
-              <p v-if="csPhone || csEmail || csHours" class="footer__info-line">
-                <span v-if="csPhone">
-                  {{ data.contact.phoneLabel }}:
-                  <a :href="phoneHref" class="footer__phone-link">{{ csPhone }}</a>
-                </span>
-                <span v-if="csEmail">{{ data.contact.emailLabel }}: {{ csEmail }}</span>
-                <span v-if="csHours">{{ data.contact.hoursLabel }}: {{ csHours }}</span>
-              </p>
-              <p v-if="privacyOfficer || privacyEmail" class="footer__info-line">
-                <span v-if="privacyOfficer">{{ data.privacy?.officerLabel }}: {{ privacyOfficer }}</span>
-                <span v-if="privacyEmail">{{ data.privacy?.emailLabel }}: {{ privacyEmail }}</span>
-              </p>
+          <dl class="footer__info-grid">
+            <div class="footer__info-row">
+              <div class="footer__info-cell">
+                <dt>{{ companyLabels.name }}</dt>
+                <dd>{{ company.name }}</dd>
+              </div>
+              <div class="footer__info-cell">
+                <dt>{{ companyLabels.ceo }}</dt>
+                <dd>{{ company.ceo }}</dd>
+              </div>
+              <div class="footer__info-cell">
+                <dt>{{ companyLabels.ceoPhone }}</dt>
+                <dd>
+                  <a v-if="csPhoneHref" :href="csPhoneHref" class="footer__link">{{ company.ceoPhone }}</a>
+                  <template v-else>{{ company.ceoPhone }}</template>
+                </dd>
+              </div>
             </div>
-          </div>
+
+            <div class="footer__info-row">
+              <div class="footer__info-cell footer__info-cell--wide">
+                <dt>{{ companyLabels.address }}</dt>
+                <dd>{{ company.address }}</dd>
+              </div>
+            </div>
+
+            <div class="footer__info-row">
+              <div class="footer__info-cell">
+                <dt>{{ companyLabels.businessNumber }}</dt>
+                <dd>{{ company.businessNumber }}</dd>
+              </div>
+              <div class="footer__info-cell">
+                <dt>{{ companyLabels.mailOrderNumber }}</dt>
+                <dd>{{ company.mailOrderNumber }}</dd>
+              </div>
+            </div>
+
+            <div class="footer__info-row">
+              <div class="footer__info-cell">
+                <dt>{{ companyLabels.privacyOfficer }}</dt>
+                <dd>{{ company.privacyOfficer }}</dd>
+              </div>
+            </div>
+          </dl>
         </div>
 
-        <div v-if="socialLinks.length" class="footer__social">
-          <a
-            v-for="social in socialLinks"
-            :key="social.type"
-            :href="social.href"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="footer__social-link"
-            :aria-label="social.label"
-          >
-            <IconSocial :type="social.type" />
-          </a>
+        <div class="footer__right">
+          <div class="footer__col footer__col--customer">
+            <h2 class="footer__col-title">{{ data.customer.title }}</h2>
+            <dl class="footer__info-list">
+              <div class="footer__info-item">
+                <dt>{{ customerLabels.phone }}</dt>
+                <dd>
+                  <a v-if="phoneHref" :href="phoneHref" class="footer__link">{{ customer.phone }}</a>
+                  <template v-else>{{ customer.phone }}</template>
+                </dd>
+              </div>
+              <div class="footer__info-item">
+                <dt>{{ customerLabels.email }}</dt>
+                <dd class="footer__info-dim">{{ customer.email }}</dd>
+              </div>
+              <div class="footer__info-item">
+                <dt>{{ customerLabels.hours }}</dt>
+                <dd class="footer__info-dim">{{ customer.hours }}</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="footer__col footer__col--bank">
+            <h2 class="footer__col-title">{{ bank.title }}</h2>
+            <p class="footer__bank">
+              <span class="footer__bank-name">{{ bank.bankName }}</span>
+              <span class="footer__bank-number">{{ bank.accountNumber }}({{ bank.holder }})</span>
+            </p>
+          </div>
         </div>
       </div>
 
-      <p class="footer__copyright">{{ copyright }}</p>
+      <div class="footer__bottom">
+        <div class="footer__divider" role="presentation" />
+        <div class="footer__bottom-row">
+          <p class="footer__copyright">{{ copyright }}</p>
+
+          <div v-if="socialLinks.length" class="footer__social">
+            <a
+              v-for="social in socialLinks"
+              :key="social.type"
+              :href="social.href"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer__social-link"
+              :aria-label="social.label"
+            >
+              <IconSocial :type="social.type" />
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </footer>
 </template>

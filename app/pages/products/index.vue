@@ -1,20 +1,29 @@
 <script setup>
-import productsPageData from '~/data/products.json'
+import productsData from '~/data/products.json'
 import mockData from '~/data/mock-products.json'
 
-useHead({ title: productsPageData.seo.title })
+useHead({ title: productsData.seo.title })
 useSeoMeta({
-  title: productsPageData.seo.title,
-  description: productsPageData.seo.description
+  title: productsData.seo.title,
+  description: productsData.seo.description,
+  ogTitle: productsData.seo.title,
+  ogDescription: productsData.seo.description,
+  ogImage: productsData.seo.ogImage
 })
 
-// 목데이터 기반 (portfolio 방식)
-const allProducts = mockData.products
+const PAGE_SIZE = 12
 
+const activeTab = ref('all')
 const sortValue = ref('latest')
+const currentPage = ref(1)
+
+const filteredProducts = computed(() => {
+  if (activeTab.value === 'all') return mockData.products
+  return mockData.products.filter((p) => p.category === activeTab.value)
+})
 
 const sortedProducts = computed(() => {
-  const list = [...allProducts]
+  const list = [...filteredProducts.value]
   switch (sortValue.value) {
     case 'price_asc':
       return list.sort((a, b) => a.price - b.price)
@@ -26,34 +35,53 @@ const sortedProducts = computed(() => {
       return list
   }
 })
+
+const totalCount = computed(() => sortedProducts.value.length)
+const totalPages = computed(() => Math.max(1, Math.ceil(totalCount.value / PAGE_SIZE)))
+
+const pagedProducts = computed(() => {
+  const start = (currentPage.value - 1) * PAGE_SIZE
+  return sortedProducts.value.slice(start, start + PAGE_SIZE)
+})
+
+const handleTabChange = (value) => {
+  activeTab.value = value
+  currentPage.value = 1
+}
+
+watch(sortValue, () => {
+  currentPage.value = 1
+})
 </script>
 
 <template>
-  <div class="page-products">
-    <main class="products-page">
-      <div class="products-page__header">
-        <h1 class="products-page__title">{{ productsPageData.page.title }}</h1>
-        <p class="products-page__subtitle">{{ productsPageData.page.subtitle }}</p>
-      </div>
+  <LayoutProductList
+    :title="productsData.page.title"
+    :total-count="totalCount"
+    :labels="productsData.page"
+    :sort-options="productsData.page.sortOptions"
+    :tabs="productsData.page.tabs"
+    :tabs-aria-label="productsData.page.tabsAriaLabel"
+    :active-tab="activeTab"
+    v-model:sort="sortValue"
+    v-model:current-page="currentPage"
+    @tab-change="handleTabChange"
+  >
+    <ProductCard
+      v-for="product in pagedProducts"
+      :key="product.id"
+      :product="product"
+    />
 
-      <div class="products-page__toolbar">
-        <span class="products-page__count">
-          {{ productsPageData.count.prefix }}<strong>{{ sortedProducts.length }}{{ productsPageData.count.suffix }}</strong>{{ productsPageData.count.label }}
-        </span>
-        <BaseSelect
-          v-model="sortValue"
-          :options="productsPageData.sort.options"
-          size="small"
-        />
-      </div>
-
-      <div class="products-page__grid">
-        <ProductCard
-          v-for="product in sortedProducts"
-          :key="product.id"
-          :product="product"
-        />
-      </div>
-    </main>
-  </div>
+    <template #pagination>
+      <BasePagination
+        v-if="totalPages > 1"
+        v-model:current-page="currentPage"
+        :total-pages="totalPages"
+        :prev-label="productsData.page.pagination.prevLabel"
+        :next-label="productsData.page.pagination.nextLabel"
+        class="layout-product-list__pagination"
+      />
+    </template>
+  </LayoutProductList>
 </template>

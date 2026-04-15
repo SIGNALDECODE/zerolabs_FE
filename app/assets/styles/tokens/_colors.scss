@@ -23,17 +23,17 @@ $Black-Primary-black-200: #F4EFEAFF;
 $Black-Primary-black-100: #F7F2ECFF;
 $Black-Primary-black-50: #F5EFE8FF;
 
-/* Brown Palette - portfolio 디자인 기반 */
-$Brown-50: #F7F2EC;
-$Brown-100: #F4EFEA;
-$Brown-200: #E7DFD6;
-$Brown-300: #D6CDC3;
-$Brown-400: #B4A79A;
-$Brown-500: #9A9087;
-$Brown-600: #8A8177;
-$Brown-700: #6F675E;
-$Brown-800: #6B5A47;
-$Brown-900: #5A4633;
+/* Brand Palette - Zero Labs Green (#3D6B4F 기반) */
+$Brand-50: #F1F6F3;
+$Brand-100: #E2EDE6;
+$Brand-200: #C2D6CA;
+$Brand-300: #97B8A4;
+$Brand-400: #6B9A7C;
+$Brand-500: #4F8261;
+$Brand-600: #3D6B4F;
+$Brand-700: #30553C;
+$Brand-800: #26432F;
+$Brand-900: #1B3024;
 
 /* Gray Palette */
 $Gray-200: #EEEEEE;
@@ -45,13 +45,13 @@ $Gray-700: #616161;
 $Gray-800: #424242;
 $Gray-900: #212121;
 
-// Primary 컬러 (정적 토큰 - Brown 기반)
-$Primary-color: $Brown-800;
-$Primary-color-light: $Brown-100;
-$Primary-color-dark: $Brown-900;
-$Primary-color-50: $Brown-50;
-$Primary-color-100: $Brown-100;
-$Primary-color-900: $Brown-900;
+// Primary 컬러 (정적 토큰 - Brand Green 기반)
+$Primary-color: $Brand-600;
+$Primary-color-light: $Brand-100;
+$Primary-color-dark: $Brand-900;
+$Primary-color-50: $Brand-50;
+$Primary-color-100: $Brand-100;
+$Primary-color-900: $Brand-900;
 $Primary-white-color: #FFFFFFFF;
 $Primary-white-color-op70: #FFFFFF99;
 $Primary-black-color-op3: #00000008;
@@ -75,8 +75,7 @@ $Warning-color: #D97706;
 $Star-color: #c7a465;
 
 // Brand colors - Zero Labs
-$Brand-green: #3D6B4FFF;
-$Header-bg: $Brand-green;
+$Header-bg: $Brand-600;
 
 // Grade badge colors
 $Grade-family-color: #AD9E9E;

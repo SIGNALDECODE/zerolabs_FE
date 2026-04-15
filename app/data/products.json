@@ -1,24 +1,32 @@
 {
   "seo": {
-    "title": "All Items",
-    "description": "모든 상품을 한눈에 확인하세요."
+    "title": "전체상품",
+    "description": "제로랩스의 모든 상품을 한눈에 확인하세요.",
+    "ogImage": "/images/og-products.jpg"
   },
   "page": {
-    "title": "All Items",
-    "subtitle": "모든 상품을 한눈에 확인하세요."
-  },
-  "sort": {
-    "options": [
+    "title": "전체상품",
+    "totalLabel": "총",
+    "totalUnit": "개",
+    "totalSuffix": "의 상품",
+    "tabsAriaLabel": "카테고리",
+    "tabs": [
+      { "label": "전체", "value": "all" },
+      { "label": "져키", "value": "져키" },
+      { "label": "시리얼", "value": "시리얼" },
+      { "label": "추잉껌", "value": "츄잉껌" },
+      { "label": "샘플팩", "value": "체험팩" }
+    ],
+    "sortOptions": [
       { "label": "최신순", "value": "latest" },
       { "label": "인기순", "value": "popular" },
       { "label": "낮은 가격순", "value": "price_asc" },
       { "label": "높은 가격순", "value": "price_desc" }
-    ]
-  },
-  "count": {
-    "prefix": "총 ",
-    "suffix": "개",
-    "label": " 상품"
+    ],
+    "pagination": {
+      "prevLabel": "이전 페이지",
+      "nextLabel": "다음 페이지"
+    }
   },
   "empty": {
     "message": "상품이 없습니다."

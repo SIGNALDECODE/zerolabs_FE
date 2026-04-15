@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="trial pack">
+  <rect width="120" height="120" rx="60" fill="#F1F6F3"/>
+  <g fill="none" stroke="#3D6B4F" stroke-width="3" stroke-linejoin="round">
+    <path d="M40 50 L60 40 L80 50 L80 82 L60 92 L40 82 Z" fill="#3D6B4F" fill-opacity="0.15"/>
+    <path d="M40 50 L60 60 L80 50"/>
+    <path d="M60 60 L60 92"/>
+  </g>
+</svg>

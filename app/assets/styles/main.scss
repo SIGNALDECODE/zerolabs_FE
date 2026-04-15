@@ -22,7 +22,6 @@
 @use "pages/notices";
 @use "pages/error";
 @use "pages/coupon-download";
-@use "pages/products";
 @use "pages/event-banner";
 
 // Components
@@ -36,6 +35,7 @@
 @use "components/category-card";
 @use "components/banner";
 @use "components/sections";
+@use "components/home-sections";
 @use "components/icons";
 @use "components/slide-indicator";
 @use "components/select";
