@@ -1,0 +1,80 @@
+// ============================================
+// Section Band Banner (Natural Ingredients)
+// Figma: 1920×390, gradient 0deg #60A884 → #F2FFB9 (bottom-up), CENTER 정렬
+// ============================================
+
+@use '../../../tokens/colors' as *;
+@use 'shared' as *;
+
+.section-band {
+  position: relative;
+  width: 100%;
+  min-height: 390px;
+  overflow: hidden;
+  background: linear-gradient(0deg, #60A884 0%, #F2FFB9 100%);
+
+  &__bg { display: none; } // Figma band uses gradient only, no image
+  &__image { display: none; }
+
+  &__inner {
+    position: relative;
+    z-index: 1;
+    max-width: $z-container;
+    margin: 0 auto;
+    padding: 80px $z-container-pad-x;
+    min-height: 390px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 32px;
+    text-align: center;
+    color: $Text-dark-color;
+  }
+  &__text { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  &__eyebrow {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.625;
+    color: $Brand-600;
+    letter-spacing: -0.025em;
+    margin: 0;
+  }
+  &__title {
+    font-weight: 500;
+    font-size: 34px;
+    line-height: 1.294;
+    letter-spacing: -0.025em;
+    color: $Text-dark-color;
+    margin: 0;
+    white-space: pre-line;
+  }
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 12px 28px;
+    border-radius: 100px;
+    background: $Primary-white-color;
+    color: $Brand-600;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.625;
+    letter-spacing: -0.025em;
+    text-decoration: none;
+    backdrop-filter: blur(15px);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    }
+  }
+
+  @media (max-width: 768px) {
+    min-height: 320px;
+    &__inner { min-height: 320px; padding: 60px 20px; gap: 24px; }
+    &__title { font-size: 24px; }
+  }
+}

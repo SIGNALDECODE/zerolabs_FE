@@ -1,5 +1,5 @@
 <script setup>
-import addressData from '~/data/address.json'
+import addressData from '~/data/mypage/address.json'
 
 const props = defineProps({
   zip: {

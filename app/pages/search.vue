@@ -1,5 +1,5 @@
 <script setup>
-import searchData from '~/data/search.json'
+import searchData from '~/data/common/search.json'
 
 const route = useRoute()
 

@@ -1,5 +1,5 @@
 <script setup>
-import reviewWriteData from '~/data/review-write.json'
+import reviewWriteData from '~/data/review/review-write.json'
 
 const route = useRoute()
 const router = useRouter()

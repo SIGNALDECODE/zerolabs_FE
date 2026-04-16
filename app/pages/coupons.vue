@@ -1,5 +1,5 @@
 <script setup>
-import couponData from '~/data/coupon-download.json'
+import couponData from '~/data/order/coupon-download.json'
 
 // SEO
 useHead({ title: couponData.seo.title })

@@ -1,5 +1,5 @@
 <script setup>
-import reviewData from '~/data/review.json'
+import reviewData from '~/data/review/review.json'
 
 useHead({ title: reviewData.seo.title })
 useSeoMeta({

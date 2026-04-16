@@ -1,5 +1,5 @@
 <script setup>
-import faqData from '~/data/faq.json'
+import faqData from '~/data/support/faq.json'
 
 useHead({ title: faqData.seo.title })
 useSeoMeta({

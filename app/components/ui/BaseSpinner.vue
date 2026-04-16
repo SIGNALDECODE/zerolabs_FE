@@ -1,5 +1,5 @@
 <script setup>
-import uiData from '~/data/ui.json'
+import uiData from '~/data/common/ui.json'
 
 defineProps({
   size: {

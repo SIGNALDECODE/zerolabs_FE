@@ -1,0 +1,153 @@
+// ============================================
+// Ingredients — 원료 선정 3원칙 (3-card grid)
+// Figma: 448×386 카드, 라운드 12, border #DDD, 내부 surface #F6F7FB
+// ============================================
+
+@use '../../../tokens/colors' as *;
+@use '../../../tokens/breakpoints' as *;
+@use '../../../tokens/spacing' as *;
+@use '../../../tokens/radius' as *;
+
+.ingredients-principles {
+  background: $Primary-white-color;
+  padding: 100px 0;
+
+  @include tablet {
+    padding: 72px 0;
+  }
+  @include mobile {
+    padding: 56px 0;
+  }
+
+  &__inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 $padding-10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+
+    @include mobile {
+      padding: 0 $padding-4;
+      gap: 32px;
+    }
+  }
+
+  &__head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+    max-width: 720px;
+  }
+  &__eyebrow {
+    margin: 0;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+    color: $Brand-600;
+  }
+  &__title {
+    margin: 0;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.35;
+    letter-spacing: -0.025em;
+    color: $Text-dark-color;
+
+    @include tablet {
+      font-size: 28px;
+    }
+    @include mobile {
+      font-size: 22px;
+    }
+  }
+  &__description {
+    margin: 4px 0 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.7;
+    letter-spacing: -0.02em;
+    color: #888888;
+    max-width: 560px;
+
+    @include mobile {
+      font-size: 13px;
+    }
+  }
+
+  &__grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+
+    @include tablet {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__card {
+    background: $Surface-product-bg;
+    border: 1px solid #DDDDDD;
+    border-radius: $radius-md;
+    padding: 40px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+  }
+  &__image-wrap {
+    width: 160px;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include mobile {
+      width: 128px;
+      height: 128px;
+    }
+  }
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 10px 20px rgba(27, 48, 36, 0.08));
+  }
+
+  &__card-title {
+    margin: 0;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.5;
+    letter-spacing: -0.025em;
+    color: $Text-dark-color;
+
+    @include mobile {
+      font-size: 18px;
+    }
+  }
+  &__card-desc {
+    margin: 0;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.7;
+    letter-spacing: -0.02em;
+    color: #666666;
+    white-space: pre-line;
+
+    @include mobile {
+      font-size: 13px;
+      white-space: normal;
+    }
+  }
+}

@@ -1,5 +1,5 @@
 <script setup>
-import qnaData from '~/data/qna.json'
+import qnaData from '~/data/review/qna.json'
 
 useHead({ title: qnaData.seo.title })
 useSeoMeta({

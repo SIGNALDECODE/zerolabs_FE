@@ -15,7 +15,7 @@ const props = defineProps({
   variant: {
     type: String,
     default: 'default',
-    validator: (v) => ['default', 'box'].includes(v)
+    validator: (v) => ['default', 'box', 'pill'].includes(v)
   },
   disabled: {
     type: Boolean,
@@ -88,6 +88,7 @@ onUnmounted(() => {
       :disabled="disabled"
       @click="toggle"
     >
+      <slot name="leading" />
       <span class="base-select__value" :class="{ 'base-select__value--placeholder': !hasValue }">
         {{ selectedLabel }}
       </span>

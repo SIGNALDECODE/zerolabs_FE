@@ -1,5 +1,5 @@
 <script setup>
-import categoryData from '~/data/category.json'
+import categoryData from '~/data/product/category.json'
 
 const route = useRoute()
 const router = useRouter()

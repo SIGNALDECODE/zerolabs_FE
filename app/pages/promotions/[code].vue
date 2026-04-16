@@ -26,7 +26,7 @@ onMounted(() => {
 })
 
 // SEO
-import promoData from '~/data/promotions.json'
+import promoData from '~/data/promotion/promotions.json'
 
 useHead({ title: computed(() => promotion.value?.name || promoData.seo.fallbackTitle) })
 useSeoMeta({

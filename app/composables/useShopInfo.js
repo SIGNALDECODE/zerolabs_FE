@@ -4,7 +4,7 @@
  * - useState로 SSR/CSR 모두 지원
  * - 앱 전체에서 재사용
  */
-import mockShopInfo from '~/data/shop-info.json'
+import mockShopInfo from '~/data/common/shop-info.json'
 
 export const useShopInfo = () => {
   // 전역 상태 (앱 전체에서 공유) — mock 모드에서는 JSON 으로 즉시 초기화

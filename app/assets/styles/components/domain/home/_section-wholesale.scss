@@ -1,0 +1,123 @@
+// ============================================
+// Section Wholesale (Frame 2095586803, 1400×490)
+// Figma: linear-gradient(90deg, $Brand-600 0%, transparent 62%) + image bg
+// ============================================
+
+@use '../../../tokens/colors' as *;
+@use 'shared' as *;
+
+.section-wholesale {
+  width: 100%;
+  max-width: $z-container;
+  margin: 120px auto 0;
+  padding: 0 $z-container-pad-x;
+
+  &__card {
+    position: relative;
+    min-height: 490px;
+    border-radius: 12px;
+    overflow: hidden;
+    color: $Primary-white-color;
+    background: $Brand-600;
+    isolation: isolate;
+  }
+  &__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+  &__content {
+    position: relative;
+    z-index: 2;
+    padding: 80px 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    max-width: 640px;
+  }
+  &__head {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  &__titles {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  &__eyebrow {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.625;
+    color: $Primary-white-color;
+    opacity: 0.9;
+    letter-spacing: -0.025em;
+    margin: 0;
+  }
+  &__title {
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 1.2778;
+    letter-spacing: -0.025em;
+    color: $Primary-white-color;
+    margin: 0;
+  }
+  &__description {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.556;
+    letter-spacing: -0.025em;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    white-space: pre-line;
+  }
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 0;
+  }
+  &__contact {
+    display: flex;
+    gap: 6px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.625;
+    color: $Primary-white-color;
+
+    dt { font-weight: 500; margin: 0; }
+    dd { margin: 0; }
+  }
+  &__cta {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
+    border-radius: 100px;
+    background: $Primary-white-color;
+    color: $Brand-600;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.556;
+    letter-spacing: -0.025em;
+    text-decoration: none;
+    backdrop-filter: blur(15px);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 80px;
+    &__card { min-height: 420px; }
+    &__content { padding: 48px 24px; gap: 32px; }
+    &__title { font-size: 28px; }
+  }
+}

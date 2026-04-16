@@ -1,5 +1,5 @@
 <script setup>
-import errorData from '~/data/error.json'
+import errorData from '~/data/common/error.json'
 
 const props = defineProps({
   error: {

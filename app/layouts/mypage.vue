@@ -1,5 +1,5 @@
 <script setup>
-import mypageData from '~/data/mypage.json'
+import mypageData from '~/data/mypage/mypage.json'
 import IconCart from '~/components/ui/icons/IconCart.vue'
 import IconReview from '~/components/ui/icons/IconReview.vue'
 import IconLock from '~/components/ui/icons/IconLock.vue'

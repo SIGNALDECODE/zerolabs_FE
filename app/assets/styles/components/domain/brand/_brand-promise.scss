@@ -1,0 +1,113 @@
+// ============================================
+// Brand Story — Our Promise (2col: copy + circular image)
+// Figma: 1399×581, display-size type, circle-masked photo
+// ============================================
+
+@use '../../../tokens/colors' as *;
+@use '../../../tokens/breakpoints' as *;
+@use '../../../tokens/spacing' as *;
+
+.brand-promise {
+  position: relative;
+  background: $Primary-white-color;
+  padding: 160px 0;
+
+  @include tablet {
+    padding: 100px 0;
+  }
+  @include mobile {
+    padding: 64px 0;
+  }
+
+  &__inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 $padding-10;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 64px;
+
+    @include tablet {
+      gap: 48px;
+      padding: 0 24px;
+    }
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      padding: 0 $padding-4;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  &__eyebrow {
+    margin: 0;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.625;
+    letter-spacing: -0.01em;
+    color: $Brand-600;
+  }
+  &__title {
+    margin: 0;
+    font-weight: 700;
+    font-size: 96px;
+    line-height: 1.1;
+    letter-spacing: -0.035em;
+    color: $Text-dark-color;
+    white-space: pre-line;
+
+    @include tablet {
+      font-size: 64px;
+      letter-spacing: -0.03em;
+    }
+    @include mobile {
+      font-size: 44px;
+      letter-spacing: -0.025em;
+    }
+  }
+  &__description {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: 8px;
+  }
+  &__description-line {
+    margin: 0;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.8;
+    letter-spacing: -0.02em;
+    color: #454545;
+
+    @include mobile {
+      font-size: 15px;
+      line-height: 1.7;
+    }
+  }
+
+  // Figma 68:8471 — 원 배경 + 져키가 합쳐진 단일 PNG (1351×1047)
+  &__media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1351 / 1047;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include mobile {
+      max-width: 520px;
+      margin: 0 auto;
+    }
+  }
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+}

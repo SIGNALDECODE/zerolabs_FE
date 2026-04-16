@@ -1,6 +1,6 @@
 <script setup>
-import guestOrderData from '~/data/guest-order.json'
-import mypageData from '~/data/mypage.json'
+import guestOrderData from '~/data/auth/guest-order.json'
+import mypageData from '~/data/mypage/mypage.json'
 
 useHead({ title: guestOrderData.seo.title })
 useSeoMeta({

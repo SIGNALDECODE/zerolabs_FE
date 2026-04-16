@@ -1,5 +1,5 @@
 <script setup>
-import orderCompleteData from '~/data/order-complete.json'
+import orderCompleteData from '~/data/order/order-complete.json'
 
 // 주문 정보가 없으면 페이지 렌더링 전에 메인으로 리다이렉트
 definePageMeta({

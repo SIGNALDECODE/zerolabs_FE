@@ -1,5 +1,5 @@
 <script setup>
-import signupData from '~/data/signup.json'
+import signupData from '~/data/auth/signup.json'
 
 useHead({ title: signupData.index.seo.title })
 useSeoMeta({

@@ -1,0 +1,118 @@
+// ============================================
+// Section Best Items — Figma 1:1 오버라이드
+// Figma: padding 120 0, header gap 8, chips gap 12, slider gap 28
+// ============================================
+
+@use '../../../tokens/colors' as *;
+@use '../../../tokens/spacing' as *;
+@use 'shared' as *;
+
+.section-best-items {
+  padding: 120px 0;
+  background: $Primary-white-color;
+
+  // Home 섹션 전용 product-card 미세 조정
+  .product-card {
+    &__link { padding: 0; }
+  }
+
+  &__inner {
+    max-width: $z-container;
+    margin: 0 auto;
+    padding: 0 $z-container-pad-x;
+    display: flex;
+    flex-direction: column;
+    gap: 28px; // Figma 4C6TZ7 gap between top group and product row
+  }
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 0 !important;
+    gap: 24px;
+  }
+  &__controls { display: none; } // Figma: no arrows — 4 products shown as grid
+  &__titles {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  &__eyebrow {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.625;
+    letter-spacing: -0.025em;
+    color: $Brand-600;
+    margin: 0;
+    text-align: left;
+  }
+  &__title {
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 1.2778;
+    letter-spacing: -0.025em;
+    color: $Text-dark-color;
+    margin: 0;
+
+    @media (max-width: 640px) { font-size: 28px; }
+  }
+  &__subtitle { display: none; } // Figma has no subtitle; only eyebrow + title
+  &__chips {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 32px 0 0; // Figma JKD8HD gap between titles and chips
+    align-items: center;
+  }
+  &__chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 28px;
+    border-radius: 999px;
+    border: 1px solid $Surface-chip-border;
+    background: $Primary-white-color;
+    color: $Text-muted-color;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: -0.025em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover { color: $Text-dark-color; border-color: $Border-hover-color; }
+    &.is-active {
+      background: $Brand-600;
+      color: $Primary-white-color;
+      border-color: $Brand-600;
+    }
+  }
+  &__slider-wrap { margin-top: 0; }
+  &__slider { gap: 28px !important; } // Figma BS4JT7 gap 28 (override existing 32)
+
+  // 하단 CTA (아웃라인 필)
+  &__cta {
+    align-self: center;
+    margin-top: $padding-section; // Figma 1S8L5D gap between product row and CTA
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
+    border: 1px solid $Text-dark-color;
+    border-radius: 100px;
+    background: $Primary-white-color;
+    color: $Text-dark-color;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: -0.025em;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      background: $Brand-600;
+      color: $Primary-white-color;
+    }
+  }
+}

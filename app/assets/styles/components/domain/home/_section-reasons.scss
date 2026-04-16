@@ -1,0 +1,151 @@
+// ============================================
+// Section Reasons (Why Zero Labs, 1116 wide)
+// Figma: center-aligned header, 4 cards gap 28px, bg #F4FAF8, shadow, padding 40px 0
+// Big ZERO LABS watermark positioned below cards (y=3964, x=920)
+// ============================================
+
+@use '../../../tokens/colors' as *;
+@use 'shared' as *;
+
+.section-reasons {
+  position: relative;
+  width: 100%;
+  max-width: $z-container;
+  margin: 120px auto 160px;
+  padding: 0 $z-container-pad-x;
+
+  &__inner {
+    position: relative;
+    isolation: isolate;
+    max-width: 1116px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  &__head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+    margin-bottom: 0;
+  }
+  &__head-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  &__eyebrow {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.625;
+    color: $Brand-600;
+    letter-spacing: -0.025em;
+    margin: 0;
+  }
+  &__title {
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 1.2778;
+    letter-spacing: -0.025em;
+    color: #262626;
+    margin: 0;
+  }
+  &__title-seg {
+    &.is-highlight {
+      color: $Brand-600;
+    }
+  }
+  &__description {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.5556;
+    letter-spacing: -0.025em;
+    color: #666666;
+    opacity: 0.9;
+    margin: 0;
+  }
+  &__grid {
+    position: relative;
+    z-index: 1;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+  }
+  &__card {
+    background: $Surface-brand-cream;
+    border-radius: 11.23px;
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    box-shadow: 2.8px 2.8px 9.8px 0 rgba(61, 107, 79, 0.2);
+    height: 308px;
+    text-align: center;
+  }
+  &__icon {
+    width: 168.42px;
+    height: 168.42px;
+    border-radius: 16.84px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  &__icon-image { width: 95.44px; height: 95.44px; object-fit: contain; }
+  &__icon-dot { width: 12px; height: 12px; background: $Brand-600; border-radius: 50%; }
+  &__card-title {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.5;
+    letter-spacing: -0.025em;
+    color: #262626;
+    margin: 0;
+    white-space: pre-line;
+    text-align: center;
+  }
+  &__mark {
+    position: absolute;
+    left: 85%;
+    bottom: -20%;
+    transform: translateX(-50%);
+    z-index: 0;
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+    font-size: 200px;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    color: $Surface-light-gray;
+    margin: 0;
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+
+    @media (max-width: 1024px) {
+      font-size: 140px;
+      bottom: -20px;
+    }
+    @media (max-width: 640px) {
+      font-size: 80px;
+      bottom: 0;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    margin-top: 80px;
+    margin-bottom: 100px;
+    &__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    &__title { font-size: 28px; }
+    &__grid { grid-template-columns: 1fr; }
+  }
+}

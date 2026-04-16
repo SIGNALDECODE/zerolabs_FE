@@ -1,0 +1,152 @@
+{
+  "seo": {
+    "title": "제품 원료 | 제로랩스",
+    "description": "산지부터 식탁까지, 제로랩스가 직접 선별한 5가지 천연 원료 이야기와 4단계 품질 검증 과정을 소개합니다.",
+    "ogTitle": "제품 원료 | 제로랩스",
+    "ogDescription": "산지부터 식탁까지, 제로랩스가 직접 선별한 천연 원료 이야기를 소개합니다.",
+    "ogImage": "/images/ingredients/hero-bg.png"
+  },
+  "hero": {
+    "eyebrow": "Natural Ingredients",
+    "title": "제로랩스의\n5가지 원료 이야기",
+    "description": "산지부터 식탁까지, 제로랩스가 직접 선별한\n천연 원료 이야기를 소개합니다.",
+    "image": "/images/ingredients/hero-bg.png",
+    "imageAlt": "제로랩스 원료 히어로 배경"
+  },
+  "intro": {
+    "titleSegments": [
+      { "text": "선별된 원료로, 좋은 제품 생산\n불필요한 첨가물 없이, " },
+      { "text": "필요한 원료", "highlight": true },
+      { "text": "만 담았습니다" }
+    ],
+    "descriptionSegments": [
+      { "text": "엄격한 검증 과정을 거쳐 사람이\n먹을 수 있을 정도로 " },
+      { "text": "안전한 원료", "highlight": true },
+      { "text": "만 사용합니다.\n인공 첨가물 없이, 반려견에게 꼭 필요한 영양만 담았습니다." }
+    ],
+    "mascotImage": "/images/ingredients/mascot.png",
+    "mascotAlt": "제로랩스 마스코트 굽빵"
+  },
+  "principles": {
+    "eyebrow": "Natural Ingredients",
+    "title": "원료 선정 3원칙",
+    "description": "제로랩스는 모든 원료를 세 가지 기준으로 검증합니다. 기준을 통과한 원료만이 제품에 담깁니다.",
+    "items": [
+      {
+        "id": "human-grade",
+        "image": "/images/ingredients/principle-human.png",
+        "imageAlt": "휴먼그레이드 아이콘",
+        "title": "휴먼그레이드",
+        "description": "사람이 먹어도 될 수준의 원료만 사용합니다.\n식품 등급 인증을 받은 원재료를 직접 검수합니다."
+      },
+      {
+        "id": "transparency",
+        "image": "/images/ingredients/principle-transparency.png",
+        "imageAlt": "산지 투명 공개 아이콘",
+        "title": "산지 투명 공개",
+        "description": "원료의 생산지, 등급, 가공 방식을 모두\n공개하고 숨길 것이 없는 원료만 사용합니다."
+      },
+      {
+        "id": "balance",
+        "image": "/images/ingredients/principle-balance.png",
+        "imageAlt": "균형 잡힌 영양 설계 아이콘",
+        "title": "균형 잡힌 영양 설계",
+        "description": "7가지 곡식과 7가지 채소를 배합한\n균형 영양 레시피로 수의 영양사와 함께 생산합니다."
+      }
+    ]
+  },
+  "keyIngredients": {
+    "eyebrow": "5 Key Ingredients",
+    "title": "핵심 5가지 천연 원료",
+    "description": "반려견의 건강을 위해 제로랩스가 선택한 핵심 원료를 소개합니다.",
+    "items": [
+      {
+        "id": "chicken",
+        "image": "/images/ingredients/ingredient-chicken.png",
+        "imageAlt": "국내산 닭가슴살",
+        "mediaSide": "left",
+        "title": "국내산 닭가슴살",
+        "description": "국내산 냉장 닭가슴살로 만든 고단백·저지방\n단백질 공급원으로, 근육 발달과 체중 관리에 도움을 줍니다.",
+        "tags": ["#고단백", "#저지방", "#국내산"]
+      },
+      {
+        "id": "salmon",
+        "image": "/images/ingredients/ingredient-salmon.png",
+        "imageAlt": "노르웨이산 연어",
+        "mediaSide": "right",
+        "title": "노르웨이산 연어",
+        "description": "오메가-3 지방산이 풍부한 연어를 사용합니다.\n피모 건강과 관절에 탁월하고 두뇌 발달에도 도움을 줍니다.",
+        "tags": ["#오메가-3", "#피모 건강", "#관절 지원"]
+      },
+      {
+        "id": "sweet-potato",
+        "image": "/images/ingredients/ingredient-sweetpotato.png",
+        "imageAlt": "국내산 고구마",
+        "mediaSide": "left",
+        "title": "국내산 고구마",
+        "description": "식이섬유와 베타카로틴이 풍부한 국내산\n고구마를 사용하고 장 건강과 면역력 강화에 도움을 줍니다.",
+        "tags": ["#식이섬유", "#장건강", "#베타카로틴"]
+      },
+      {
+        "id": "beef",
+        "image": "/images/ingredients/ingredient-beef.png",
+        "imageAlt": "국내산 소고기",
+        "mediaSide": "right",
+        "title": "국내산 소고기",
+        "description": "필수 아미노산이 풍부한 국내산 소고기를 사용합니다.\n근육 발달에 탁월하고 편식하는 반려견에게 효과적입니다.",
+        "tags": ["#높은 기호성", "#필수 아미노산", "#근육 발달"]
+      },
+      {
+        "id": "dried-pollack",
+        "image": "/images/ingredients/ingredient-dried-pollack.png",
+        "imageAlt": "황태",
+        "mediaSide": "left",
+        "title": "황태",
+        "description": "자연 건조 방식으로 만든 황태를 사용합니다. 단백질\n함량이 높고 나트륨이 낮고 소화 흡수율이 뛰어납니다.",
+        "tags": ["#고단백", "#저나트륨", "#소화흡수"]
+      }
+    ]
+  },
+  "quality": {
+    "eyebrow": "Quality Control",
+    "title": "4단계 품질 검증",
+    "description": "제품이 되기까지 4단계의 엄격한 검증 과정을 거칩니다. 매 배치마다 동일한 기준이 적용됩니다.",
+    "backgroundImage": "/images/ingredients/hero-bg.png",
+    "backgroundImageAlt": "품질 검증 배경",
+    "items": [
+      {
+        "id": "step-01",
+        "label": "STEP 01",
+        "title": "산지 직접 검수",
+        "description": "생산지를 직접 방문하여 재배 환경과 품질을 확인합니다."
+      },
+      {
+        "id": "step-02",
+        "label": "STEP 02",
+        "title": "성분 분석 검사",
+        "description": "공인 시험기관의 정밀 성분 분석을 통해 영양 수치와 안전성을 검증합니다."
+      },
+      {
+        "id": "step-03",
+        "label": "STEP 03",
+        "title": "수의 영양사 검토",
+        "description": "수의 영양사가 배합 비율과 영양 균형을 최종 검토합니다."
+      },
+      {
+        "id": "step-04",
+        "label": "STEP 04",
+        "title": "최종 함량 검증",
+        "description": "완성된 제품의 성분표와 실제 함량 일치 여부를 재확인합니다."
+      }
+    ]
+  },
+  "cta": {
+    "title": "“불필요한 첨가물 없이, 필요한 것만 담았습니다”",
+    "description": "과학이 만든 자연 영양 — 반려견이 행복한 선택",
+    "wordmark": "ZERO LABS",
+    "image": "/images/brand-story/cta-bg.png",
+    "imageAlt": "제로랩스 브랜드 CTA 배경",
+    "primary": { "label": "제품 보러가기", "href": "/category" },
+    "secondary": { "label": "브랜드 스토리", "href": "/brand-story" }
+  }
+}

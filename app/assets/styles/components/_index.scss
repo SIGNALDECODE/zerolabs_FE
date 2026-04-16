@@ -2,21 +2,26 @@
 // Components Index
 // ============================================
 
-@use 'button';
-@use 'checkbox';
-@use 'badge';
-@use 'tabs';
-@use 'empty';
-@use 'icons';
-@use 'header';
-@use 'footer';
-@use 'product-card';
-@use 'category-card';
-@use 'banner';
-@use 'sections';
-@use 'address-input';
-@use 'modal';
-@use 'spinner';
-@use 'skeleton';
-@use 'base-product-item';
-@use 'mobile-bottom-nav';
+// UI
+@use 'ui/button';
+@use 'ui/checkbox';
+@use 'ui/badge';
+@use 'ui/tabs';
+@use 'ui/empty';
+@use 'ui/icons';
+@use 'ui/modal';
+@use 'ui/spinner';
+@use 'ui/skeleton';
+@use 'ui/base-product-item';
+
+// Layout
+@use 'layout/header';
+@use 'layout/footer';
+@use 'layout/mobile-bottom-nav';
+
+// Domain
+@use 'domain/product/product-card';
+@use 'domain/home/category-card';
+@use 'domain/home/banner';
+@use 'domain/home/sections';
+@use 'domain/mypage/address-input';

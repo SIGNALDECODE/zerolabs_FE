@@ -1,6 +1,6 @@
 <script setup>
-import mainData from '~/data/main.json'
-import uiData from '~/data/ui.json'
+import mainData from '~/data/common/main.json'
+import uiData from '~/data/common/ui.json'
 
 const route = useRoute()
 const { faviconUrl, shopName, seoInfo, fetchShopInfo } = useShopInfo()

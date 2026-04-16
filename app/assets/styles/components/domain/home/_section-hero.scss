@@ -1,0 +1,97 @@
+// ============================================
+// Section Hero — Figma 1:1 오버라이드
+// ============================================
+
+@use '../../../tokens/colors' as *;
+
+.section-hero {
+  height: 700px;
+  min-height: 700px;
+  margin-top: 0;
+  position: relative;
+
+  @media (max-width: 1024px) { height: 560px; min-height: 560px; }
+  @media (max-width: 640px) { height: 460px; min-height: 460px; }
+
+  // Figma 히어로 하단 다크 그라디언트 (배너 전체 덮개)
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(360deg, rgba(0, 0, 0, 0.5) 37.57%, rgba(102, 102, 102, 0) 78.9%);
+    pointer-events: none;
+    z-index: 5;
+  }
+
+  &__image {
+    filter: none;
+  }
+
+  &__overlay--center {
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: none;
+  }
+
+  &__overlay--center & { // no-op placeholder for nested BEM
+    // handled below via specific modifiers
+  }
+
+  // override original left-align behavior when center modifier is present
+  &__overlay--center .section-hero__subtitle,
+  &__overlay--center .section-hero__title,
+  &__overlay--center .section-hero__description {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__subtitle {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.625;
+    letter-spacing: -0.025em;
+    color: $Primary-white-color;
+    opacity: 0.9;
+    margin: 0 0 8px;
+  }
+  &__title {
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 1.2083;
+    letter-spacing: -0.025em;
+    color: $Primary-white-color;
+    white-space: pre-line;
+    margin: 0;
+
+    @media (max-width: 1024px) { font-size: 36px; }
+    @media (max-width: 640px) { font-size: 28px; }
+  }
+  &__badge {
+    margin-top: 32px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    border-radius: 999px;
+    background: $Brand-600;
+    color: $Primary-white-color;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 1.77;
+    letter-spacing: -0.025em;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(27, 48, 36, 0.25);
+    transition: transform 0.2s ease;
+
+    &:hover { transform: translateY(-1px); }
+  }
+  &__badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: $Primary-white-color;
+  }
+}

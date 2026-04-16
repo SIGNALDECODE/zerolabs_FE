@@ -1,5 +1,5 @@
 <script setup>
-import orderData from '~/data/order.json'
+import orderData from '~/data/order/order.json'
 import { validate } from '~/utils/validators'
 
 const router = useRouter()

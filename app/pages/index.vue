@@ -1,7 +1,7 @@
 <script setup>
-import mainData from '~/data/main.json'
-import homeData from '~/data/home.json'
-import mockProducts from '~/data/mock-products.json'
+import mainData from '~/data/common/main.json'
+import homeData from '~/data/home/home.json'
+import mockProducts from '~/data/home/mock-products.json'
 
 useHead({ title: mainData.seo.title })
 useSeoMeta({
@@ -30,7 +30,7 @@ const bestProducts = computed(() => {
 })
 
 const newArrivalProducts = computed(() =>
-  mockProducts.products.filter(p => p.isNew).slice(0, 3)
+  mockProducts.products.filter(p => p.isNew).slice(0, 6)
 )
 
 let observer

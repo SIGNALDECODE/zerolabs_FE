@@ -1,0 +1,182 @@
+// ============================================
+// Brand Story — Natural Ingredients (2×2 카드 그리드)
+// Figma: chip(녹색) 상단 / 원형 이미지 중앙 / 본문 하단
+// ============================================
+
+@use '../../../tokens/colors' as *;
+@use '../../../tokens/breakpoints' as *;
+@use '../../../tokens/spacing' as *;
+@use '../../../tokens/radius' as *;
+
+.brand-ingredients {
+  background: $Primary-white-color;
+  padding: 120px 0;
+
+  @include tablet {
+    padding: 80px 0;
+  }
+  @include mobile {
+    padding: 56px 0;
+  }
+
+  &__inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 $padding-10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 56px;
+
+    @include mobile {
+      padding: 0 $padding-4;
+      gap: 36px;
+    }
+  }
+
+  &__head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+    max-width: 720px;
+  }
+  &__eyebrow {
+    margin: 0;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+    color: $Brand-600;
+  }
+  &__title {
+    margin: 0;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.35;
+    letter-spacing: -0.025em;
+    color: $Text-dark-color;
+
+    @include tablet {
+      font-size: 28px;
+    }
+    @include mobile {
+      font-size: 22px;
+    }
+  }
+  &__title-seg {
+    &.is-highlight {
+      color: $Brand-600;
+    }
+  }
+  &__description {
+    margin: 4px 0 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.7;
+    letter-spacing: -0.02em;
+    color: #888888;
+
+    @include mobile {
+      font-size: 13px;
+    }
+  }
+
+  &__grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 924px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+  &__card {
+    position: relative;
+    background: $Surface-product-bg;
+    border-radius: $radius-md;
+    padding: 24px 28px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  // chip: Figma — 녹색 bg + 흰 글자, 상단 좌측 정렬
+  &__chip {
+    align-self: flex-start;
+    padding: 6px 14px;
+    border-radius: $radius-xs;
+    background: $Brand-700;
+    color: $Primary-white-color;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+  }
+
+  // 원형 이미지 래퍼
+  &__image-wrap {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: $Primary-white-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include mobile {
+      width: 148px;
+      height: 148px;
+    }
+  }
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  &__body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    text-align: left;
+  }
+  &__card-title {
+    margin: 0;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.4;
+    letter-spacing: -0.025em;
+    color: $Text-dark-color;
+
+    @include mobile {
+      font-size: 16px;
+    }
+  }
+  &__card-desc {
+    margin: 0;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 1.7;
+    letter-spacing: -0.015em;
+    color: #888888;
+    white-space: pre-line;
+
+    @include mobile {
+      font-size: 12px;
+      white-space: normal;
+    }
+  }
+}

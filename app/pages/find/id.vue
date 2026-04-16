@@ -1,5 +1,5 @@
 <script setup>
-import findData from "~/data/find.json";
+import findData from "~/data/auth/find.json";
 
 const { post } = useApi();
 const router = useRouter();

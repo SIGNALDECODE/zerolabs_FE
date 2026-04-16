@@ -1,0 +1,556 @@
+// ============================================
+// 헤더 스타일 (portfolio 디자인)
+// ============================================
+
+@use '../../tokens/colors' as *;
+@use '../../tokens/spacing' as *;
+@use '../../tokens/typography' as *;
+@use '../../tokens/breakpoints' as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: 90px; // Figma: 1920×90
+  background: $Header-bg;
+  border-bottom: none;
+  transition: background-color 0.3s ease;
+
+  &--transparent {
+    background: transparent;
+  }
+
+  // 브랜드 그린 배경 위 텍스트/아이콘은 화이트
+  .header__menu-btn,
+  .header__nav-link,
+  .header__action-btn,
+  .header__login-link,
+  .header__logo-text {
+    color: $Primary-white-color;
+
+    .base-icon {
+      color: $Primary-white-color;
+    }
+  }
+
+  @include mobile {
+    height: $size-header-mobile;
+  }
+
+  &--scrolled {
+    .header__action-btn:focus-visible {
+      outline-color: $Primary-color;
+    }
+  }
+
+  &__inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 0 $container-padding;
+    max-width: 1400px; // Figma: inner 1400 centered in 1920
+    width: 100%;
+    height: 100%;
+
+    @include tablet {
+      padding: 0 $padding-6;
+    }
+
+    @include mobile {
+      padding: 0 $padding-4;
+    }
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: 60px; // Figma layout_4J8UH1 gap 60 (logo → nav)
+    flex: 0 0 auto;
+    min-width: 0;
+
+    @include tablet {
+      gap: 32px;
+    }
+
+    @include mobile {
+      gap: $padding-3;
+      flex: none;
+    }
+  }
+
+  &__menu-btn {
+    display: none;
+    padding: $padding-3;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: $Text-Primary-text-color;
+    transition: color 0.3s ease;
+
+    @include mobile {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .base-icon {
+      color: $Text-Primary-text-color;
+      transition: color 0.3s ease;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    text-decoration: none;
+  }
+
+  &__logo-img {
+    width: 100px; // Figma: logo 100×52
+    height: 52px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  &__logo-text {
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: $Text-Primary-text-color;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+
+    @include mobile {
+      font-size: 18px;
+    }
+  }
+
+  &--scrolled &__logo-text {
+    color: $Text-Primary-text-color;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  // Dropdown enter/leave transition
+  .dropdown-enter-active,
+  .dropdown-leave-active {
+    transition: opacity 0.18s ease, transform 0.18s ease;
+    transform-origin: top left;
+  }
+  .dropdown-enter-from,
+  .dropdown-leave-to {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.98);
+  }
+
+  &__nav-list {
+    display: flex;
+    gap: 40px; // Figma layout_6O1TN9 gap
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+
+    @include tablet {
+      gap: 24px;
+    }
+  }
+
+  &__nav-item {
+    position: relative;
+  }
+
+  &__nav-link {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.625;
+    letter-spacing: -0.025em;
+    color: $Text-Primary-text-color;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: opacity 0.2s ease;
+    background: none;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+
+    &--trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px; // Figma layout_M3MX89 gap 8
+      font: inherit;
+    }
+
+    @include tablet {
+      font-size: 15px;
+    }
+
+    &:hover { opacity: 0.6; }
+  }
+
+  &__nav-chevron {
+    transition: transform 0.2s ease;
+    &.is-open { transform: rotate(180deg); }
+  }
+
+  // Dropdown panel under "전체상품"
+  &__nav-dropdown {
+    position: relative;
+  }
+
+  &__nav-menu {
+    position: absolute;
+    top: calc(100% + 16px);
+    left: 0;
+    min-width: 200px;
+    padding: 12px;
+    margin: 0;
+    list-style: none;
+    background: $Primary-white-color;
+    border-radius: 12px;
+    box-shadow: 0 12px 32px rgba(27, 48, 36, 0.12);
+    z-index: 50;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: 28px;
+      width: 12px;
+      height: 12px;
+      background: $Primary-white-color;
+      transform: rotate(45deg);
+      border-radius: 2px;
+    }
+  }
+
+  &__nav-menu-item {
+    margin: 0;
+  }
+
+  &__nav-menu-link {
+    display: block;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.6;
+    color: $Text-Primary-text-color;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.15s ease, color 0.15s ease;
+
+    &:hover {
+      background: $Brand-50;
+      color: $Brand-600;
+    }
+    &.router-link-active {
+      color: $Brand-600;
+      font-weight: 500;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 16px; // Figma layout_K7755F
+
+    @include mobile {
+      gap: $padding-2;
+    }
+  }
+
+  &__action-btn {
+    display: grid;
+    place-items: center;
+    width: $padding-9;
+    height: $padding-9;
+    padding: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: $Text-Primary-text-color;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+
+    .base-icon {
+      color: $Text-Primary-text-color;
+      transition: color 0.3s ease;
+    }
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $Primary-color;
+      outline-offset: 2px;
+    }
+  }
+
+  // Login link
+  &__login-link {
+    @include typo-body-2;
+    color: $Text-Primary-text-color;
+    text-decoration: none;
+    padding: $padding-2;
+    transition: opacity 0.2s ease;
+
+    @include mobile {
+      @include typo-body-4;
+    }
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+  // User dropdown
+  &__user-wrapper {
+    position: relative;
+  }
+
+  // Signup badge (말풍선) under user icon
+  &__signup-badge {
+    position: absolute;
+    top: calc(100% + 6px); // 아이콘 아래 + 꼬리 여유
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 92px;
+    height: 34px;
+    text-decoration: none;
+    pointer-events: auto;
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__signup-badge-bg {
+    position: absolute;
+    inset: 0;
+    display: block;
+    background-color: $Brand-600;
+    mask-image: url('/images/cloudtext.svg');
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+    -webkit-mask-image: url('/images/cloudtext.svg');
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: contain;
+    transition: background-color 0.3s ease;
+  }
+
+  &__signup-badge-label {
+    position: relative;
+    z-index: 1;
+    padding-top: 6px; // SVG 상단 꼬리(6px) 보정
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    color: $Primary-white-color;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+  }
+
+  // 스크롤/검색/모바일메뉴 열림 시: 말풍선만 화이트로
+  &--scrolled &__signup-badge-bg {
+    background-color: $Primary-white-color;
+  }
+  &--scrolled &__signup-badge-label {
+    color: $Brand-600;
+  }
+
+  &__user-menu {
+    position: absolute;
+    top: calc(100% + #{$padding-2});
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 110px;
+    background: $Primary-white-color;
+    border: 1px solid $Border-Border-line-100;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    z-index: 101;
+
+    @include mobile {
+      left: auto;
+      right: 0;
+      transform: none;
+    }
+  }
+
+  &__user-menu-item {
+    display: block;
+    width: 100%;
+    padding: $padding-2;
+    background: transparent;
+    border: none;
+    @include typo-body-2;
+    color: $Text-Primary-text-color;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: $Bg-Primary-bg-color;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $Primary-color;
+      outline-offset: -2px;
+    }
+
+    & + & {
+      border-top: 1px solid $Border-Border-line-100;
+    }
+  }
+}
+
+// Dropdown transition
+.dropdown-enter-active,
+.dropdown-leave-active {
+  transition: opacity 0.15s ease;
+}
+
+.dropdown-enter-from,
+.dropdown-leave-to {
+  opacity: 0;
+}
+
+// ============================================
+// Mobile Navigation
+// ============================================
+
+.mobile-nav {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+
+  &__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  &__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 80%;
+    max-width: 320px;
+    background: $Primary-white-color;
+    padding: 72px $padding-6 $padding-6;
+    overflow-y: auto;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: $padding-2;
+  }
+
+  &__link {
+    display: block;
+    padding: $padding-3 0;
+    @include typo-title-5;
+    color: $Text-Primary-text-color;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover,
+    &.router-link-active {
+      color: $Primary-color;
+    }
+  }
+
+  &__sublist {
+    list-style: none;
+    margin: 0 0 8px;
+    padding: 0 0 0 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    border-left: 2px solid $Surface-chip-border;
+  }
+
+  &__sublink {
+    display: block;
+    padding: 8px 12px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.6;
+    color: $Text-sub-color;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background 0.15s ease, color 0.15s ease;
+
+    &:hover,
+    &.router-link-active {
+      background: $Brand-50;
+      color: $Brand-600;
+    }
+  }
+}
+
+// Mobile nav transition
+.mobile-nav-enter-active {
+  transition: opacity 0.3s ease;
+  .mobile-nav__content { transition: transform 0.3s ease; }
+}
+
+.mobile-nav-leave-active {
+  transition: opacity 0.3s ease;
+  .mobile-nav__content { transition: transform 0.3s ease; }
+}
+
+.mobile-nav-enter-from,
+.mobile-nav-leave-to {
+  opacity: 0;
+  .mobile-nav__content { transform: translateX(-100%); }
+}
+
+// --------------------------------------------
+// Mobile: 로고 중앙, 햄버거는 좌측 절대 배치, 우측 액션 숨김
+// --------------------------------------------
+@include mobile {
+  .header__inner {
+    position: relative;
+    justify-content: center;
+  }
+
+  .header__left {
+    flex: 0 0 auto;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .header__menu-btn,
+  .header__actions {
+    display: none !important;
+  }
+}

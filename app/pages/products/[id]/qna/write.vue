@@ -1,5 +1,5 @@
 <script setup>
-import qnaWriteData from '~/data/qna-write.json'
+import qnaWriteData from '~/data/review/qna-write.json'
 
 const route = useRoute()
 const router = useRouter()

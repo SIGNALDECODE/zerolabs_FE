@@ -1,5 +1,5 @@
 <script setup>
-import iconsData from '~/data/icons.json'
+import iconsData from '~/data/common/icons.json'
 
 const props = defineProps({
   type: {

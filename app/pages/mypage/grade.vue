@@ -1,5 +1,5 @@
 <script setup>
-import mypageData from "~/data/mypage.json";
+import mypageData from "~/data/mypage/mypage.json";
 
 definePageMeta({
   layout: "mypage"

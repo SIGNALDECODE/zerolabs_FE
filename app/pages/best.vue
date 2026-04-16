@@ -1,6 +1,6 @@
 <script setup>
-import bestData from '~/data/best.json'
-import mockData from '~/data/mock-products.json'
+import bestData from '~/data/product/best.json'
+import mockData from '~/data/home/mock-products.json'
 
 useHead({ title: bestData.seo.title })
 useSeoMeta({

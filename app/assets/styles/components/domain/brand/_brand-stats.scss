@@ -1,0 +1,137 @@
+// ============================================
+// Brand Story — Stats Strip
+// Figma: 민트 #E4F2ED bg, 좌측 타이틀+본문 / 우측 2×2 스탯 그리드
+// ============================================
+
+@use '../../../tokens/colors' as *;
+@use '../../../tokens/breakpoints' as *;
+@use '../../../tokens/spacing' as *;
+
+.brand-stats {
+  background: #E4F2ED;
+  padding: 96px 0;
+
+  @include tablet {
+    padding: 72px 0;
+  }
+  @include mobile {
+    padding: 56px 0;
+  }
+
+  &__inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 $padding-10;
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 80px;
+
+    @include tablet {
+      gap: 48px;
+      padding: 0 24px;
+    }
+    @include mobile {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      padding: 0 $padding-4;
+    }
+  }
+
+  &__head {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  &__title {
+    margin: 0;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 1.4;
+    letter-spacing: -0.025em;
+    color: $Text-dark-color;
+    white-space: pre-line;
+
+    @include tablet {
+      font-size: 26px;
+    }
+    @include mobile {
+      font-size: 22px;
+      white-space: normal;
+    }
+  }
+  &__title-seg {
+    &.is-highlight {
+      color: $Brand-600;
+    }
+  }
+  &__description {
+    margin: 0;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.7;
+    letter-spacing: -0.02em;
+    color: #666666;
+    white-space: pre-line;
+
+    @include mobile {
+      font-size: 13px;
+      white-space: normal;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 32px;
+    column-gap: 48px;
+
+    @include mobile {
+      column-gap: 24px;
+      row-gap: 24px;
+    }
+  }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-align: left;
+  }
+  &__value {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Inter', 'Pretendard', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: $Text-Primary-text-color;
+
+    @include mobile {
+      font-size: 32px;
+    }
+  }
+  &__value-icon {
+    --icon-color-primary: #FFC60C;
+    transform: translateY(-2px);
+  }
+  &__value-text {
+    display: inline-block;
+  }
+  &__label {
+    margin: 0;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 1.5;
+    letter-spacing: -0.02em;
+    color: #888888;
+
+    @include mobile {
+      font-size: 12px;
+    }
+  }
+}

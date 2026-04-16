@@ -1,5 +1,5 @@
 <script setup>
-import cartData from '~/data/cart.json'
+import cartData from '~/data/order/cart.json'
 
 useHead({ title: cartData.seo.title })
 useSeoMeta({

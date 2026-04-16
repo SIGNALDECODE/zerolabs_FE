@@ -1,0 +1,168 @@
+// ============================================
+// Brand Story — CTA Banner
+// Figma: 1920×520, green gradient (#3D6B4F → #F2FFB9), wordmark watermark, 2 pill buttons
+// ============================================
+
+@use '../../../tokens/colors' as *;
+@use '../../../tokens/breakpoints' as *;
+@use '../../../tokens/spacing' as *;
+
+.brand-cta {
+  position: relative;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: $Primary-white-color;
+
+  @include tablet {
+    min-height: 420px;
+  }
+  @include mobile {
+    min-height: 360px;
+  }
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  &__bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  &__gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, $Brand-600 0%, rgba(242, 255, 185, 0.65) 100%);
+    mix-blend-mode: multiply;
+
+    // second layer to soften the top and push green dominance
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(61, 107, 79, 0.85) 0%, rgba(61, 107, 79, 0.25) 100%);
+    }
+  }
+
+  &__wordmark {
+    position: absolute;
+    left: 50%;
+    bottom: -7.2%;
+    transform: translateX(-50%);
+    font-family: 'Gmarket Sans', 'Pretendard', sans-serif;
+    font-weight: 700;
+    font-size: clamp(72px, 14vw, 200px);
+    letter-spacing: 0.13em;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.1);
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  &__inner {
+    position: relative;
+    z-index: 2;
+    max-width: 1100px;
+    width: 100%;
+    padding: 0 $padding-10;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    @include mobile {
+      padding: 0 $padding-4;
+      gap: 16px;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 1.278;
+    letter-spacing: -0.025em;
+    color: $Primary-white-color;
+
+    @include tablet {
+      font-size: 28px;
+    }
+    @include mobile {
+      font-size: 20px;
+    }
+  }
+  &__description {
+    margin: 0;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.556;
+    letter-spacing: -0.02em;
+    color: rgba(255, 255, 255, 0.85);
+
+    @include mobile {
+      font-size: 14px;
+    }
+  }
+  &__buttons {
+    margin-top: 16px;
+    display: inline-flex;
+    gap: 12px;
+
+    @include mobile {
+      flex-direction: column;
+      width: 100%;
+      max-width: 320px;
+    }
+  }
+  &__button {
+    min-width: 176px;
+    padding: 14px 28px;
+    border-radius: 100px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.556;
+    letter-spacing: -0.02em;
+    text-decoration: none;
+    text-align: center;
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+
+    &--primary {
+      background: $Primary-white-color;
+      color: $Brand-700;
+
+      &:hover {
+        background: $Brand-50;
+      }
+    }
+    &--secondary {
+      background: transparent;
+      color: $Primary-white-color;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.12);
+        border-color: $Primary-white-color;
+      }
+    }
+  }
+}
+
+// CTA 섹션이 녹색 그라디언트로 끝나므로 푸터(동일 $Brand-600) 상단 여백 제거
+// 브랜드 스토리 / 제품 원료 등 브랜드 CTA로 끝나는 페이지에 적용
+:root:has(.brand-story .brand-cta) .footer,
+:root:has(.ingredients .brand-cta) .footer {
+  margin-top: 0;
+}

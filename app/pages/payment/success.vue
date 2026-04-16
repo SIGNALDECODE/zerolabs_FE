@@ -1,5 +1,5 @@
 <script setup>
-import paymentData from '~/data/payment.json'
+import paymentData from '~/data/order/payment.json'
 
 const route = useRoute()
 const router = useRouter()

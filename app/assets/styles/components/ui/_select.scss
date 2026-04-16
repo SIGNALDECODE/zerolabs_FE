@@ -1,0 +1,261 @@
+// ============================================
+// 셀렉트 박스 스타일
+// ============================================
+
+@use '../../tokens/colors' as *;
+@use '../../tokens/spacing' as *;
+@use '../../tokens/typography' as *;
+@use '../../tokens/breakpoints' as *;
+
+.base-select {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+
+
+  // --------------------------------------------
+  // Default Variant
+  // --------------------------------------------
+
+  &--default {
+    .base-select__trigger {
+      display: flex;
+      align-items: center;
+      gap: $padding-2;
+      padding: $padding-2 0;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      @include typo-body-2;
+      color: $Text-Primary-text-color;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: $Text-Secondary-text-color;
+      }
+    }
+  }
+
+  // --------------------------------------------
+  // Pill Variant (툴바 정렬 버튼)
+  // --------------------------------------------
+
+  &--pill {
+    .base-select__trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: $padding-2;
+      height: 36px;
+      padding: 0 $padding-4;
+      background: $Primary-white-color;
+      border: 1px solid $Border-Border-line-100;
+      border-radius: 999px;
+      cursor: pointer;
+      @include typo-body-2;
+      color: $Text-Primary-text-color;
+      transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+
+      .base-icon {
+        color: inherit;
+      }
+
+      @include mobile {
+        height: 32px;
+        padding: 0 $padding-3;
+        gap: $padding-1;
+        @include typo-body-4;
+      }
+
+      &:hover:not(:disabled) {
+        border-color: $Primary-color;
+        color: $Primary-color;
+      }
+    }
+  }
+
+  &--pill#{&}--open {
+    .base-select__trigger {
+      border-color: $Primary-color;
+      color: $Primary-color;
+      background: $Brand-50;
+    }
+  }
+
+  &--pill &__dropdown {
+    min-width: 160px;
+    padding: $padding-1 0;
+    border: 1px solid $Border-Border-line-100;
+    box-shadow: 0 8px 20px rgba(17, 48, 36, 0.08);
+  }
+
+  &--pill &__option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $padding-3;
+    padding: $padding-2 $padding-4;
+    @include typo-body-3;
+    color: $Text-Secondary-text-color;
+
+    &::after {
+      content: '';
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M3.5 8.5L6.5 11.5L12.5 5' stroke='%233D6B4F' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0;
+    }
+
+    &--selected {
+      background: $Brand-50;
+      color: $Primary-color;
+      font-weight: 500;
+
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+
+  // --------------------------------------------
+  // Box Variant
+  // --------------------------------------------
+
+  &--box {
+    display: block;
+    width: 100%;
+
+    .base-select__trigger {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      height: 52px;
+      padding: 0 $padding-4;
+
+      @include mobile {
+        height: 40px;
+      }
+      background: $Primary-white-color;
+      border: 1px solid $Border-Border-line-100;
+      border-radius: 4px;
+      cursor: pointer;
+      @include typo-body-2;
+      color: $Text-Primary-text-color;
+      transition: border-color 0.2s ease;
+
+      &:hover:not(:disabled) {
+        border-color: $Border-Border-line-200;
+      }
+
+      &:disabled {
+        background: $Bg-Primary-bg-color;
+        border-color: $Border-Border-line-100;
+        cursor: not-allowed;
+      }
+    }
+
+    .base-select__value--placeholder {
+      color: $Text-Thirty-text-color;
+    }
+
+    .base-select__dropdown {
+      left: 0;
+      right: 0;
+      min-width: 100%;
+      max-height: 150px;
+      overflow-y: auto;
+    }
+  }
+
+  &--disabled {
+    .base-select__trigger {
+      background: $Bg-Primary-bg-color;
+      cursor: not-allowed;
+    }
+  }
+
+  &__value {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @include mobile {
+      @include typo-body-4;
+    }
+  }
+
+  &__arrow {
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+    color: $Text-Secondary-text-color;
+
+    @include mobile {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &--open &__arrow {
+    transform: rotate(180deg);
+  }
+
+  &__dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 50;
+    min-width: 120px;
+    margin: $padding-2 0 0;
+    padding: $padding-2 0;
+    background: $Primary-white-color;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    list-style: none;
+    overflow: hidden;
+    transform-origin: top right;
+  }
+
+  &__option {
+    padding: $padding-3 $padding-4;
+    @include typo-body-2;
+    color: $Text-Secondary-text-color;
+
+    @include mobile {
+      @include typo-body-4;
+      padding: $padding-2 $padding-3;
+    }
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      background: $Bg-Secondary-bg-color;
+      color: $Text-Primary-text-color;
+    }
+
+    &--selected {
+      color: $Primary-color;
+      font-weight: 500;
+    }
+  }
+}
+
+// Dropdown animation
+.dropdown-enter-active,
+.dropdown-leave-active {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.dropdown-enter-from,
+.dropdown-leave-to {
+  opacity: 0;
+  transform: scaleY(0.9);
+}
+
+.dropdown-enter-to,
+.dropdown-leave-from {
+  opacity: 1;
+  transform: scaleY(1);
+}

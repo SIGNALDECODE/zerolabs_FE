@@ -1,5 +1,5 @@
 <script setup>
-import supportData from '~/data/support.json'
+import supportData from '~/data/support/support.json'
 
 const router = useRouter()
 const authStore = useAuthStore()

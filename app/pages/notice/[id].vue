@@ -1,5 +1,5 @@
 <script setup>
-import noticesData from '~/data/notices.json'
+import noticesData from '~/data/support/notices.json'
 
 const route = useRoute()
 const noticeId = computed(() => route.params.id)

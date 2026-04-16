@@ -1,5 +1,5 @@
 <script setup>
-import uiData from '~/data/ui.json'
+import uiData from '~/data/common/ui.json'
 
 const common = uiData.common
 const paginationLabels = uiData.pagination
@@ -119,13 +119,14 @@ const nextPage = () => {
 <template>
   <nav class="base-pagination" :aria-label="paginationLabels.ariaLabel">
     <button
-      v-if="canGoPrev"
       type="button"
       class="base-pagination__btn base-pagination__btn--prev"
       :aria-label="prevText"
+      :disabled="!canGoPrev"
       @click="prevPage"
     >
       <IconArrow direction="left" size="sm" />
+      <span class="base-pagination__btn-label">{{ prevText }}</span>
     </button>
 
     <ul class="base-pagination__pages">
@@ -180,12 +181,13 @@ const nextPage = () => {
     </ul>
 
     <button
-      v-if="canGoNext"
       type="button"
       class="base-pagination__btn base-pagination__btn--next"
       :aria-label="nextText"
+      :disabled="!canGoNext"
       @click="nextPage"
     >
+      <span class="base-pagination__btn-label">{{ nextText }}</span>
       <IconArrow direction="right" size="sm" />
     </button>
   </nav>

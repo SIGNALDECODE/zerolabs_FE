@@ -1,0 +1,150 @@
+// ============================================
+// Section Philosophy (Frame 6:1018, 1920×640)
+// 구조: section(녹색 배경판) > panel(이미지 카드, 라운드 하단)
+// panel이 section을 덮고, section의 padding-bottom이 푸터와 이어지는 녹색 영역 역할
+// ============================================
+
+@use '../../../tokens/colors' as *;
+@use 'shared' as *;
+
+.section-philosophy {
+  position: relative;
+  margin-top: 80px;
+  background: $Brand-600;
+  padding-bottom: 60px; // 카드 아래로 이어지는 녹색 영역
+
+  &__panel {
+    position: relative;
+    min-height: 640px;
+    overflow: hidden;
+    border-radius: 0 0 60px 60px;
+    background: $Brand-600;
+  }
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  &__bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__inner {
+    position: relative;
+    z-index: 2;
+    max-width: $z-container;
+    margin: 0 auto;
+    // Figma text block x=1050, ends at x=1420 in 1920 frame
+    // → 1400 container 기준 우측 여유 200px 확보
+    padding-left: $z-container-pad-x;
+    padding-right: calc(#{$z-container-pad-x} + 200px);
+    min-height: 640px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  &__content {
+    width: 370px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    text-align: left;
+  }
+  &__head {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  &__eyebrow {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.625;
+    letter-spacing: -0.025em;
+    color: $Brand-600;
+    margin: 0;
+  }
+  &__title {
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 1.2778;
+    letter-spacing: -0.025em;
+    color: $Text-dark-color;
+    margin: 0;
+    white-space: pre-line;
+  }
+  &__description {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.556;
+    letter-spacing: -0.025em;
+    color: $Text-sub-color;
+    opacity: 0.9;
+    margin: 0;
+    white-space: pre-line;
+  }
+  &__description-seg {
+    &.is-highlight {
+      color: $Brand-600;
+    }
+  }
+  &__cta {
+    width: 226px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 0;
+    border-radius: 100px;
+    background: $Brand-600;
+    color: $Primary-white-color;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.556;
+    letter-spacing: -0.025em;
+    text-decoration: none;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(27, 48, 36, 0.3);
+    }
+  }
+
+  @media (max-width: 1024px) {
+    margin-top: 60px;
+    padding-bottom: 40px;
+
+    &__panel {
+      min-height: 520px;
+      border-radius: 0 0 40px 40px;
+    }
+    &__inner {
+      min-height: 520px;
+      padding: 80px 24px;
+      justify-content: flex-start;
+    }
+    &__content {
+      width: 100%;
+      max-width: 520px;
+    }
+  }
+  @media (max-width: 640px) {
+    &__title { font-size: 28px; }
+    &__cta { width: 100%; max-width: 320px; }
+  }
+}
+
+// 홈 전용: Philosophy(녹색 배경판) → Footer(동일 $Brand-600) 이음새 없이 연결
+// 푸터 상단 여백 제거로 Philosophy 섹션 바닥이 바로 푸터로 이어짐
+:root:has(.page-main .section-philosophy) .footer {
+  margin-top: 0;
+}

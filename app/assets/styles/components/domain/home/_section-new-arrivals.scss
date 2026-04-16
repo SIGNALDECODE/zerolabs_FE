@@ -1,0 +1,160 @@
+// ============================================
+// Section New Arrivals (신상품)
+// 타이틀 영역 배경(#F4FAF8 = $Surface-brand-cream)을 z-index 0으로 깔고,
+// 상품 카드 영역(흰색 라운드 박스)을 z-index 2로 그 위에 겹치는 레이어 구조
+// ============================================
+
+@use '../../../tokens/colors' as *;
+@use 'shared' as *;
+
+.section-new-arrivals {
+  position: relative;
+  margin: 0;
+  padding: 120px 0;
+  overflow: hidden;
+  isolation: isolate;
+
+  // Home 섹션 전용 product-card 미세 조정
+  .product-card {
+    &__link { padding: 0; }
+  }
+
+  // 타이틀 영역 배경 — 좌측 기준, 우측만 라운드 처리, 카드 영역 아래에 깔림
+  &__title-bg {
+    position: absolute;
+    left: 0;
+    top: 80px;
+    bottom: 80px;
+    width: 72%;
+    background: $Surface-brand-cream;
+    border-radius: 0 40px 40px 0;
+    z-index: 0;
+  }
+
+  &__inner {
+    position: relative;
+    z-index: 1;
+    max-width: $z-container;
+    margin: 0 auto;
+    padding: 0 $z-container-pad-x;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+  }
+
+  &__head {
+    flex: 0 0 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    z-index: 1;
+  }
+  &__titles {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  &__title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  &__eyebrow {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.625;
+    color: $Brand-600;
+    letter-spacing: -0.025em;
+    margin: 0;
+  }
+  &__title {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 1.3;
+    letter-spacing: -0.025em;
+    color: $Text-dark-color;
+    margin: 0;
+    white-space: pre-line;
+  }
+  &__description {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.6;
+    letter-spacing: -0.025em;
+    color: $Text-sub-color;
+    margin: 0;
+    white-space: pre-line;
+  }
+  &__cta {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
+    border: 1px solid $Brand-600;
+    border-radius: 100px;
+    background: transparent;
+    color: $Brand-600;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 1.5;
+    letter-spacing: -0.025em;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+
+    &:hover { background: $Brand-600; color: $Primary-white-color; }
+  }
+  &__controls {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+  }
+
+  // 상품 카드 영역 — 흰색 라운드 박스가 타이틀 배경 위에 올라옴
+  &__cards {
+    position: relative;
+    z-index: 2;
+    flex: 1 1 auto;
+    min-width: 0;
+    background: $Primary-white-color;
+    border-radius: 40px;
+    padding: 60px 48px;
+    box-shadow: 0 8px 32px rgba(61, 107, 79, 0.08);
+  }
+  &__viewport {
+    overflow: hidden;
+  }
+  &__track {
+    display: flex;
+    gap: 28px;
+    transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+    will-change: transform;
+  }
+  &__item {
+    flex: 0 0 auto;
+  }
+
+  @media (max-width: 1024px) {
+    padding: 80px 0;
+
+    &__title-bg {
+      top: 40px;
+      bottom: 40px;
+      width: 100%;
+      border-radius: 0;
+    }
+    &__inner {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 32px;
+      padding: 0 24px;
+    }
+    &__head { flex: 0 0 auto; }
+    &__cards { padding: 32px 24px; border-radius: 24px; }
+  }
+  @media (max-width: 640px) {
+    &__title { font-size: 26px; }
+    &__cards { padding: 24px 16px; }
+  }
+}

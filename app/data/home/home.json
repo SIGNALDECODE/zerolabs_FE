@@ -1,0 +1,87 @@
+{
+  "hero": {
+    "eyebrow": "Zero Labs Snack",
+    "title": "먹는 순간,\n건강이 달라지는 간식",
+    "badgeLabel": "1초 회원가입",
+    "image": "/images/figma/hero-bg.png",
+    "imageAlt": "제로랩스 히어로",
+    "ctaLabel": "회원가입",
+    "ctaHref": "/signup"
+  },
+  "best": {
+    "eyebrow": "Best Items",
+    "title": "베스트 상품",
+    "chips": [
+      { "id": "all", "label": "전체" },
+      { "id": "jerky", "label": "져키" },
+      { "id": "cereal", "label": "시리얼" },
+      { "id": "chewing", "label": "추잉껌" }
+    ],
+    "ctaLabel": "베스트 상품 더보기",
+    "ctaHref": "/best"
+  },
+  "bandBanner": {
+    "eyebrow": "Natural Ingredients",
+    "title": "자연 재료 이야기,\n5가지 엄선된 천연 원료",
+    "ctaLabel": "재료 원료 알아보기",
+    "ctaHref": "/support",
+    "image": "/images/figma/band-natural.png",
+    "imageAlt": "자연 재료 배경"
+  },
+  "newArrivals": {
+    "eyebrow": "New Arrivals",
+    "title": "새로운 신상품",
+    "description": "여러 가지 맛을 한 번에,\n샘플팩으로 먼저 경험해보세요.",
+    "ctaLabel": "신상품 더보기",
+    "ctaHref": "/products?sort=new",
+    "arrowLabels": {
+      "prev": "이전 신상품",
+      "next": "다음 신상품"
+    }
+  },
+  "wholesale": {
+    "eyebrow": "Wholesale Inquiry",
+    "title": "도매 입점 문의",
+    "description": "제로랩스 제품의 입점 문의는\n아래 연락처로 편하게 남겨주세요.",
+    "contacts": [
+      { "label": "T", "value": "010-6532-4544" },
+      { "label": "E", "value": "bldh2025@naver.com" }
+    ],
+    "ctaLabel": "입점 문의하기",
+    "ctaHref": "/support",
+    "image": "/images/figma/wholesale_designed.png",
+    "imageAlt": "도매 입점 이미지"
+  },
+  "reasons": {
+    "eyebrow": "Why Zero Labs",
+    "title": "제로랩스를 믿고 선택하는 4가지 이유",
+    "titleSegments": [
+      { "text": "제로랩스를 믿고 선택하는 " },
+      { "text": "4가지", "highlight": true },
+      { "text": " 이유" }
+    ],
+    "description": "시작부터 전달까지, 모든 과정에 기준을 더했습니다.",
+    "items": [
+      { "id": "human-grade", "iconImage": "/images/icons/trusticon1.svg", "title": "휴먼그레이드\n프리미엄 원료 사용" },
+      { "id": "vet",          "iconImage": "/images/icons/trusticon2.svg", "title": "수의 영양사와\n협력 개발" },
+      { "id": "shipping",     "iconImage": "/images/icons/trusticon3.svg", "title": "당일 출고\n(2시 이전 주문 건)" },
+      { "id": "wholesale",    "iconImage": "/images/icons/trusticon4.svg", "title": "기업 전용\n저렴한 단가" }
+    ]
+  },
+  "brandMark": {
+    "text": "ZERO LABS"
+  },
+  "philosophy": {
+    "eyebrow": "Our Philosophy",
+    "title": "반려견 건강,\n먹는 것부터 다르게",
+    "descriptionSegments": [
+      { "text": "‘없애다’", "highlight": true },
+      { "text": "에서 시작한 건강 기준,\n첨가물 없이 좋은 원료와 균형 잡힌 영양만 담았습니다." }
+    ],
+    "description": "‘없애다’에서 시작한 건강 기준,\n첨가물 없이 좋은 원료와 균형 잡힌 영양만 담았습니다.",
+    "ctaLabel": "브랜드 스토리 더보기",
+    "ctaHref": "/support",
+    "backgroundImage": "/images/philosophy.png",
+    "backgroundImageAlt": "브랜드 철학 배경"
+  }
+}

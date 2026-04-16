@@ -1,0 +1,221 @@
+{
+  "seo": {
+    "title": "Zero Labs | 반려견을 위한 정직한 간식",
+    "description": "국내산 원물과 저온 건조 공법으로 만든 반려견 전용 간식. 불필요한 것을 빼고 꼭 필요한 영양만 담았습니다.",
+    "ogImage": "/images/placeholder.svg"
+  },
+  "header": {
+    "logo": {
+      "alt": "Zero Labs",
+      "src": "/images/logo.png",
+      "menuLabel": "메뉴 열기",
+      "searchLabel": "검색",
+      "searchPlaceholder": "찾으시는 상품을 입력하세요",
+      "searchCloseLabel": "검색 닫기",
+      "userLabel": "마이페이지",
+      "loginLabel": "LOGIN",
+      "cartLabel": "장바구니",
+      "signupBadge": {
+        "label": "1초 회원가입",
+        "href": "/signup",
+        "image": "/images/cloudtext.svg",
+        "imageAlt": "1초 회원가입 말풍선"
+      },
+      "userMenu": {
+        "mypage": "마이페이지",
+        "logout": "로그아웃"
+      }
+    },
+    "navAriaLabel": "메인 네비게이션",
+    "bottomNav": {
+      "ariaLabel": "모바일 하단 메뉴",
+      "items": [
+        { "id": "menu", "icon": "menu", "label": "메뉴", "action": "toggleMenu" },
+        { "id": "search", "icon": "search", "label": "검색", "href": "/search", "match": "/search" },
+        { "id": "home", "icon": "home", "label": "홈", "href": "/", "match": null },
+        { "id": "cart", "icon": "cart", "label": "카트", "href": "/cart", "match": "/cart" },
+        { "id": "mypage", "icon": "user", "label": "마이", "href": "/mypage", "match": "/mypage" }
+      ]
+    },
+    "nav": [
+      {
+        "label": "전체상품",
+        "href": "/products",
+        "children": [
+          { "label": "전체", "href": "/products" },
+          { "label": "져키", "href": "/products?category=jerky" },
+          { "label": "시리얼", "href": "/products?category=cereal" },
+          { "label": "추잉껌", "href": "/products?category=chewing" },
+          { "label": "체험팩", "href": "/products?category=trial" }
+        ]
+      },
+      { "label": "베스트", "href": "/best" },
+      { "label": "제품 원료", "href": "/ingredients" },
+      { "label": "브랜드 스토리", "href": "/brand-story" }
+    ]
+  },
+  "hero": {
+    "arrowLabels": {
+      "prev": "이전 슬라이드",
+      "next": "다음 슬라이드"
+    },
+    "slides": [
+      {
+        "subtitle": "Zero Labs Snack",
+        "title": "먹는 순간, 건강이 달라지는 간식",
+        "description": "가장 맛있는, 사람이 먹을 수 있는 정도로 안전한 좋은 간식입니다.\n건강하고 맛난 간식으로 건강한 반려생활",
+        "image": "/images/figma/hero-bg.png",
+        "imageAlt": "제로랩스 메인 히어로"
+      },
+      {
+        "subtitle": "Zero Labs Snack",
+        "title": "자연이 준 원물 그대로",
+        "description": "국내산 원물과 저온 건조 공법으로 완성한\n반려견 전용 프리미엄 간식",
+        "image": "/images/hero-slide-2.svg",
+        "imageAlt": "제로랩스 슬라이드 테스트 배너"
+      }
+    ]
+  },
+  "categories": {
+    "title": "CATEGORY",
+    "items": [
+      { "label": "전체", "href": "/products", "image": "/images/categories/all.svg", "imageAlt": "전체 카테고리" },
+      { "label": "져키", "href": "/products?category=jerky", "image": "/images/categories/jerky.svg", "imageAlt": "강아지 져키" },
+      { "label": "시리얼", "href": "/products?category=cereal", "image": "/images/categories/cereal.svg", "imageAlt": "강아지 시리얼" },
+      { "label": "츄잉껌", "href": "/products?category=chewing", "image": "/images/categories/chewing.svg", "imageAlt": "강아지 츄잉껌" },
+      { "label": "체험팩", "href": "/products?category=trial", "image": "/images/categories/trial.svg", "imageAlt": "체험팩" }
+    ]
+  },
+  "section1": {
+    "title": "BEST SELLERS",
+    "subtitle": "가장 많이 선택받은 베스트 간식",
+    "viewAllLabel": "전체보기",
+    "viewAllHref": "/best",
+    "arrowLabels": { "prev": "이전 상품", "next": "다음 상품" }
+  },
+  "section2": {
+    "title": "NEW ARRIVAL",
+    "subtitle": "새롭게 출시된 따끈한 신상품",
+    "viewAllLabel": "전체보기",
+    "viewAllHref": "/products?sort=new",
+    "arrowLabels": { "prev": "이전 상품", "next": "다음 상품" }
+  },
+  "section3": {
+    "title": "TRIAL PACK",
+    "subtitle": "처음 만나는 제로랩스, 부담 없이 시작하기",
+    "viewAllLabel": "전체보기",
+    "viewAllHref": "/products?category=trial",
+    "arrowLabels": { "prev": "이전 상품", "next": "다음 상품" }
+  },
+  "section4": {
+    "title": "MD PICK",
+    "subtitle": "MD가 직접 고른 이 달의 추천",
+    "viewAllLabel": "전체보기",
+    "viewAllHref": "/products",
+    "arrowLabels": { "prev": "이전 상품", "next": "다음 상품" }
+  },
+  "slideBanner": {
+    "prevLabel": "이전 슬라이드",
+    "nextLabel": "다음 슬라이드"
+  },
+  "banners": {
+    "full": {
+      "title": "정기배송 15% OFF",
+      "subtitle": "매달 잊지 않고 도착하는 우리 아이 간식",
+      "image": "/images/banners/full-subscribe.svg",
+      "imageAlt": "정기배송 프로모션",
+      "href": "/products"
+    },
+    "mdPickBanner": {
+      "title": "",
+      "subtitle": "",
+      "image": "/images/placeholder.svg",
+      "imageAlt": "MD Pick 프로모션 배너"
+    },
+    "slide": [
+      { "image": "/images/banners/slide-1.svg", "imageAlt": "이벤트 배너 1", "href": "/promotions" },
+      { "image": "/images/banners/slide-2.svg", "imageAlt": "이벤트 배너 2", "href": "/promotions" },
+      { "image": "/images/banners/slide-3.svg", "imageAlt": "이벤트 배너 3", "href": "/promotions" }
+    ],
+    "half": [
+      { "title": "BEST JERKY", "subtitle": "가장 사랑받은 져키", "image": "/images/banners/half-jerky.svg", "imageAlt": "베스트 져키", "href": "/products?category=jerky", "buttonLabel": "더 알아보기" },
+      { "title": "TRIAL PACK", "subtitle": "처음이라면 체험팩으로", "image": "/images/banners/half-trial.svg", "imageAlt": "체험팩", "href": "/products?category=trial", "buttonLabel": "더 알아보기" }
+    ],
+    "halfLabels": {
+      "buttonLabel": "더 알아보기"
+    }
+  },
+  "instagram": {
+    "title": "Instagram",
+    "subtitle": "@zerolabs.official",
+    "profileUrl": "https://www.instagram.com/",
+    "arrowLabels": {
+      "prev": "이전 이미지",
+      "next": "다음 이미지"
+    },
+    "items": [
+      { "image": "/images/instagram/insta-1.svg", "imageAlt": "인스타그램 피드 1", "href": "https://www.instagram.com/" },
+      { "image": "/images/instagram/insta-2.svg", "imageAlt": "인스타그램 피드 2", "href": "https://www.instagram.com/" },
+      { "image": "/images/instagram/insta-3.svg", "imageAlt": "인스타그램 피드 3", "href": "https://www.instagram.com/" },
+      { "image": "/images/instagram/insta-4.svg", "imageAlt": "인스타그램 피드 4", "href": "https://www.instagram.com/" }
+    ]
+  },
+  "footer": {
+    "logo": {
+      "src": "/images/logo.png",
+      "alt": "Zero Labs",
+      "text": "ZERO LABS"
+    },
+    "nav": [
+      { "label": "회사소개", "href": "/about" },
+      { "label": "이용약관", "href": "/terms" },
+      { "label": "개인정보처리방침", "href": "/privacy", "emphasis": true },
+      { "label": "이용안내", "href": "/guide" }
+    ],
+    "company": {
+      "labels": {
+        "name": "상호명",
+        "ceo": "대표자명",
+        "ceoPhone": "대표자 번호",
+        "address": "사업장 주소",
+        "businessNumber": "사업자 등록번호",
+        "mailOrderNumber": "통신판매업 신고번호",
+        "privacyOfficer": "개인정보보호책임자"
+      },
+      "values": {
+        "name": "주식회사 반려동행",
+        "ceo": "양성원",
+        "ceoPhone": "010-6532-4544",
+        "address": "21632 인천광역시 남동구 새우도2공단길 30 노원김푸르지오시티 215-26호",
+        "businessNumber": "2668800624",
+        "mailOrderNumber": "2025-인천동구-2083호",
+        "privacyOfficer": "주식회사 반려동행"
+      }
+    },
+    "customer": {
+      "title": "고객센터 정보",
+      "labels": {
+        "phone": "상담/주문 전화",
+        "email": "상담/주문 이메일",
+        "hours": "CS 운영시간"
+      },
+      "values": {
+        "phone": "010-6532-4544",
+        "email": "ssih2025@naver.com",
+        "hours": "평일 09:30-17:30"
+      }
+    },
+    "bank": {
+      "title": "무통장 계좌 정보",
+      "bankName": "하나은행",
+      "accountNumber": "332-910074-17104",
+      "holder": "주식회사 반려동행"
+    },
+    "social": [
+      { "type": "instagram", "href": "https://instagram.com", "label": "인스타그램" },
+      { "type": "youtube", "href": "https://youtube.com", "label": "유튜브" },
+      { "type": "x", "href": "https://x.com", "label": "X" }
+    ],
+    "copyright": "COPYRIGHT © 2020 SIGNALMCODE. ALL RIGHTS RESERVED."
+  }
+}

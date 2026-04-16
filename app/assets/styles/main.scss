@@ -7,7 +7,7 @@
 @use "base/layout";
 @use "base/transitions";
 
-// Layout
+// Layout (page-level)
 @use "layout/page";
 @use "layout/product-list";
 @use "layout/mypage";
@@ -24,68 +24,106 @@
 @use "pages/coupon-download";
 @use "pages/event-banner";
 
-// Components
-@use "components/button";
-@use "components/checkbox";
-@use "components/badge";
-@use "components/tabs";
-@use "components/header";
-@use "components/footer";
-@use "components/product-card";
-@use "components/category-card";
-@use "components/banner";
-@use "components/sections";
-@use "components/home-sections";
-@use "components/icons";
-@use "components/slide-indicator";
-@use "components/select";
-@use "components/pagination";
-@use "components/search";
-@use "components/rating";
-@use "components/product-detail";
-@use "components/input";
-@use "components/radio";
-@use "components/order";
-@use "components/floating-payment-bar";
-@use "components/login";
-@use "components/signup";
-@use "components/signup-terms";
-@use "components/signup-info";
-@use "components/signup-done";
-@use "components/mypage-side-tabs";
-@use "components/mypage-dashboard";
-@use "components/mypage-profile-edit";
-@use "components/mypage-orders";
-@use "components/mypage-order-row";
-@use "components/mypage-order-detail";
-@use "components/claim-modal";
-@use "components/mypage-addresses";
-@use "components/address-input";
-@use "components/address-form-modal";
-@use "components/mypage-wishlist";
-@use "components/mypage-points";
-@use "components/mypage-grade";
-@use "components/mypage-coupons";
-@use "components/mypage-reviews";
-@use "components/mypage-qna";
-@use "components/modal";
-@use "components/toast";
-@use "components/cart-product-card";
-@use "components/empty";
-@use "components/spinner";
-@use "components/skeleton";
-@use "components/review-grid-card";
-@use "components/textarea";
-@use "components/star-rating";
-@use "components/image-upload";
-@use "components/review-write";
-@use "components/qna-write";
-@use "components/write-modal";
-@use "components/base-product-item";
-@use "components/postcode";
-@use "components/popup-center";
-@use "components/popup-floating";
-@use "components/social-callback";
-@use "components/find";
-@use "components/coupon-select-modal";
-@use "components/mobile-bottom-nav";
+// Components – UI (범용)
+@use "components/ui/button";
+@use "components/ui/checkbox";
+@use "components/ui/badge";
+@use "components/ui/tabs";
+@use "components/ui/icons";
+@use "components/ui/slide-indicator";
+@use "components/ui/select";
+@use "components/ui/pagination";
+@use "components/ui/rating";
+@use "components/ui/input";
+@use "components/ui/radio";
+@use "components/ui/modal";
+@use "components/ui/toast";
+@use "components/ui/empty";
+@use "components/ui/spinner";
+@use "components/ui/skeleton";
+@use "components/ui/textarea";
+@use "components/ui/star-rating";
+@use "components/ui/image-upload";
+@use "components/ui/base-product-item";
+@use "components/ui/postcode";
+
+// Components – Layout (헤더/푸터/네비게이션)
+@use "components/layout/header";
+@use "components/layout/footer";
+@use "components/layout/mobile-bottom-nav";
+
+// Components – Domain: Home
+@use "components/domain/home/banner";
+@use "components/domain/home/sections";
+@use "components/domain/home/section-hero";
+@use "components/domain/home/section-best-items";
+@use "components/domain/home/section-band";
+@use "components/domain/home/section-new-arrivals";
+@use "components/domain/home/section-wholesale";
+@use "components/domain/home/section-reasons";
+@use "components/domain/home/section-philosophy";
+@use "components/domain/home/category-card";
+
+// Components – Domain: Product
+@use "components/domain/product/product-card";
+@use "components/domain/product/product-detail";
+@use "components/domain/product/floating-payment-bar";
+
+// Components – Domain: Order
+@use "components/domain/order/order";
+@use "components/domain/order/cart-product-card";
+@use "components/domain/order/coupon-select-modal";
+
+// Components – Domain: Auth
+@use "components/domain/auth/login";
+@use "components/domain/auth/signup";
+@use "components/domain/auth/signup-terms";
+@use "components/domain/auth/signup-info";
+@use "components/domain/auth/signup-done";
+@use "components/domain/auth/find";
+@use "components/domain/auth/social-callback";
+
+// Components – Domain: MyPage
+@use "components/domain/mypage/mypage-side-tabs";
+@use "components/domain/mypage/mypage-dashboard";
+@use "components/domain/mypage/mypage-profile-edit";
+@use "components/domain/mypage/mypage-orders";
+@use "components/domain/mypage/mypage-order-row";
+@use "components/domain/mypage/mypage-order-detail";
+@use "components/domain/mypage/claim-modal";
+@use "components/domain/mypage/mypage-addresses";
+@use "components/domain/mypage/address-input";
+@use "components/domain/mypage/address-form-modal";
+@use "components/domain/mypage/mypage-wishlist";
+@use "components/domain/mypage/mypage-points";
+@use "components/domain/mypage/mypage-grade";
+@use "components/domain/mypage/mypage-coupons";
+@use "components/domain/mypage/mypage-reviews";
+@use "components/domain/mypage/mypage-qna";
+
+// Components – Domain: Review & QnA
+@use "components/domain/review/review-grid-card";
+@use "components/domain/review/review-write";
+@use "components/domain/review/qna-write";
+@use "components/domain/review/write-modal";
+
+// Components – Domain: Search
+@use "components/domain/search/search";
+
+// Components – Domain: Brand Story
+@use "components/domain/brand/brand-hero";
+@use "components/domain/brand/brand-promise";
+@use "components/domain/brand/brand-stats";
+@use "components/domain/brand/brand-ingredients";
+@use "components/domain/brand/brand-cta";
+
+// Components – Domain: Ingredients (제품 원료)
+@use "components/domain/ingredients/ingredients-hero";
+@use "components/domain/ingredients/ingredients-intro";
+@use "components/domain/ingredients/ingredients-principles";
+@use "components/domain/ingredients/ingredients-key";
+@use "components/domain/ingredients/ingredients-quality";
+
+// Components – Domain: Popup
+@use "components/domain/popup/popup-center";
+@use "components/domain/popup/popup-floating";

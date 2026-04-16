@@ -1,5 +1,5 @@
 <script setup>
-import signupData from "~/data/signup.json";
+import signupData from "~/data/auth/signup.json";
 import {
   validate,
   validateRequired,

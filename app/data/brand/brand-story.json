@@ -1,0 +1,93 @@
+{
+  "seo": {
+    "title": "브랜드 스토리 | 제로랩스",
+    "description": "휴먼그레이드 프리미엄 원료로 만드는 반려견 건강식, 제로랩스의 브랜드 스토리를 소개합니다.",
+    "ogTitle": "브랜드 스토리 | 제로랩스",
+    "ogDescription": "사람이 먹을 수 있을 정도로 안전한 최고급 원료로 만듭니다.",
+    "ogImage": "/images/brand-story/hero-bg.png"
+  },
+  "hero": {
+    "eyebrow": "The Story of Zero Labs",
+    "title": "휴먼그레이드, 프리미엄 원료",
+    "description": "사람이 먹을 수 있을 정도로 안전한 최고급 원료로 만듭니다.",
+    "image": "/images/brand-story/hero-bg.png",
+    "imageAlt": "제로랩스 브랜드 스토리 히어로 배경"
+  },
+  "promise": {
+    "eyebrow": "Our Promise",
+    "title": "Human Grade\nStandard",
+    "descriptionLines": [
+      "제로랩스는 천연 원료에서 시작합니다.",
+      "사람이 먹어도 될 만큼 엄격하게 선별한 휴먼그레이드 원료만을 사용하여",
+      "반려견이 매일 더 건강하고 행복할 수 있도록 제품을 생산합니다."
+    ],
+    "image": "/images/brand-story/promise-jerky-crop1.png",
+    "imageAlt": "휴먼그레이드 원료로 만든 제로랩스 강아지 져키"
+  },
+  "stats": {
+    "titleSegments": [
+      { "text": "휴먼그레이드 원료로 균형 잡힌\n영양 설계와 " },
+      { "text": "수의사 검증", "highlight": true },
+      { "text": "까지 더했습니다." }
+    ],
+    "description": "모든 제품은 수의 영양사와 협력해 개발합니다. 반려견의 생애 주기 및\n건강 상태 등을 고려하여 단계별 맞춤 영양 레시피를 지속적으로 연구합니다.",
+    "items": [
+      { "id": "function",  "value": "9+",   "label": "9가지 기능성 성분 함유" },
+      { "id": "additive",  "value": "0%",   "label": "인공 첨가물 무첨가" },
+      { "id": "origin",    "value": "100%", "label": "전원료 산지 투명 공개" },
+      { "id": "rating",    "value": "4.8",  "label": "고객 평균 평점(10만 건 후기)", "icon": "star" }
+    ]
+  },
+  "ingredients": {
+    "eyebrow": "Natural Ingredients",
+    "titleSegments": [
+      { "text": "제로랩스만의 " },
+      { "text": "천연 원료", "highlight": true },
+      { "text": " 레시피" }
+    ],
+    "description": "제품에 사용되는 원료를 직접 선별하고 산지, 등급, 가공 방식까지 모두 검증된 재료만 사용합니다.",
+    "items": [
+      {
+        "id": "chicken",
+        "chip": "닭가슴살",
+        "title": "고단백 저지방 단백질 공급원",
+        "description": "국내산 냉장 닭가슴살을 사용해 강아지의\n근육 유지와 전반적인 건강에 도움을 줍니다.",
+        "image": "/images/brand-story/ingredient-chicken.png",
+        "imageAlt": "닭가슴살 원료"
+      },
+      {
+        "id": "salmon",
+        "chip": "연어",
+        "title": "오메가-3 풍부 영양 공급원",
+        "description": "오메가-3 지방산이 풍부해 강아지의\n피부·피모 건강 개선과 염증 완화에 도움을 줍니다.",
+        "image": "/images/brand-story/ingredient-salmon.png",
+        "imageAlt": "연어 원료"
+      },
+      {
+        "id": "beef",
+        "chip": "소고기",
+        "title": "철분·단백질 영양 공급원",
+        "description": "양질의 단백질과 철분이 풍부하여\n강아지의 근육 유지와 활력 증진에 도움을 줍니다.",
+        "image": "/images/brand-story/ingredient-beef.png",
+        "imageAlt": "소고기 원료"
+      },
+      {
+        "id": "sweet-potato",
+        "chip": "고구마",
+        "title": "식이섬유 기반 에너지 공급원",
+        "description": "풍부한 식이섬유와 탄수화물로 장 건강\n개선과 안정적인 에너지 공급에 도움을 줍니다.",
+        "image": "/images/brand-story/ingredient-sweetpotato.png",
+        "imageAlt": "고구마 원료"
+      }
+    ]
+  },
+  "cta": {
+    "title": "“불필요한 첨가물 없이, 필요한 것만 담았습니다”",
+    "description": "과학이 만든 자연 영양 — 반려견이 행복한 선택",
+    "wordmark": "ZERO LABS",
+    "image": "/images/brand-story/cta-bg.png",
+    "imageAlt": "제로랩스 브랜드 CTA 배경",
+    "primary": { "label": "제품 보러가기", "href": "/category" },
+    "secondary": { "label": "브랜드 스토리", "href": "/brand-story" }
+  }
+}

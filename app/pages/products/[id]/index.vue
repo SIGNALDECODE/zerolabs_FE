@@ -1,6 +1,6 @@
 <script setup>
-import detailData from '~/data/product-detail.json'
-import uiData from '~/data/ui.json'
+import detailData from '~/data/product/product-detail.json'
+import uiData from '~/data/common/ui.json'
 
 const route = useRoute()
 const router = useRouter()

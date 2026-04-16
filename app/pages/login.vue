@@ -1,5 +1,5 @@
 <script setup>
-import loginData from "~/data/login.json";
+import loginData from "~/data/auth/login.json";
 
 useHead({ title: loginData.seo.title });
 useSeoMeta({

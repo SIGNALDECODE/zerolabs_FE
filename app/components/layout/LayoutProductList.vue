@@ -82,8 +82,13 @@ defineExpose({
           <BaseSelect
             v-model="sortValue"
             :options="sortOptions"
+            variant="pill"
             class="layout-product-list__sort"
-          />
+          >
+            <template #leading>
+              <IconSort size="sm" class="layout-product-list__sort-icon" />
+            </template>
+          </BaseSelect>
         </div>
 
         <!-- 로딩 스피너 -->
