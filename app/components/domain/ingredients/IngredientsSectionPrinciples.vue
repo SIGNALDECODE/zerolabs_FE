@@ -12,7 +12,16 @@ defineProps({
     <div class="ingredients-principles__inner">
       <header class="ingredients-principles__head">
         <p class="ingredients-principles__eyebrow">{{ data.eyebrow }}</p>
-        <h2 class="ingredients-principles__title">{{ data.title }}</h2>
+        <h2 class="ingredients-principles__title">
+          <template v-if="data.titleSegments?.length">
+            <span
+              v-for="(seg, i) in data.titleSegments"
+              :key="i"
+              :class="['ingredients-principles__title-seg', { 'is-highlight': seg.highlight }]"
+            >{{ seg.text }}</span>
+          </template>
+          <template v-else>{{ data.title }}</template>
+        </h2>
         <p class="ingredients-principles__description">{{ data.description }}</p>
       </header>
 
@@ -33,8 +42,10 @@ defineProps({
               loading="lazy"
             />
           </div>
-          <h3 class="ingredients-principles__card-title">{{ item.title }}</h3>
-          <p class="ingredients-principles__card-desc">{{ item.description }}</p>
+          <div class="ingredients-principles__body">
+            <h3 class="ingredients-principles__card-title">{{ item.title }}</h3>
+            <p class="ingredients-principles__card-desc">{{ item.description }}</p>
+          </div>
         </li>
       </ul>
     </div>

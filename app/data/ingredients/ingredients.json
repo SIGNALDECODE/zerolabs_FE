@@ -29,7 +29,10 @@
   },
   "principles": {
     "eyebrow": "Natural Ingredients",
-    "title": "원료 선정 3원칙",
+    "titleSegments": [
+      { "text": "원료 선정 " },
+      { "text": "3원칙", "highlight": true }
+    ],
     "description": "제로랩스는 모든 원료를 세 가지 기준으로 검증합니다. 기준을 통과한 원료만이 제품에 담깁니다.",
     "items": [
       {

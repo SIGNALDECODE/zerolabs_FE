@@ -1,6 +1,6 @@
 // ============================================
 // Ingredients — 원료 선정 3원칙 (3-card grid)
-// Figma: 448×386 카드, 라운드 12, border #DDD, 내부 surface #F6F7FB
+// Figma: 카드 — 이미지 중앙, 텍스트 좌측 정렬(하단), 연한 gray bg
 // ============================================
 
 @use '../../../tokens/colors' as *;
@@ -38,7 +38,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
     text-align: center;
     max-width: 720px;
   }
@@ -63,6 +63,11 @@
     }
     @include mobile {
       font-size: 22px;
+    }
+  }
+  &__title-seg {
+    &.is-highlight {
+      color: $Brand-600;
     }
   }
   &__description {
@@ -95,16 +100,16 @@
 
   &__card {
     background: $Surface-product-bg;
-    border: 1px solid #DDDDDD;
+    border: 1px solid #EEEEEE;
     border-radius: $radius-md;
-    padding: 40px 32px;
+    padding: 48px 32px 32px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    text-align: center;
+    gap: 32px;
   }
+
   &__image-wrap {
+    align-self: center;
     width: 160px;
     height: 160px;
     display: flex;
@@ -112,8 +117,8 @@
     justify-content: center;
 
     @include mobile {
-      width: 128px;
-      height: 128px;
+      width: 132px;
+      height: 132px;
     }
   }
   &__image {
@@ -124,25 +129,32 @@
     filter: drop-shadow(0 10px 20px rgba(27, 48, 36, 0.08));
   }
 
+  &__body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: left;
+  }
   &__card-title {
     margin: 0;
-    font-weight: 600;
-    font-size: 20px;
+    font-weight: 700;
+    font-size: 18px;
     line-height: 1.5;
     letter-spacing: -0.025em;
     color: $Text-dark-color;
 
     @include mobile {
-      font-size: 18px;
+      font-size: 16px;
     }
   }
   &__card-desc {
     margin: 0;
     font-weight: 400;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.7;
     letter-spacing: -0.02em;
-    color: #666666;
+    color: #999999;
     white-space: pre-line;
 
     @include mobile {
