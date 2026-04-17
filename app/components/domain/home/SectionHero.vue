@@ -21,6 +21,8 @@ const props = defineProps({
 })
 
 const arrowLabels = mainData.hero.arrowLabels
+const playLabel = mainData.hero.playLabel
+const pauseLabel = mainData.hero.pauseLabel
 
 const sliderRef = ref(null)
 const currentIndex = ref(0)
@@ -44,10 +46,7 @@ const displayIndex = computed(() => {
   return currentIndex.value + 1
 })
 
-const activeSlide = computed(() => {
-  return props.slides[displayIndex.value - 1] || props.data
-})
-
+const isPaused = ref(false)
 let autoPlayTimer = null
 
 const goToSlide = (index, animate = true) => {
@@ -103,6 +102,16 @@ const stopAutoPlay = () => {
   }
 }
 
+const togglePause = () => {
+  if (isPaused.value) {
+    isPaused.value = false
+    startAutoPlay()
+  } else {
+    isPaused.value = true
+    stopAutoPlay()
+  }
+}
+
 // 모바일 터치 스와이프
 const { swipeEvents: heroSwipeEvents, mouseEvents: heroMouseEvents, onClickCapture: heroClickCapture } = useSwipe({
   onSwipeLeft: () => { nextSlide(); startAutoPlay() },
@@ -152,7 +161,8 @@ onUnmounted(() => {
             :alt="slide.title || slide.imageAlt"
             class="section-hero__image"
             format="webp"
-            width="1920"
+            sizes="xs:100vw sm:100vw md:100vw lg:100vw xl:1920px 2xl:2560px"
+            densities="x1 x2"
             quality="75"
             :loading="index <= 1 ? 'eager' : 'lazy'"
             :fetchpriority="index <= 1 ? 'high' : 'auto'"
@@ -160,22 +170,7 @@ onUnmounted(() => {
         </component>
       </div>
     </div>
-    <!-- Figma 레이아웃: 중앙 정렬 + 하단 그라디언트 + 배지 -->
-    <div class="section-hero__overlay section-hero__overlay--center">
-      <p v-if="activeSlide.subtitle" class="section-hero__subtitle">{{ activeSlide.subtitle }}</p>
-      <h1 v-if="activeSlide.title" class="section-hero__title">{{ activeSlide.title }}</h1>
-      <p v-if="activeSlide.description" class="section-hero__description">{{ activeSlide.description }}</p>
-      <NuxtLink
-        v-if="activeSlide.badgeLabel && (activeSlide.href || activeSlide.linkUrl)"
-        :to="activeSlide.href || activeSlide.linkUrl"
-        class="section-hero__badge"
-      >
-        <span class="section-hero__badge-dot" aria-hidden="true" />
-        {{ activeSlide.badgeLabel }}
-      </NuxtLink>
-    </div>
-
-    <!-- 화살표 -->
+    <!-- 심플 화살표 (chevron only) -->
     <div v-if="totalSlides > 1" class="section-hero__arrows">
       <button
         type="button"
@@ -183,7 +178,7 @@ onUnmounted(() => {
         :aria-label="arrowLabels.prev"
         @click="prevSlide"
       >
-        ‹
+        <img src="/images/icons/pre_btn.svg" :alt="arrowLabels.prev" class="section-hero__arrow-icon">
       </button>
       <button
         type="button"
@@ -191,19 +186,50 @@ onUnmounted(() => {
         :aria-label="arrowLabels.next"
         @click="nextSlide"
       >
-        ›
+        <img src="/images/icons/next_btn.svg" :alt="arrowLabels.next" class="section-hero__arrow-icon">
       </button>
     </div>
 
-    <!-- 도트 인디케이터 (portfolio 스타일) -->
-    <div v-if="totalSlides > 1" class="section-hero__dots">
-      <span
-        v-for="i in totalSlides"
-        :key="i"
-        class="section-hero__dot"
-        :class="{ 'section-hero__dot--active': displayIndex === i }"
-        @click="goToSlide(i - 1)"
-      />
+    <!-- 슬라이드 프로그레스 + 재생/일시정지 -->
+    <div v-if="totalSlides > 1" class="section-hero__indicator">
+      <div
+        class="section-hero__track"
+        role="progressbar"
+        :aria-valuenow="displayIndex"
+        :aria-valuemin="1"
+        :aria-valuemax="totalSlides"
+        :aria-label="playLabel"
+      >
+        <div
+          class="section-hero__track-fill"
+          :style="{ width: `${(displayIndex / totalSlides) * 100}%` }"
+        />
+      </div>
+      <button
+        type="button"
+        class="section-hero__play-btn"
+        :aria-label="isPaused ? playLabel : pauseLabel"
+        @click="togglePause"
+      >
+        <img
+          v-if="!isPaused"
+          src="/images/icons/Play_stop.svg"
+          :alt="pauseLabel"
+          class="section-hero__play-icon"
+        >
+        <svg
+          v-else
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class="section-hero__play-icon"
+          aria-hidden="true"
+        >
+          <path d="M6 4.5L15 10L6 15.5V4.5Z" fill="white" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+        </svg>
+      </button>
     </div>
   </section>
 </template>

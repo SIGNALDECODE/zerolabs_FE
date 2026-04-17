@@ -59,21 +59,12 @@
       "prev": "이전 슬라이드",
       "next": "다음 슬라이드"
     },
+    "playLabel": "슬라이드 재생",
+    "pauseLabel": "슬라이드 일시정지",
     "slides": [
-      {
-        "subtitle": "Zero Labs Snack",
-        "title": "먹는 순간, 건강이 달라지는 간식",
-        "description": "가장 맛있는, 사람이 먹을 수 있는 정도로 안전한 좋은 간식입니다.\n건강하고 맛난 간식으로 건강한 반려생활",
-        "image": "/images/figma/hero-bg.png",
-        "imageAlt": "제로랩스 메인 히어로"
-      },
-      {
-        "subtitle": "Zero Labs Snack",
-        "title": "자연이 준 원물 그대로",
-        "description": "국내산 원물과 저온 건조 공법으로 완성한\n반려견 전용 프리미엄 간식",
-        "image": "/images/hero-slide-2.svg",
-        "imageAlt": "제로랩스 슬라이드 테스트 배너"
-      }
+      { "image": "/images/hero1.png", "imageAlt": "제로랩스 메인 히어로 1" },
+      { "image": "/images/hero2.png", "imageAlt": "제로랩스 메인 히어로 2" },
+      { "image": "/images/hero3.png", "imageAlt": "제로랩스 메인 히어로 3" }
     ]
   },
   "categories": {
