@@ -65,13 +65,18 @@
       font-size: 22px;
     }
   }
+  &__title-seg {
+    &.is-highlight {
+      color: $Brand-600;
+    }
+  }
   &__description {
     margin: 4px 0 0;
     font-weight: 400;
     font-size: 14px;
     line-height: 1.7;
     letter-spacing: -0.02em;
-    color: #888888;
+    color: $Text-weak-color;
 
     @include mobile {
       font-size: 13px;
@@ -152,7 +157,7 @@
     font-size: 16px;
     line-height: 1.7;
     letter-spacing: -0.02em;
-    color: #666666;
+    color: $Text-sub-color;
     white-space: pre-line;
 
     @include mobile {
@@ -172,7 +177,7 @@
   &__tag {
     padding: 6px 16px;
     border-radius: $radius-pill;
-    background: #E4F2ED;
+    background: $Accent-mint-bg;
     color: $Brand-700;
     font-weight: 500;
     font-size: 13px;

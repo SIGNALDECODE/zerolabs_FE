@@ -82,7 +82,7 @@
     font-size: 18px;
     line-height: 1.8;
     letter-spacing: -0.02em;
-    color: #454545;
+    color: $Text-mid-color;
 
     @include mobile {
       font-size: 15px;

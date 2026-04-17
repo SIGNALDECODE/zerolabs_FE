@@ -9,12 +9,19 @@ defineProps({
 
 <template>
   <section class="section-band">
-    <div class="section-band__bg">
-      <NuxtImg
-        :src="data.image"
-        :alt="data.imageAlt"
-        class="section-band__image"
-        format="webp"
+    <div class="section-band__decor" aria-hidden="true">
+      <img
+        v-if="data.mountainImage"
+        :src="data.mountainImage"
+        alt=""
+        class="section-band__mountain"
+        loading="lazy"
+      />
+      <img
+        v-if="data.iconsImage"
+        :src="data.iconsImage"
+        alt=""
+        class="section-band__icons"
         loading="lazy"
       />
     </div>

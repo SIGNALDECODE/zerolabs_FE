@@ -1,6 +1,6 @@
 // ============================================
 // Section Band Banner (Natural Ingredients)
-// Figma: 1920×390, gradient 0deg #60A884 → #F2FFB9 (bottom-up), CENTER 정렬
+// 1920×390 · 그라디언트 배경 + 산 실루엣 + 3D 아이콘 레이어
 // ============================================
 
 @use '../../../tokens/colors' as *;
@@ -9,12 +9,56 @@
 .section-band {
   position: relative;
   width: 100%;
-  min-height: 390px;
-  overflow: hidden;
-  background: linear-gradient(0deg, #60A884 0%, #F2FFB9 100%);
+  min-height: 310px;
+  overflow: visible;
+  background: linear-gradient(180deg, #D4EBB8 0%, #A8D59A 50%, #7DB97E 100%);
+  isolation: isolate;
 
-  &__bg { display: none; } // Figma band uses gradient only, no image
-  &__image { display: none; }
+  // 장식 레이어 (산 + 3D 아이콘)
+  &__decor {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+  &__mountain {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 1920px;
+    max-width: none;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    object-position: bottom center;
+
+    @media (max-width: 1280px) {
+      width: 100vw;
+      min-width: 1280px;
+    }
+  }
+  &__icons {
+    position: absolute;
+    left: 50%;
+    top: -40px;
+    transform: translateX(-50%);
+    width: 1920px;
+    max-width: none;
+    height: calc(100% + 80px);
+    display: block;
+    object-fit: contain;
+    object-position: center;
+
+    @media (max-width: 1280px) {
+      width: 100vw;
+      min-width: 1280px;
+    }
+    @media (max-width: 768px) {
+      top: -24px;
+      height: calc(100% + 48px);
+    }
+  }
 
   &__inner {
     position: relative;
@@ -25,13 +69,18 @@
     min-height: 390px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     gap: 32px;
     text-align: center;
     color: $Text-dark-color;
   }
-  &__text { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  &__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
   &__eyebrow {
     font-weight: 500;
     font-size: 16px;
@@ -74,7 +123,13 @@
 
   @media (max-width: 768px) {
     min-height: 320px;
-    &__inner { min-height: 320px; padding: 60px 20px; gap: 24px; }
-    &__title { font-size: 24px; }
+    &__inner {
+      min-height: 320px;
+      padding: 60px 20px;
+      gap: 24px;
+    }
+    &__title {
+      font-size: 24px;
+    }
   }
 }

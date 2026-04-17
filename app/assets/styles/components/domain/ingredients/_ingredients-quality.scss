@@ -1,6 +1,7 @@
 // ============================================
 // Ingredients — 4단계 품질 검증
-// Figma: 다크 bg 이미지 패널 + 4 step 카드, STEP 01 액티브(다크/그림자)
+// Figma: 좌정렬 헤더 + 2컬럼(좌 이미지 / 우 4-step 카드)
+// STEP 01 액티브(다크 그린/화이트) / 나머지 그레이
 // ============================================
 
 @use '../../../tokens/colors' as *;
@@ -25,22 +26,20 @@
     padding: 0 $padding-10;
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 40px;
 
     @include mobile {
       padding: 0 $padding-4;
-      gap: 32px;
+      gap: 28px;
     }
   }
 
+  // ── 좌정렬 헤더 ──
   &__head {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    text-align: center;
-    max-width: 720px;
+    gap: 8px;
+    text-align: left;
   }
   &__eyebrow {
     margin: 0;
@@ -54,7 +53,7 @@
     margin: 0;
     font-weight: 700;
     font-size: 32px;
-    line-height: 1.35;
+    line-height: 1.3;
     letter-spacing: -0.025em;
     color: $Text-dark-color;
 
@@ -62,7 +61,12 @@
       font-size: 28px;
     }
     @include mobile {
-      font-size: 22px;
+      font-size: 24px;
+    }
+  }
+  &__title-seg {
+    &.is-highlight {
+      color: $Brand-600;
     }
   }
   &__description {
@@ -71,111 +75,137 @@
     font-size: 14px;
     line-height: 1.7;
     letter-spacing: -0.02em;
-    color: #888888;
+    color: $Text-weak-color;
 
     @include mobile {
       font-size: 13px;
     }
   }
 
-  &__panel {
-    position: relative;
-    width: 100%;
-    border-radius: 20px;
-    overflow: hidden;
-    padding: 56px;
-    min-height: 480px;
-    display: flex;
-    align-items: center;
+  // ── 2컬럼 그리드 ──
+  &__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 28px;
+    align-items: stretch;
 
     @include tablet {
-      padding: 40px;
-      min-height: auto;
+      grid-template-columns: 1fr;
+      gap: 20px;
     }
+  }
+
+  // ── 좌: 이미지 (Figma: 805 × 480, radius 20px) ──
+  &__media {
+    width: 100%;
+    aspect-ratio: 805 / 480;
+    border-radius: 20px;
+    overflow: hidden;
+    background: $Surface-product-bg;
+
     @include mobile {
-      padding: 24px;
       border-radius: 16px;
     }
   }
-  &__bg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-
-    &::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.55) 100%);
-    }
-  }
-  &__bg-image {
+  &__image {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
   }
 
+  // ── 우: 스텝 리스트 ──
   &__steps {
-    position: relative;
-    z-index: 1;
     list-style: none;
     margin: 0;
     padding: 0;
-    width: 100%;
-    max-width: 567px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
   }
   &__step {
     background: $Surface-product-bg;
     border-radius: $radius-md;
-    padding: 24px;
+    padding: 24px 28px;
     display: flex;
     flex-direction: column;
     gap: 8px;
-    color: #999999;
-    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    flex: 1;
+    justify-content: center;
+    color: $Text-soft-muted-color;
+    // 순환 애니메이션: 색상/배경/섀도우/변형 부드럽게
+    transition:
+      background-color 0.55s ease,
+      color 0.55s ease,
+      box-shadow 0.55s ease,
+      transform 0.55s ease;
+    will-change: background-color, color, transform;
 
+    @include mobile {
+      padding: 20px 22px;
+    }
+
+    // 액티브 상태 (다크 그린 + 화이트, 살짝 확대 + 섀도우)
     &.is-active {
-      background: $Primary-white-color;
-      color: $Text-dark-color;
-      box-shadow: 6px 6px 4px rgba(35, 35, 35, 0.2);
+      background: $Brand-600;
+      color: $Primary-white-color;
+      box-shadow: 0 12px 28px rgba(35, 67, 47, 0.28);
+      transform: translateX(-4px);
+
+      .ingredients-quality__step-label,
+      .ingredients-quality__step-title,
+      .ingredients-quality__step-desc {
+        color: $Primary-white-color;
+      }
+    }
+
+    // 접근성: 애니메이션 축소 선호 시 transform/시간 최소화
+    @media (prefers-reduced-motion: reduce) {
+      transition-duration: 0.01ms;
+      &.is-active { transform: none; }
     }
   }
+
+  // 스텝 카드 헤드: 라벨 + 타이틀 인라인
+  &__step-head {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
   &__step-label {
-    font-weight: 500;
-    font-size: 13px;
+    font-weight: 600;
+    font-size: 16px;
     line-height: 1.5;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.02em;
     color: inherit;
-    opacity: 0.85;
+
+    @include mobile {
+      font-size: 14px;
+    }
   }
   &__step-title {
-    margin: 0;
     font-weight: 600;
-    font-size: 18px;
-    line-height: 1.556;
+    font-size: 16px;
+    line-height: 1.5;
     letter-spacing: -0.025em;
     color: inherit;
 
     @include mobile {
-      font-size: 16px;
+      font-size: 14px;
     }
   }
   &__step-desc {
     margin: 0;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 1.7;
     letter-spacing: -0.02em;
     color: inherit;
     opacity: 0.85;
 
     @include mobile {
-      font-size: 13px;
+      font-size: 12px;
     }
   }
 }

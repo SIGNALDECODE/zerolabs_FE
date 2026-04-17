@@ -12,7 +12,16 @@ defineProps({
     <div class="ingredients-key__inner">
       <header class="ingredients-key__head">
         <p class="ingredients-key__eyebrow">{{ data.eyebrow }}</p>
-        <h2 class="ingredients-key__title">{{ data.title }}</h2>
+        <h2 class="ingredients-key__title">
+          <template v-if="data.titleSegments?.length">
+            <span
+              v-for="(seg, i) in data.titleSegments"
+              :key="i"
+              :class="['ingredients-key__title-seg', { 'is-highlight': seg.highlight }]"
+            >{{ seg.text }}</span>
+          </template>
+          <template v-else>{{ data.title }}</template>
+        </h2>
         <p class="ingredients-key__description">{{ data.description }}</p>
       </header>
 

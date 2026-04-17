@@ -31,16 +31,18 @@ defineProps({
           :key="item.id"
           class="ingredients-principles__card"
         >
-          <div class="ingredients-principles__image-wrap">
-            <NuxtImg
-              :src="item.image"
-              :alt="item.imageAlt"
-              class="ingredients-principles__image"
-              format="webp"
-              width="240"
-              quality="80"
-              loading="lazy"
-            />
+          <div class="ingredients-principles__image-zone">
+            <div class="ingredients-principles__image-wrap">
+              <NuxtImg
+                :src="item.image"
+                :alt="item.imageAlt"
+                class="ingredients-principles__image"
+                format="webp"
+                width="240"
+                quality="80"
+                loading="lazy"
+              />
+            </div>
           </div>
           <div class="ingredients-principles__body">
             <h3 class="ingredients-principles__card-title">{{ item.title }}</h3>

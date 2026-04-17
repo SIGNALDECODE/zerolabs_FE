@@ -60,7 +60,11 @@
   },
   "keyIngredients": {
     "eyebrow": "5 Key Ingredients",
-    "title": "핵심 5가지 천연 원료",
+    "titleSegments": [
+      { "text": "핵심 " },
+      { "text": "5가지", "highlight": true },
+      { "text": " 천연 원료" }
+    ],
     "description": "반려견의 건강을 위해 제로랩스가 선택한 핵심 원료를 소개합니다.",
     "items": [
       {
@@ -112,10 +116,13 @@
   },
   "quality": {
     "eyebrow": "Quality Control",
-    "title": "4단계 품질 검증",
+    "titleSegments": [
+      { "text": "4단계", "highlight": true },
+      { "text": " 품질 검증" }
+    ],
     "description": "제품이 되기까지 4단계의 엄격한 검증 과정을 거칩니다. 매 배치마다 동일한 기준이 적용됩니다.",
-    "backgroundImage": "/images/ingredients/hero-bg.png",
-    "backgroundImageAlt": "품질 검증 배경",
+    "backgroundImage": "/images/ingredients/ingredientsfoot.png",
+    "backgroundImageAlt": "품질 검증을 거친 천연 원료",
     "items": [
       {
         "id": "step-01",

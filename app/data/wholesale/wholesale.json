@@ -1,0 +1,127 @@
+{
+  "seo": {
+    "title": "도매 입점 문의 | 제로랩스",
+    "description": "제로랩스 반려동물 식품의 도매 입점 및 파트너십 문의 안내. 휴먼그레이드 원료, 경쟁력 있는 공급가, 빠른 출고로 함께 성장합니다.",
+    "ogTitle": "도매 입점 문의 | 제로랩스",
+    "ogDescription": "제로랩스와 함께 성장하세요. 도매 입점 및 파트너십 문의 안내.",
+    "ogImage": "/images/figma/wholesale_designed.png"
+  },
+  "hero": {
+    "eyebrow": "WHOLESALE INQUIRY",
+    "title": "도매 입점 문의",
+    "description": "제로랩스와 함께 성장하세요",
+    "image": "/images/figma/wholesale_designed.png",
+    "imageAlt": "도매 입점 히어로 배경"
+  },
+  "intro": {
+    "titleSegments": [
+      { "text": "프리미엄\n반려동물 식품 브랜드 " },
+      { "text": "제로랩스", "highlight": true }
+    ],
+    "descriptionSegments": [
+      { "text": "사람이 먹어도 될 만큼 엄격하게 선별한\n" },
+      { "text": "휴먼그레이드 원료", "highlight": true },
+      { "text": "만으로 만든 프리미엄 반려동물 식품 브랜드입니다.\n수의 영양사와 협력 개발한 과학적인 영양 설계로 반려동물의 건강한 삶을 지원합니다." }
+    ],
+    "mascotImage": "/images/ingredients/mascot.png",
+    "mascotAlt": "제로랩스 마스코트 굽빵"
+  },
+  "reasons": {
+    "eyebrow": "Why Zero Labs",
+    "titleSegments": [
+      { "text": "제로랩스를 믿고 선택하는 " },
+      { "text": "4가지", "highlight": true },
+      { "text": " 이유" }
+    ],
+    "description": "시작부터 전달까지, 모든 과정에 기준을 더했습니다.",
+    "items": [
+      {
+        "id": "human-grade",
+        "iconImage": "/images/icons/trustIcon1.svg",
+        "iconAlt": "휴먼그레이드 원료 아이콘",
+        "title": "휴먼그레이드\n프리미엄 원료 사용"
+      },
+      {
+        "id": "vet-nutrition",
+        "iconImage": "/images/icons/trustIcon2.svg",
+        "iconAlt": "수의 영양사 설계 아이콘",
+        "title": "수의 영양사와\n설계한 영양 레시피"
+      },
+      {
+        "id": "fast-shipping",
+        "iconImage": "/images/icons/trustIcon3.svg",
+        "iconAlt": "빠른 출고 아이콘",
+        "title": "주문 다음 날 출고\n(2시 이전 주문 건)"
+      },
+      {
+        "id": "partner-price",
+        "iconImage": "/images/icons/trustIcon4.svg",
+        "iconAlt": "경쟁력 있는 공급가 아이콘",
+        "title": "파트너사를 위한\n경쟁력 있는 공급가"
+      }
+    ]
+  },
+  "process": {
+    "eyebrow": "Process",
+    "title": "입점 절차",
+    "steps": [
+      {
+        "id": "inquiry",
+        "step": "Step 01",
+        "iconImage": "/images/wholesale/step1.svg",
+        "iconAlt": "문의 접수 아이콘",
+        "title": "문의 접수",
+        "description": "전화 또는 이메일로\n입점 문의를 남겨주세요."
+      },
+      {
+        "id": "review",
+        "step": "Step 02",
+        "iconImage": "/images/wholesale/step2.svg",
+        "iconAlt": "검토 및 상담 아이콘",
+        "title": "검토 및 상담",
+        "description": "담당자 확인 후\n1~2 영업일 내 연락드립니다."
+      },
+      {
+        "id": "contract",
+        "step": "Step 03",
+        "iconImage": "/images/wholesale/step3.svg",
+        "iconAlt": "계약 체결 아이콘",
+        "title": "계약 체결",
+        "description": "조건 협의 후\n공급 계약을 진행합니다."
+      },
+      {
+        "id": "delivery",
+        "step": "Step 04",
+        "iconImage": "/images/wholesale/step4.svg",
+        "iconAlt": "납품 시작 아이콘",
+        "title": "납품 시작",
+        "description": "계약 완료 후\n정기 납품을 시작합니다."
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Contact Us",
+    "title": "지금 바로 문의하세요",
+    "description": "궁금하신 사항이나 도매 및 입점 관련 문의는\n연락처로 연락 주시면 확인 후 신속하게 안내드리겠습니다.",
+    "cards": [
+      {
+        "id": "phone",
+        "iconImage": "/images/wholesale/phone.svg",
+        "iconAlt": "전화 문의 아이콘",
+        "label": "전화 문의",
+        "value": "010-6532-4544",
+        "href": "tel:01065324544",
+        "note": "평일 9:00 - 18:00 (주말·공휴일 휴무)"
+      },
+      {
+        "id": "email",
+        "iconImage": "/images/wholesale/mail.svg",
+        "iconAlt": "이메일 문의 아이콘",
+        "label": "이메일 문의",
+        "value": "bldh2025@naver.com",
+        "href": "mailto:bldh2025@naver.com",
+        "note": "영업일 기준 답변 가능"
+      }
+    ]
+  }
+}

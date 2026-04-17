@@ -88,6 +88,6 @@
     "image": "/images/brand-story/cta-bg.png",
     "imageAlt": "제로랩스 브랜드 CTA 배경",
     "primary": { "label": "제품 보러가기", "href": "/category" },
-    "secondary": { "label": "브랜드 스토리", "href": "/brand-story" }
+    "secondary": { "label": "제품 원료", "href": "/ingredients" }
   }
 }

@@ -24,9 +24,9 @@
     "eyebrow": "Natural Ingredients",
     "title": "자연 재료 이야기,\n5가지 엄선된 천연 원료",
     "ctaLabel": "재료 원료 알아보기",
-    "ctaHref": "/support",
-    "image": "/images/figma/band-natural.png",
-    "imageAlt": "자연 재료 배경"
+    "ctaHref": "/ingredients",
+    "mountainImage": "/images/mountain.svg",
+    "iconsImage": "/images/3dicon.svg"
   },
   "newArrivals": {
     "eyebrow": "New Arrivals",
@@ -48,7 +48,7 @@
       { "label": "E", "value": "bldh2025@naver.com" }
     ],
     "ctaLabel": "입점 문의하기",
-    "ctaHref": "/support",
+    "ctaHref": "/wholesale",
     "image": "/images/figma/wholesale_designed.png",
     "imageAlt": "도매 입점 이미지"
   },

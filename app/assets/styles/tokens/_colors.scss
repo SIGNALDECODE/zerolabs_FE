@@ -1,16 +1,4 @@
 
-/* Color - Mode 1 */
-$Green-Primary-green-900: #114A1EFF;
-$Green-Primary-green-800: #0C6F23FF;
-$Green-Primary-green-700: #4EA63FFF;
-$Green-Primary-green-600: #62BB4AFF;
-$Green-Primary-green-500: #71CB52FF;
-$Green-Primary-green-400: #87D36CFF;
-$Green-Primary-green-300: #9DDB87FF;
-$Green-Primary-green-200: #BAE6AAFF;
-$Green-Primary-green-100: #D5F0CBFF;
-$Green-Primary-green-50: #EBF9E6FF;
-
 /* Warm Neutral - portfolio 디자인 기반 */
 $Black-Primary-black-900: #3F3A35FF;
 $Black-Primary-black-800: #5F5C58FF;
@@ -79,11 +67,19 @@ $Surface-brand-cream: #F4FAF8;
 $Surface-product-bg: #F6F7FB;
 $Surface-chip-border: #F1F1F5;
 $Surface-light-gray: #F8F8F8;
+$Surface-panel-gray: #F4F5F7;
+$Surface-panel-gray-hover: #EEF0F3;
+$Accent-mint-bg: #E4F2ED;
+$Accent-mint-line: #B8D4C7;
 $Text-muted-color: #999999;
+$Text-soft-muted-color: #9A9A9A;
+$Text-weak-color: #888888;
+$Text-mid-color: #454545;
 $Text-dark-color: #262626;
 $Text-sub-color: #666666;
 $Text-black-color: #111111;
 $Border-hover-color: #D4D4D4;
+$Border-soft-color: #DDDDDD;
 
 // Social brand colors (플랫폼 가이드라인 고정)
 $Social-naver: #03c75a;

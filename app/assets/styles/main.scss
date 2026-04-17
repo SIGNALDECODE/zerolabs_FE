@@ -124,6 +124,13 @@
 @use "components/domain/ingredients/ingredients-key";
 @use "components/domain/ingredients/ingredients-quality";
 
+// Components – Domain: Wholesale (도매 입점 문의)
+@use "components/domain/wholesale/wholesale-hero";
+@use "components/domain/wholesale/wholesale-intro";
+@use "components/domain/wholesale/wholesale-reasons";
+@use "components/domain/wholesale/wholesale-process";
+@use "components/domain/wholesale/wholesale-contact";
+
 // Components – Domain: Popup
 @use "components/domain/popup/popup-center";
 @use "components/domain/popup/popup-floating";

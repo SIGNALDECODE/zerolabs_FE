@@ -50,7 +50,7 @@
     font-size: 36px;
     line-height: 1.2778;
     letter-spacing: -0.025em;
-    color: #262626;
+    color: $Text-dark-color;
     margin: 0;
   }
   &__title-seg {
@@ -63,7 +63,7 @@
     font-size: 18px;
     line-height: 1.5556;
     letter-spacing: -0.025em;
-    color: #666666;
+    color: $Text-sub-color;
     opacity: 0.9;
     margin: 0;
   }
@@ -106,7 +106,7 @@
     font-size: 20px;
     line-height: 1.5;
     letter-spacing: -0.025em;
-    color: #262626;
+    color: $Text-dark-color;
     margin: 0;
     white-space: pre-line;
     text-align: center;
