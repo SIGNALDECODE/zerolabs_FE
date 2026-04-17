@@ -164,8 +164,10 @@ onUnmounted(() => {
             sizes="xs:100vw sm:100vw md:100vw lg:100vw xl:1920px 2xl:2560px"
             densities="x1 x2"
             quality="75"
-            :loading="index <= 1 ? 'eager' : 'lazy'"
-            :fetchpriority="index <= 1 ? 'high' : 'auto'"
+            placeholder
+            :preload="index === 1"
+            :loading="index === 1 ? 'eager' : 'lazy'"
+            :fetchpriority="index === 1 ? 'high' : 'auto'"
           />
         </component>
       </div>

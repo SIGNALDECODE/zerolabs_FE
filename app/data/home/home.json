@@ -62,10 +62,10 @@
     ],
     "description": "시작부터 전달까지, 모든 과정에 기준을 더했습니다.",
     "items": [
-      { "id": "human-grade", "iconImage": "/images/icons/trusticon1.svg", "title": "휴먼그레이드\n프리미엄 원료 사용" },
-      { "id": "vet",          "iconImage": "/images/icons/trusticon2.svg", "title": "수의 영양사와\n협력 개발" },
-      { "id": "shipping",     "iconImage": "/images/icons/trusticon3.svg", "title": "당일 출고\n(2시 이전 주문 건)" },
-      { "id": "wholesale",    "iconImage": "/images/icons/trusticon4.svg", "title": "기업 전용\n저렴한 단가" }
+      { "id": "human-grade", "iconImage": "/images/icons/trustIcon1.svg", "title": "휴먼그레이드\n프리미엄 원료 사용" },
+      { "id": "vet",          "iconImage": "/images/icons/trustIcon2.svg", "title": "수의 영양사와\n협력 개발" },
+      { "id": "shipping",     "iconImage": "/images/icons/trustIcon3.svg", "title": "당일 출고\n(2시 이전 주문 건)" },
+      { "id": "wholesale",    "iconImage": "/images/icons/trustIcon4.svg", "title": "기업 전용\n저렴한 단가" }
     ]
   },
   "brandMark": {
