@@ -17,14 +17,14 @@
     color: inherit;
   }
 
-  // 이미지: Figma 329×360, radius 12, bg $Surface-product-bg
+  // 이미지: Figma 329×360, radius 12 (배경 없음 — 카드 white 위에 이미지 직접)
   &__image-wrap {
     position: relative;
     width: 100%;
     aspect-ratio: 329 / 360;
     overflow: hidden;
     border-radius: 12px;
-    background: $Surface-product-bg;
+    background: $Primary-white-color;
 
     @include mobile {
       border-radius: 10px;

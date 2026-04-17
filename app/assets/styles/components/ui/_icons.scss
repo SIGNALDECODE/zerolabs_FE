@@ -51,19 +51,22 @@
 // 슬라이드 버튼 컴포넌트 스타일
 .slide-button {
   @include icon-button(5xl);
+  background: $Primary-white-color;
   border: 1px solid $Border-Border-line-100;
   border-radius: 50%;
   color: $Text-Primary-text-color;
-  transition: border-color 0.2s, color 0.2s, opacity 0.2s;
+  transition: background 0.2s, border-color 0.2s, color 0.2s, opacity 0.2s;
 
   svg {
     width: icon-size(md);
     height: icon-size(md);
-    
+
   }
 
   &:hover:not(:disabled) {
-    border-color: $Border-Border-line-200;
+    background: $Brand-50;
+    border-color: $Brand-200;
+    color: $Primary-color;
   }
 
   &--disabled,

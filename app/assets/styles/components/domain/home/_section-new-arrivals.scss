@@ -25,7 +25,7 @@
     left: 0;
     top: 80px;
     bottom: 80px;
-    width: 72%;
+    width: 50%;
     background: $Surface-brand-cream;
     border-radius: 0 40px 40px 0;
     z-index: 0;
@@ -94,16 +94,16 @@
     padding: 12px 28px;
     border: 1px solid $Brand-600;
     border-radius: 100px;
-    background: transparent;
-    color: $Brand-600;
+    background: $Brand-600;
+    color: $Primary-white-color;
     font-weight: 500;
     font-size: 15px;
     line-height: 1.5;
     letter-spacing: -0.025em;
     text-decoration: none;
-    transition: background 0.2s ease, color 0.2s ease;
+    transition: background 0.2s ease, border-color 0.2s ease;
 
-    &:hover { background: $Brand-600; color: $Primary-white-color; }
+    &:hover { background: $Brand-700; border-color: $Brand-700; }
   }
   &__controls {
     display: flex;
@@ -120,7 +120,6 @@
     background: $Primary-white-color;
     border-radius: 40px;
     padding: 60px 48px;
-    box-shadow: 0 8px 32px rgba(61, 107, 79, 0.08);
   }
   &__viewport {
     overflow: hidden;
