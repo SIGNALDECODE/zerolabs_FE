@@ -108,8 +108,8 @@
     color: $Text-Thirty-text-color;
 
     &:hover {
-      background: $Bg-Secondary-bg-color;
-      color: $Text-Primary-text-color;
+      background: $Brand-50;
+      color: $Primary-color;
     }
 
     &:focus-visible {
@@ -118,8 +118,8 @@
     }
 
     &--active {
-      background: $Bg-Primary-bg-color;
-      color: $Text-Primary-text-color;
+      background: $Brand-100;
+      color: $Primary-color;
       font-weight: 500;
     }
 

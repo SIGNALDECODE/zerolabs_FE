@@ -172,7 +172,7 @@
 
 .signup-terms-card--all {
   border: none;
-  background: $Bg-Primary-bg-color;
+  background: $Brand-50;
 }
 
 .signup-terms-card__head {
@@ -299,7 +299,7 @@
 .signup-terms-card__loading {
   @include typo-body-2;
   color: $Text-Thirty-text-color;
-  background: $Bg-Primary-bg-color;
+  background: $Brand-50;
   border-radius: 8px;
   padding: $padding-5;
   text-align: center;
@@ -308,7 +308,7 @@
 .signup-terms-card__error {
   @include typo-body-2;
   color: $Text-Thirty-text-color;
-  background: $Bg-Primary-bg-color;
+  background: $Brand-50;
   border-radius: 8px;
   padding: $padding-5;
   display: flex;

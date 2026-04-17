@@ -1,0 +1,185 @@
+{
+  "defaults": {
+    "subtitle": "펫 프로페셔널 연구소가 만든 자연주의 간식",
+    "detailImages": [
+      "/images/figma/newarrival-bg.png",
+      "/images/figma/band-natural.png",
+      "/images/figma/philosophy-bg.png"
+    ],
+    "detailContent": "<h3>제로랩스 시그니처</h3><p>국내산 1등급 원료만을 사용하여 저온에서 천천히 건조한 자연주의 간식입니다. 식품 첨가물, 보존료, 인공 착향료를 사용하지 않아 민감한 반려동물에게도 안심하고 급여할 수 있습니다.</p>",
+    "specs": [
+      { "label": "제조사", "value": "제로랩스" },
+      { "label": "제조국", "value": "대한민국" },
+      { "label": "원재료", "value": "국내산 원재료 100%" },
+      { "label": "용량", "value": "300g" },
+      { "label": "유통기한", "value": "제조일로부터 12개월" },
+      { "label": "보관방법", "value": "직사광선을 피해 서늘한 곳에 보관" },
+      { "label": "주의사항", "value": "개봉 후 냉장 보관 및 빠른 섭취 권장" }
+    ],
+    "options": [
+      {
+        "id": "opt-group-size",
+        "name": "용량",
+        "values": [
+          { "id": "opt-size-100", "value": "100g", "label": "100g" },
+          { "id": "opt-size-300", "value": "300g", "label": "300g" },
+          { "id": "opt-size-500", "value": "500g", "label": "500g" }
+        ]
+      },
+      {
+        "id": "opt-group-pack",
+        "name": "구성",
+        "values": [
+          { "id": "opt-pack-single", "value": "단품", "label": "단품" },
+          { "id": "opt-pack-bundle", "value": "3개 묶음", "label": "3개 묶음 (10% 추가 할인)" }
+        ]
+      }
+    ],
+    "variants": [
+      { "id": "var-100-single", "sku": "SKU-100-S", "stock": 120, "isActive": true, "optionValueIds": ["opt-size-100", "opt-pack-single"] },
+      { "id": "var-100-bundle", "sku": "SKU-100-B", "stock": 80, "isActive": true, "optionValueIds": ["opt-size-100", "opt-pack-bundle"] },
+      { "id": "var-300-single", "sku": "SKU-300-S", "stock": 60, "isActive": true, "optionValueIds": ["opt-size-300", "opt-pack-single"] },
+      { "id": "var-300-bundle", "sku": "SKU-300-B", "stock": 40, "isActive": true, "optionValueIds": ["opt-size-300", "opt-pack-bundle"] },
+      { "id": "var-500-single", "sku": "SKU-500-S", "stock": 25, "isActive": true, "optionValueIds": ["opt-size-500", "opt-pack-single"] },
+      { "id": "var-500-bundle", "sku": "SKU-500-B", "stock": 10, "isActive": true, "optionValueIds": ["opt-size-500", "opt-pack-bundle"] }
+    ],
+    "promotion": {
+      "id": "promo-spring",
+      "name": "봄맞이 첫 구매 10% 쿠폰",
+      "endDate": "2026.05.31"
+    },
+    "reviews": {
+      "items": [
+        {
+          "id": "rev-1",
+          "rating": 5,
+          "title": "우리 강아지가 너무 좋아해요",
+          "content": "재료가 깨끗하고 냄새도 좋아요. 평소 입이 짧은 아이인데 이건 끝까지 다 먹네요. 재구매 의사 100%입니다.",
+          "images": ["/images/figma/sample-roasted.png", "/images/figma/sample-berry.png"],
+          "username": "pet****",
+          "date": "2026.04.12",
+          "isPhoto": true,
+          "isBest": true,
+          "isVerifiedPurchase": true,
+          "helpfulCount": 24
+        },
+        {
+          "id": "rev-2",
+          "rating": 5,
+          "title": "성분이 믿을만해요",
+          "content": "첨가물 없이 국내산만 사용한다는 점이 마음에 들어요. 포장도 깔끔하고 배송도 빨랐습니다.",
+          "images": [],
+          "username": "lov****",
+          "date": "2026.04.05",
+          "isPhoto": false,
+          "isBest": true,
+          "isVerifiedPurchase": true,
+          "helpfulCount": 11
+        },
+        {
+          "id": "rev-3",
+          "rating": 4,
+          "title": "양이 조금 아쉬워요",
+          "content": "맛과 품질은 좋은데 생각보다 빨리 떨어졌어요. 대용량이 나오면 좋겠습니다.",
+          "images": ["/images/figma/sample-nutrition.png"],
+          "username": "dog****",
+          "date": "2026.03.28",
+          "isPhoto": true,
+          "isBest": false,
+          "isVerifiedPurchase": true,
+          "helpfulCount": 3
+        },
+        {
+          "id": "rev-4",
+          "rating": 5,
+          "title": "알러지 있는 우리 아이에게 딱이에요",
+          "content": "민감한 체질이라 간식 고르기 어려웠는데 이건 탈이 안 나네요. 오래 꾸준히 먹일 생각입니다.",
+          "images": [],
+          "username": "mom****",
+          "date": "2026.03.21",
+          "isPhoto": false,
+          "isBest": false,
+          "isVerifiedPurchase": true,
+          "helpfulCount": 5
+        }
+      ],
+      "summary": {
+        "average": 4.8,
+        "total": 128,
+        "distribution": [98, 22, 6, 1, 1]
+      }
+    },
+    "qnas": {
+      "items": [
+        {
+          "id": "qna-1",
+          "category": "상품",
+          "title": "알러지가 있는 강아지도 먹을 수 있나요?",
+          "content": "닭고기 알러지가 있는데 이 제품은 괜찮을까요? 원재료를 더 자세히 알고 싶습니다.",
+          "username": "que****",
+          "date": "2026.04.10",
+          "isSecret": false,
+          "isAnswered": true,
+          "answer": "안녕하세요, 제로랩스입니다. 해당 제품은 소고기를 주원료로 사용하며 닭고기는 포함되지 않았습니다. 다만 같은 생산 라인을 사용하므로 극심한 알러지가 있는 경우 소량부터 급여해 보시길 권장드립니다.",
+          "answerDate": "2026.04.11"
+        },
+        {
+          "id": "qna-2",
+          "category": "배송",
+          "title": "배송 기간이 얼마나 걸리나요?",
+          "content": "주말에 주문하면 언제쯤 받을 수 있을까요?",
+          "username": "spe****",
+          "date": "2026.04.08",
+          "isSecret": false,
+          "isAnswered": true,
+          "answer": "평일 오후 2시 이전 결제 건은 당일 출고되며, 주말 및 공휴일 주문은 다음 영업일에 순차 출고됩니다. 택배 수령까지는 보통 1~2일 소요됩니다.",
+          "answerDate": "2026.04.09"
+        },
+        {
+          "id": "qna-3",
+          "category": "상품",
+          "title": "개봉 후 보관 방법이 궁금해요",
+          "content": "한 번에 다 먹이기 어려운데 어떻게 보관하면 좋을까요?",
+          "username": "ask****",
+          "date": "2026.04.02",
+          "isSecret": false,
+          "isAnswered": false,
+          "answer": null,
+          "answerDate": null
+        },
+        {
+          "id": "qna-4",
+          "category": "상품",
+          "title": "비밀글 테스트",
+          "content": "",
+          "username": "sec****",
+          "date": "2026.03.30",
+          "isSecret": true,
+          "isAnswered": true,
+          "answer": "",
+          "answerDate": "2026.03.31"
+        }
+      ],
+      "total": 4
+    }
+  },
+  "overrides": {
+    "zl-trial-mini": {
+      "subtitle": "처음 만나는 제로랩스, 베스트 4종 소포장",
+      "options": [
+        {
+          "id": "opt-group-trial-type",
+          "name": "체험팩 구성",
+          "values": [
+            { "id": "opt-trial-jerky", "value": "져키 4종", "label": "져키 4종" },
+            { "id": "opt-trial-mix", "value": "믹스 6종", "label": "믹스 6종" }
+          ]
+        }
+      ],
+      "variants": [
+        { "id": "var-trial-jerky", "sku": "SKU-TRIAL-J", "stock": 200, "isActive": true, "optionValueIds": ["opt-trial-jerky"] },
+        { "id": "var-trial-mix", "sku": "SKU-TRIAL-M", "stock": 150, "isActive": true, "optionValueIds": ["opt-trial-mix"] }
+      ]
+    }
+  }
+}

@@ -231,8 +231,8 @@
     transition: background 0.2s ease, color 0.2s ease;
 
     &:hover {
-      background: $Bg-Secondary-bg-color;
-      color: $Text-Primary-text-color;
+      background: $Brand-50;
+      color: $Primary-color;
     }
 
     &--selected {

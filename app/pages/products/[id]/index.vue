@@ -57,7 +57,7 @@ const activeTab = ref('detail')
 
 // Scroll spy for tabs
 onMounted(() => {
-  const sections = ['detail', 'info', 'reviews', 'qna']
+  const sections = ['detail', 'info', 'reviews', 'qna', 'guide']
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {

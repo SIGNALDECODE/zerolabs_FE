@@ -103,8 +103,9 @@
       color: $Text-Primary-text-color;
 
       &:hover:not(:disabled) {
-        border-color: $Border-Border-line-200;
-        background: $Bg-Secondary-bg-color;
+        border-color: $Primary-color;
+        background: $Brand-50;
+        color: $Primary-color;
       }
     }
   }
@@ -122,7 +123,8 @@
       color: $Text-Primary-text-color;
 
       &:hover:not(:disabled) {
-        background: $Black-Primary-black-100;
+        background: $Brand-50;
+        color: $Primary-color;
       }
     }
 
@@ -138,12 +140,12 @@
 
     // Color: Light
     &.base-button--color-light {
-      background: $Bg-Secondary-bg-color;
-      color: $Text-Secondary-text-color;
+      background: $Brand-50;
+      color: $Primary-color;
 
       &:hover:not(:disabled) {
-        background: $Black-Primary-black-50;
-        color: $Text-Primary-text-color;
+        background: $Brand-100;
+        color: $Primary-color-dark;
       }
     }
 
