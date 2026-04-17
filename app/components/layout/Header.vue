@@ -36,8 +36,10 @@ const logoText = computed(() => shopName.value || '')
 const mobileMenu = useMobileMenu()
 const isMobileNavOpen = mobileMenu.isOpen
 
+const searchOverlay = useSearchOverlay()
+const isSearchOpen = searchOverlay.isOpen
+
 const isScrolled = ref(false)
-const isSearchOpen = ref(false)
 const isUserMenuOpen = ref(false)
 const openDropdownKey = ref(null)
 
@@ -47,6 +49,7 @@ const toggleDropdown = (key) => {
 const closeDropdown = () => { openDropdownKey.value = null }
 const searchQuery = ref('')
 const searchInputRef = ref(null)
+const searchInputMobileRef = ref(null)
 const userMenuRef = ref(null)
 
 // dark variant, 스크롤, 검색창 열림 시 흰색 배경
@@ -75,14 +78,16 @@ const handleScroll = () => {
 }
 
 const openSearch = () => {
-  isSearchOpen.value = true
+  searchOverlay.open()
   nextTick(() => {
+    // desktop/mobile 팝업 중 실제 렌더된 쪽으로 focus
+    searchInputMobileRef.value?.focus()
     searchInputRef.value?.focus()
   })
 }
 
 const closeSearch = () => {
-  isSearchOpen.value = false
+  searchOverlay.close()
   searchQuery.value = ''
 }
 
@@ -355,6 +360,7 @@ onUnmounted(() => {
         <div v-if="isSearchOpen" class="header__search-mobile">
           <div class="header__search-mobile-inner">
             <BaseSearchInput
+              ref="searchInputMobileRef"
               v-model="searchQuery"
               :placeholder="logo.searchPlaceholder"
               :close-label="logo.searchCloseLabel"

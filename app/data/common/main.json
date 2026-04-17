@@ -31,7 +31,7 @@
       "ariaLabel": "모바일 하단 메뉴",
       "items": [
         { "id": "menu", "icon": "menu", "label": "메뉴", "action": "toggleMenu" },
-        { "id": "search", "icon": "search", "label": "검색", "href": "/search", "match": "/search" },
+        { "id": "search", "icon": "search", "label": "검색", "action": "openSearch" },
         { "id": "home", "icon": "home", "label": "홈", "href": "/", "match": null },
         { "id": "cart", "icon": "cart", "label": "카트", "href": "/cart", "match": "/cart" },
         { "id": "mypage", "icon": "user", "label": "마이", "href": "/mypage", "match": "/mypage" }

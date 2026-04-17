@@ -21,7 +21,7 @@ const sliderRef = ref(null)
 const currentIndex = ref(0)
 const itemWidth = ref(0)
 const visibleItems = ref(4)
-const gap = 28
+const gap = ref(28)
 const isReady = ref(false)
 
 // Touch/Swipe
@@ -50,7 +50,7 @@ const prevSlide = () => {
 }
 
 const sliderStyle = computed(() => ({
-  transform: `translateX(-${currentIndex.value * (itemWidth.value + gap)}px)`
+  transform: `translateX(-${currentIndex.value * (itemWidth.value + gap.value)}px)`
 }))
 
 const updateItemWidth = () => {
@@ -58,12 +58,15 @@ const updateItemWidth = () => {
     const containerWidth = sliderRef.value.parentElement.offsetWidth
     if (window.innerWidth >= 1024) {
       visibleItems.value = 4
+      gap.value = 28
     } else if (window.innerWidth >= 768) {
       visibleItems.value = 3
+      gap.value = 16
     } else {
       visibleItems.value = 2
+      gap.value = 12
     }
-    itemWidth.value = (containerWidth - gap * (visibleItems.value - 1)) / visibleItems.value
+    itemWidth.value = (containerWidth - gap.value * (visibleItems.value - 1)) / visibleItems.value
   }
 }
 

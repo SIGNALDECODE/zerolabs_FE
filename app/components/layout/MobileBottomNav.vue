@@ -18,6 +18,7 @@ defineProps({
 
 const route = useRoute()
 const mobileMenu = useMobileMenu()
+const searchOverlay = useSearchOverlay()
 
 const iconMap = {
   home: IconHome,
@@ -30,6 +31,7 @@ const iconMap = {
 const resolveIcon = (key) => iconMap[key] || IconHome
 
 const isActive = (item) => {
+  if (item.action === 'openSearch') return searchOverlay.isOpen.value || route.path.startsWith('/search')
   if (!item.href) return false
   if (item.match) return route.path.startsWith(item.match)
   return route.path === item.href
@@ -37,6 +39,7 @@ const isActive = (item) => {
 
 const handleAction = (item) => {
   if (item.action === 'toggleMenu') mobileMenu.toggle()
+  if (item.action === 'openSearch') searchOverlay.open()
 }
 </script>
 
@@ -69,8 +72,13 @@ const handleAction = (item) => {
           v-else
           type="button"
           class="mobile-bottom-nav__link"
+          :class="{ 'is-active': isActive(item) }"
           :aria-label="item.label"
-          :aria-expanded="item.action === 'toggleMenu' ? mobileMenu.isOpen.value : undefined"
+          :aria-expanded="item.action === 'toggleMenu'
+            ? mobileMenu.isOpen.value
+            : item.action === 'openSearch'
+              ? searchOverlay.isOpen.value
+              : undefined"
           @click="handleAction(item)"
         >
           <span class="mobile-bottom-nav__icon">

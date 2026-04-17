@@ -2,9 +2,21 @@
 import searchData from '~/data/common/search.json'
 
 const route = useRoute()
+const router = useRouter()
 
-// 검색어 (URL query에서)
+// URL query 기반 검색어 (결과용)
 const searchQuery = computed(() => route.query.q || '')
+
+// 입력창 v-model (URL과 분리 — 제출 시점에만 URL 갱신)
+const inputQuery = ref(searchQuery.value)
+watch(searchQuery, (v) => { inputQuery.value = v })
+
+const submitSearch = (value) => {
+  const trimmed = (value ?? inputQuery.value).trim()
+  if (!trimmed) return
+  if (trimmed === searchQuery.value) return
+  router.push({ path: '/search', query: { q: trimmed } })
+}
 
 // SEO
 useHead({ title: searchQuery.value
@@ -49,6 +61,15 @@ watch(searchQuery, () => {
             </template>
           </h1>
           <p v-if="searchQuery" class="page-search__count">{{ totalCount }}{{ searchData.page.countSuffix }}</p>
+        </div>
+
+        <div class="page-search__input-wrap">
+          <BaseSearchInput
+            v-model="inputQuery"
+            :placeholder="searchData.page.inputPlaceholder"
+            :close-label="searchData.page.resetLabel"
+            @submit="submitSearch"
+          />
         </div>
 
         <div v-if="pending" class="page-search__loading">

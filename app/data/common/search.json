@@ -9,6 +9,9 @@
     "titleWithoutQuery": "검색",
     "countSuffix": "개의 상품",
     "emptyResult": "검색 결과가 없습니다.",
-    "emptyQuery": "검색어를 입력해주세요."
+    "emptyQuery": "검색어를 입력해주세요.",
+    "inputPlaceholder": "상품명을 입력해주세요",
+    "inputAriaLabel": "상품 검색",
+    "resetLabel": "검색어 지우기"
   }
 }
